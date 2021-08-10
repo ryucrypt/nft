@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="96x96" href="res/favi.png">
+    <title>MercArticulator</title>
+    <meta property="og:title" content="MercArticulator">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="res/demstyles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="justify-content-center py-3 mb-4 border-bottom">
+            <a href="./" class="mb-3 mb-md-0 text-dark text-decoration-none">
+                <h2>MercArticulator</h2>
+            </a>
+            <p>Check asset's collector score</p>
+        </header>
+        <main>
+            <div class="row mb-3">
+                <div class="col mb-3">
+                    <p>Type in your NFT's ID and press 'Search'.</p>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="assetid" placeholder="AtomicHub Asset ID">
+                        <button type="submit" class="btn btn-primary" onclick="load()">Search</button>
+                    </div>
+                </div>
+            </div>
+            <div id="loading" class="visually-hidden row pb-4 justify-content-center">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <div id="failed" class="row pb-4 justify-content-center">
+            </div>
+            <div id="results" class="visually-hidden row pb-4 justify-content-center">
+                <div class="col-auto mb-3">
+                    <img id="result_img" alt="img" height="350px"></img>
+                </div>
+                <div class="col-auto mb-3" id="result_tbl">
+                    <table class="table table-bordered">
+                        <tr class="table-dark">
+                            <th scope="row">Collector Score</th>
+                            <td id="score"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Asset ID</th>
+                            <td id="asset_id"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Collection</th>
+                            <td id="collection"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Schema</th>
+                            <td id="schema"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Template ID</th>
+                            <td id="template_id"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Name</th>
+                            <td id="name"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Artist</th>
+                            <td id="artist"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Edition / Series</th>
+                            <td id="edition"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Rarity</th>
+                            <td id="rarity"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Owner</th>
+                            <td id="owner"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="js/asset.js"></script>
+</body>
+</html>

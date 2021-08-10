@@ -1,0 +1,12 @@
+[
+    {
+        "method": "multiplier",
+        "template": 115016,
+        "value": 2
+    },
+    {
+        "method": "fixed",
+        "template": 115282,
+        "value": 35
+    }
+]
