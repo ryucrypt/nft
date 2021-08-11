@@ -6,18 +6,22 @@
     <link rel="icon" type="image/png" sizes="96x96" href="res/favi.png">
     <title>MercArticulator</title>
     <meta property="og:title" content="MercArticulator">
-    <meta property="og:image" content="">
-    <meta property="og:url" content="">
+    <meta property="og:image" content="https://ryucrypt.github.io/nft/mercart/res/favi.png">
+    <meta property="og:description" content="Check asset's collector score">
     <meta property="og:type" content="website">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
-        <header class="justify-content-center py-3 mb-4 border-bottom">
-            <a href="./" class="mb-3 mb-md-0 text-dark text-decoration-none">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="./" class="align-items-center me-auto text-dark text-decoration-none">
                 <h2>MercArticulator</h2>
+                <p>Check asset's collector score</p>
             </a>
-            <p>Check asset's collector score</p>
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="./" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Asset</a></li>
+            </ul>
         </header>
         <main>
             <div class="row mb-3">
@@ -38,7 +42,7 @@
             </div>
             <div id="results" class="visually-hidden row pb-4 justify-content-center">
                 <div class="col-auto mb-3">
-                    <img id="result_img" alt="img" height="350px"></img>
+                    <img id="result_img" alt="img" class="img-fluid" width="300"></img>
                 </div>
                 <div class="col-auto mb-3" id="result_tbl">
                     <table class="table table-bordered">
