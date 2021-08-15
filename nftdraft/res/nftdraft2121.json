@@ -1,0 +1,2114 @@
+{
+  "Arizona": [
+    {
+      "template_id": "227503",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "227502",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "227501",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "227499",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "227498",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "227497",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "227496",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "227495",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "227494",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "227493",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "227492",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "227491",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "227490",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "225921",
+      "position": "Defense"
+    },
+    {
+      "template_id": "227504",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "227505",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Atlanta": [
+    {
+      "template_id": "227455",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "227454",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "227453",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "227452",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "227451",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "227450",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "227449",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "227448",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "227446",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "227445",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "227444",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "227443",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "227442",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "227458",
+      "position": "Defense"
+    },
+    {
+      "template_id": "227456",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "227457",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Baltimore": [
+    {
+      "template_id": "227405",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "227404",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "227403",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "227402",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "227401",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "227400",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "227399",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "227398",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "227397",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "227396",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "227395",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "227394",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "227393",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "227407",
+      "position": "Defense"
+    },
+    {
+      "template_id": "225925",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "227406",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Buffalo": [
+    {
+      "template_id": "227357",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226234",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "227356",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "227355",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "227353",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226233",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "227352",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "227351",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "227350",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "227349",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "227348",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "227347",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "227346",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "227360",
+      "position": "Defense"
+    },
+    {
+      "template_id": "227358",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "227359",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Carolina": [
+    {
+      "template_id": "227310",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "227309",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "227308",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "227307",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "227306",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "227305",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "227304",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "227303",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "227302",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "227301",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "227299",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "227298",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "227297",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "227313",
+      "position": "Defense"
+    },
+    {
+      "template_id": "227311",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "227312",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Chicago": [
+    {
+      "template_id": "227260",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "227259",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "227258",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "227257",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "227256",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "227255",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "227254",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "227253",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "227252",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "227251",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "227250",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "227249",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "227248",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "227263",
+      "position": "Defense"
+    },
+    {
+      "template_id": "227261",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "227262",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Cincinnati": [
+    {
+      "template_id": "227211",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "227210",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "227208",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "227207",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "227206",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "227205",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "227204",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "227202",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "227201",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "227200",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "227199",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "227198",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "227197",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "227214",
+      "position": "Defense"
+    },
+    {
+      "template_id": "227212",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "227213",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Cleveland": [
+    {
+      "template_id": "227161",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "227160",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "227159",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "227158",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "227157",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "227156",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "227155",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "227154",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "227153",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "227152",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "227151",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "227150",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "227149",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "227164",
+      "position": "Defense"
+    },
+    {
+      "template_id": "227162",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "227163",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Dallas": [
+    {
+      "template_id": "227114",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "227113",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "227112",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "227111",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "227110",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "227109",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "227108",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "227106",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "227105",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226232",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "227104",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "227102",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "227101",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "227118",
+      "position": "Defense"
+    },
+    {
+      "template_id": "227115",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "227117",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Denver": [
+    {
+      "template_id": "227064",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "227063",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "227062",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "227059",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "227058",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "227057",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "227056",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "227055",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "227054",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "227053",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "227052",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "227051",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "227050",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "227067",
+      "position": "Defense"
+    },
+    {
+      "template_id": "227065",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "227066",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Detroit": [
+    {
+      "template_id": "227012",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "227011",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "227010",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "227009",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "227008",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "227007",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "227006",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "227005",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "227004",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "227003",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "227001",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "227000",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226999",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "227015",
+      "position": "Defense"
+    },
+    {
+      "template_id": "227013",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "227014",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Green Bay": [
+    {
+      "template_id": "226963",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226962",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226961",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226960",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226959",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226958",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226957",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226956",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226955",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226954",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226953",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226952",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226951",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226966",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226964",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226965",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Houston": [
+    {
+      "template_id": "226914",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226913",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226912",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226911",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226910",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226908",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226907",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226906",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226905",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226904",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226903",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226902",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226901",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226918",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226915",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226917",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Indianapolis": [
+    {
+      "template_id": "226864",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226863",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226862",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226861",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226860",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226859",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226858",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226857",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226856",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226855",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226854",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226853",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226852",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226867",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226865",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226866",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Jacksonville": [
+    {
+      "template_id": "226816",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226815",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226814",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226813",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226812",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226811",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226810",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226809",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226808",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226807",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226806",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226805",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226804",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226819",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226817",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226818",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Kansas City": [
+    {
+      "template_id": "226761",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226759",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226758",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226757",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226756",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226755",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226754",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226753",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226751",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226750",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226749",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226748",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226747",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226764",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226762",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226763",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Las Vegas": [
+    {
+      "template_id": "226709",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226708",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226707",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226706",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226705",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226704",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226703",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226702",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226701",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226700",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226699",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226698",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226697",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226712",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226710",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226711",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Los Angeles": [
+    {
+      "template_id": "226660",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226659",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226658",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226657",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226656",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226655",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226654",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226653",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226651",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226650",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226649",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226648",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226647",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226663",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226661",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226662",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Miami": [
+    {
+      "template_id": "226610",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226609",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226608",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226607",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226606",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226605",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226604",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226603",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226602",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226601",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226600",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226599",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226598",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226613",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226611",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226612",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Minnesota": [
+    {
+      "template_id": "226563",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226562",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226561",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226560",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226559",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226558",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226557",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226556",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226555",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226554",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226553",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226552",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226551",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226567",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226564",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226566",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "New England": [
+    {
+      "template_id": "226514",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226513",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226512",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226511",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226510",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226509",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226508",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226507",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226506",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226505",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226504",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226503",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226502",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226517",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226515",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226516",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "New Orleans": [
+    {
+      "template_id": "226469",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226468",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226467",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226466",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226465",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226464",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226463",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226462",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226461",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226460",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226459",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226458",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226457",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226472",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226470",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226471",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "New York Blue": [
+    {
+      "template_id": "226421",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226420",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226419",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226418",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226417",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226416",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226415",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226414",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226413",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226412",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226411",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226410",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226409",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226424",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226422",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226423",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "New York Green": [
+    {
+      "template_id": "226372",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226371",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226370",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226369",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226368",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226367",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226366",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226365",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226364",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226363",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226362",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226361",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226360",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226375",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226373",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226374",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Philadelphia": [
+    {
+      "template_id": "226325",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226324",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226323",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226322",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226321",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226320",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226319",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226318",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226317",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226316",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226315",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226314",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226313",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226328",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226326",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226327",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Pittsburgh": [
+    {
+      "template_id": "226277",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226276",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226275",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226274",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226273",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226231",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226272",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226271",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226270",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226269",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226268",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226267",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226266",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226281",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226278",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226280",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "San Diego": [
+    {
+      "template_id": "226206",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226205",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226204",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226203",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226202",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226201",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226200",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226199",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226198",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226197",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226196",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226195",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226194",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226209",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226207",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226208",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "San Francisco": [
+    {
+      "template_id": "226156",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226155",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226154",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226153",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226152",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226151",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226150",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226149",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226148",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226147",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226146",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226145",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226230",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226159",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226157",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226158",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Seattle": [
+    {
+      "template_id": "226112",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226111",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226110",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226109",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226108",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226107",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226106",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226105",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226104",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226103",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226102",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226101",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226100",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226115",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226113",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226114",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Tampa Bay": [
+    {
+      "template_id": "226064",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226063",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226062",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226061",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226060",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226059",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226058",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226057",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226056",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226055",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226054",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226053",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226229",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226067",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226065",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226066",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Tennessee": [
+    {
+      "template_id": "226015",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "226014",
+      "position": "QB #2"
+    },
+    {
+      "template_id": "226013",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "226012",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "226011",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "226010",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "226009",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "226008",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "226007",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "226006",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "226005",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "226004",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "226228",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "226019",
+      "position": "Defense"
+    },
+    {
+      "template_id": "226016",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "226017",
+      "position": "Defense + Kicker"
+    }
+  ],
+  "Washington": [
+    {
+      "template_id": "225970",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "225969",
+      "position": "QB #1"
+    },
+    {
+      "template_id": "225967",
+      "position": "RB #1"
+    },
+    {
+      "template_id": "225966",
+      "position": "RB #2"
+    },
+    {
+      "template_id": "225965",
+      "position": "RB #3"
+    },
+    {
+      "template_id": "225964",
+      "position": "TE #1"
+    },
+    {
+      "template_id": "225963",
+      "position": "TE #2"
+    },
+    {
+      "template_id": "225962",
+      "position": "TE #3"
+    },
+    {
+      "template_id": "225961",
+      "position": "WR #1"
+    },
+    {
+      "template_id": "225960",
+      "position": "WR #2"
+    },
+    {
+      "template_id": "225959",
+      "position": "WR #3"
+    },
+    {
+      "template_id": "225958",
+      "position": "WR #4"
+    },
+    {
+      "template_id": "225957",
+      "position": "WR #5"
+    },
+    {
+      "template_id": "225973",
+      "position": "Defense"
+    },
+    {
+      "template_id": "225971",
+      "position": "Kicker"
+    },
+    {
+      "template_id": "225972",
+      "position": "Defense + Kicker"
+    }
+  ]
+}

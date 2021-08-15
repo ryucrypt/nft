@@ -1,0 +1,50 @@
+[
+    {
+        "name": "QB #1"
+    },
+    {
+        "name": "QB #2"
+    },
+    {
+        "name": "RB #1"
+    },
+    {
+        "name": "RB #2"
+    },
+    {
+        "name": "RB #3"
+    },
+    {
+        "name": "TE #1"
+    },
+    {
+        "name": "TE #2"
+    },
+    {
+        "name": "TE #3"
+    },
+    {
+        "name": "WR #1"
+    },
+    {
+        "name": "WR #2"
+    },
+    {
+        "name": "WR #3"
+    },
+    {
+        "name": "WR #4"
+    },
+    {
+        "name": "WR #5"
+    },
+    {
+        "name": "Defense"
+    },
+    {
+        "name": "Kicker"
+    },
+    {
+        "name": "Defense + Kicker"
+    }
+]
