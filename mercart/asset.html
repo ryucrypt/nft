@@ -15,7 +15,7 @@
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
             <a href="./" class="align-items-center me-auto text-dark text-decoration-none">
-                <h2>MercArticulator</h2>
+                <h2>MercArticulator 🧮</h2>
                 <p>Check asset's collector score</p>
             </a>
             <ul class="nav nav-pills">
@@ -23,7 +23,7 @@
                 <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Asset</a></li>
             </ul>
         </header>
-        <main>
+        <main class="flex-shrink-0">
             <div class="row mb-3">
                 <div class="col mb-3">
                     <p>Type in your NFT's ID and press 'Search'.</p>
@@ -33,14 +33,14 @@
                     </div>
                 </div>
             </div>
-            <div id="loading" class="visually-hidden row pb-4 justify-content-center">
+            <div id="loading" class="visually-hidden row mb-3 justify-content-center">
                 <div class="spinner-border" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
-            <div id="failed" class="row pb-4 justify-content-center">
+            <div id="failed" class="row mb-3 justify-content-center">
             </div>
-            <div id="results" class="visually-hidden row pb-4 justify-content-center">
+            <div id="results" class="visually-hidden row mb-3 justify-content-center">
                 <div class="col-auto mb-3">
                     <img id="result_img" alt="img" class="img-fluid" width="300"></img>
                 </div>
@@ -90,6 +90,12 @@
                 </div>
             </div>
         </main>
+        <footer>
+            <div class="row justify-content-center border-top">
+                <p class="text-center text-muted my-3">Made by ryucrypt: wwiem.wam</p>
+                <p class="text-center text-muted">This is an unofficial tool, please use at your own discretion.</p>
+            </div>
+        </footer>
     </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="js/asset.js"></script>

@@ -3,8 +3,9 @@ const IPFS = "https://cloudflare-ipfs.com/ipfs/";
 const mercartCols = ["littlemonst1", "dustandblood", "fantasyartio"];
 const dictionary = {};
 
+// Controller
 const load = async() => {
-    updateUILoad();
+    updateLoadView();
 
     var assetid = $("#assetid").val();
     if (isNaN(assetid)) {
@@ -17,35 +18,11 @@ const load = async() => {
     }
 
     console.log(result);
-    updateUIResult(result);
+    updateResultView(result);
 }
 
-const updateUILoad = () => {
-    $("#loading").removeClass("visually-hidden");
-    $("#failed").addClass("visually-hidden");
-    $("#results").addClass("visually-hidden");
-}
 
-const updateUIResult = (result) => {
-    if (result.status == "ok") {
-        for (key in result) {
-            if (key != "img" && key != "status") {
-                $("#" + key).html(result[key]);
-            }
-        }
-        $("#result_img").removeAttr("src").attr("src", IPFS + result.img);
-    } else {
-        $("#failed").html(result.status);
-    }
-
-    $("#loading").addClass("visually-hidden");
-    if (result.status == "ok") {
-        $("#results").removeClass("visually-hidden");
-    } else {
-        $("#failed").removeClass("visually-hidden");
-    }
-}
-
+// Models
 const _fetchAsset = async(assetid) => {
     var url = new URL("assets", AH);
     var params = new URLSearchParams({
@@ -116,21 +93,6 @@ const calculateScore = async(result) => {
         await populateDictionary(result.collection);
     }
 
-    var url = new URL("templates/" + result.collection + "/" + result.template_id + "/stats", AH);
-    var r = await fetch(url.toString());
-    if (!r.ok) {
-        result.status = "Something went wrong, please try again later.";
-        return;
-    }
-
-    var response = await r.json();
-    var data = response.data;
-    if (data.length < 1) {
-        result.status = "Asset stats not found!";
-        return result;
-    }
-
-    var circulating = parseInt(data["assets"]) - parseInt(data["burned"]);
     var ref = dictionary[result.collection].find(function(post, index) {
         if (post.template == parseInt(result.template_id)) {
             return true;
@@ -142,6 +104,48 @@ const calculateScore = async(result) => {
     } else if (ref.method == "fixed") {
         result.score = ref.value;
     } else {
+        var url = new URL("templates/" + result.collection + "/" + result.template_id + "/stats", AH);
+        var r = await fetch(url.toString());
+        if (!r.ok) {
+            result.status = "Something went wrong, please try again later.";
+            return;
+        }
+
+        var response = await r.json();
+        var data = response.data;
+        if (data.length < 1) {
+            result.status = "Asset stats not found!";
+            return;
+        }
+
+        var circulating = parseInt(data["assets"]) - parseInt(data["burned"]);
         result.score = 700 / circulating / 3 * ref.value;
+    }
+}
+
+// Views
+const updateLoadView = () => {
+    $("#loading").removeClass("visually-hidden");
+    $("#failed").addClass("visually-hidden");
+    $("#results").addClass("visually-hidden");
+}
+
+const updateResultView = (result) => {
+    if (result.status == "ok") {
+        for (key in result) {
+            if (key != "img" && key != "status") {
+                $("#" + key).html(result[key]);
+            }
+        }
+        $("#result_img").removeAttr("src").attr("src", IPFS + result.img);
+    } else {
+        $("#failed").html(result.status);
+    }
+
+    $("#loading").addClass("visually-hidden");
+    if (result.status == "ok") {
+        $("#results").removeClass("visually-hidden");
+    } else {
+        $("#failed").removeClass("visually-hidden");
     }
 }
