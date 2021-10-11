@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="96x96" href="res/favi.png">
+    <title>Monster Strike</title>
+    <meta property="og:title" content="Monster Strike">
+    <meta property="og:image" content="https://ryucrypt.github.io/nft/mnsterstrike/res/favi.png">
+    <meta property="og:description" content="List your mnsterstrike assets">
+    <meta property="og:type" content="website">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="./" class="align-items-center me-auto text-dark text-decoration-none">
+                <h2>Monster Strike</h2>
+                <p>List your mnsterstrike assets</p>
+            </a>
+            <ul class="nav nav-pills">
+                <li class="nav-item" onclick="login()"><a href="#" id="addy" class="nav-link active" aria-current="page">Login</a></li>
+            </ul>
+        </header>
+        <main>
+            <div class="row mb-3">
+                <h5 id="outcome">Total of 0 assets</h5>
+                <div id="loading" class="visually-hidden d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+            <div id="results" class="row justify-content-center"></div>
+            <div>
+        </main>
+        <footer>
+            <div class="row justify-content-center border-top">
+                <p class="text-center text-muted my-3">Made by ryucrypt: wwiem.wam</p>
+                <p class="text-center text-muted">This is an unofficial tool, please use at your own discretion.</p>
+            </div>
+        </footer>
+    </div>
+
+<script id="tmplt_container" type="x-tmpl-mustache">
+<div class="row justify-content-center"></div>
+</script>
+
+<script id="tmplt_result_item" type="x-tmpl-mustache">
+<div class="col mb-3">
+    <div class="card" style="width:15rem">
+        <img src="{{img}}" class="img-fluid card-img-top p-2" style="height:15vw;object-fit:contain">
+        <div class="card-body">
+            <a href="{{ah}}" target="_blank"><h5 style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{name}}</h5></a>
+            <p class="card-text">Mint #{{mint}}</p>
+        </div>
+    </div>
+</div>
+</div>
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.1.0/mustache.min.js" integrity="sha512-HYiNpwSxYuji84SQbCU5m9kHEsRqwWypXgJMBtbRSumlx1iBB6QaxgEBZHSHEGM+fKyCX/3Kb5V5jeVXm0OglQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/waxjs.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

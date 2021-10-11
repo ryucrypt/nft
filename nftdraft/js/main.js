@@ -65,7 +65,7 @@ const populateVar = async(target) => {
 const fetchRemainder = async() => {
     var url = new URL("accounts/" + PREMINT + "/" + COLLECTION, AH);
     var r = await fetch(url.toString());
-    
+
     if (!r.ok) {
         return false;
     }
