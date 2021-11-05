@@ -71,7 +71,6 @@ const prepareData = async(pack, out) => {
 const summary = async(address, key) => {
     var found = transformed_data.find(e => e.key == key);
     var result = found.data.find(e => e.address == address);
-    console.log(result.txns);
     updateAddressView(address);
     var tbl = $("#txns").find("tbody");
     tbl.empty();
