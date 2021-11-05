@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="96x96" href="res/favi.png">
+    <title>MercArt Unpacking Leaderboard</title>
+    <meta property="og:title" content="MercArt Unpacking Leaderboard">
+    <meta property="og:image" content="https://ryucrypt.github.io/nft/mercart/res/favi.png">
+    <meta property="og:description" content="Check number of unpackings">
+    <meta property="og:type" content="website">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="./unpack.html" class="align-items-center me-auto text-dark text-decoration-none">
+                <h2>MercArt Unpacking Leaderboard 🏆</h2>
+                <p>Check number of unpackings</p>
+            </a>
+        </header>
+        <main>
+            <div class="row my-3">
+                <div id="loading" class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+            <div id="error" class="row my-3 justify-content-center visually-hidden">
+                Something went wrong, please refresh
+            </div>
+            <div id="results">
+                <p>Last update: <span id="last_update">-</span></p>
+                <ul id="navigation">
+                </ul>
+            </div>
+            <div class="modal fade" id="txns">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Transactions (<span id="address"></span>)</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="table-responsive d-flex justify-content-center">
+                                <table class="table table-sm table-bordered">
+                                    <thead>
+                                        <tr class="table-dark">
+                                            <th scope="col">No.</th>
+                                            <th scope="col">Time</th>
+                                            <th scope="col">Transaction</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="row justify-content-center border-top">
+                <p class="text-center text-muted my-3">Made by ryucrypt: wwiem.wam</p>
+                <p class="text-center text-muted">This is an unofficial tool, please use at your own discretion.</p>
+            </div>
+        </footer>
+    </div>
+
+<script id="tmplt_nav" type="x-tmpl-mustache">
+    <li><a href="#{{collection}}{{template}}">{{collection}} - {{name}}</a></li>
+</script>
+
+<script id="tmplt_result_tbl" type="x-tmpl-mustache">
+<div class="row justify-content-center">
+    <h6 id="{{collection}}{{template}}" class="text-center">{{collection}} - {{name}} <a href="#">(Return to top)</a></h6>
+    <div class="table-responsive d-flex justify-content-center">
+        <table class="table table-sm table-bordered">
+            <thead>
+                <tr class="table-dark">
+                    <th scope="col">Account</th>
+                    <th scope="col">Unpacked</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+</script>
+
+<script id="tmplt_result_item" type="x-tmpl-mustache">
+<tr>
+    <th scope="row"><a href="javascript:void(0)" onclick="summary('{{address}}', '{{key}}')" data-bs-toggle="modal" data-bs-target="#txns">{{address}}</a></th>
+    <td>{{count}}</td>
+</tr>
+</script>
+
+<script id="tmplt_txn_item" type="x-tmpl-mustache">
+<tr>
+    <td>{{item_count}}</td>
+    <td>{{time}}</td>
+    <td><a href="{{txn}}" target="_blank">View</a></td>
+</tr>
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.1.0/mustache.min.js" integrity="sha512-HYiNpwSxYuji84SQbCU5m9kHEsRqwWypXgJMBtbRSumlx1iBB6QaxgEBZHSHEGM+fKyCX/3Kb5V5jeVXm0OglQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/unpack.js"></script>
+</body>
+</html>

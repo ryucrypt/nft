@@ -9,21 +9,24 @@ var address = "";
 const wax = new waxjs.WaxJS({rpcEndpoint: 'https://chain.wax.io', tryAutoLogin: true});
 
 const check_login = async() => {
+    startLoginView();
     var isAutoLoginAvailable = await wax.isAutoLoginAvailable();
     if (isAutoLoginAvailable) {
         address = wax.userAccount;
-        updateLoginView();
+        endLoginView();
         load();
+    } else {
+        endLoginView();
     }
 }
 
 // Normal login. Triggers a popup for non-whitelisted dapps
 const login = async() => {
+    startLoginView();
     if (address == "") {
         try {
             await wax.login();
             address = wax.userAccount;
-            updateLoginView();
             load();
         } catch(e) {
             alert(e.message);
@@ -32,10 +35,10 @@ const login = async() => {
         var logout = confirm("Logout?");
         if (logout) {
             address = "";
-            updateLoginView();
             clearView("#results");
         }
     }
+    endLoginView();
 }
 
 // Controller
@@ -89,11 +92,16 @@ const clearView = (view) => {
     $("#outcome").html("Total of 0 assets");
 }
 
-const updateLoginView = () => {
+const startLoginView = () => {
+    $("#addy").removeClass("disabled");
+}
+
+const endLoginView = () => {
+    $("#addy").addClass("disabled");
     if (address == "") {
-        $("#addy").html("Login");
+        $("#addy a").html("Login");
     } else {
-        $("#addy").html(address);
+        $("#addy a").html(address);
     }
 }
 
