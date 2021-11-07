@@ -1,4 +1,5 @@
 const PACKS = [
+    {"collection_name": "dustandblood", "template_id": "349044", "template_name": "Original Art Chase Drop 1"},
     {"collection_name": "littlemonst1", "template_id": "340235", "template_name": "Halloween Special Blend Pack"},
     {"collection_name": "fantasyartio", "template_id": "294536", "template_name": "Small Pack"},
     {"collection_name": "fantasyartio", "template_id": "294537", "template_name": "Standard Pack"},
