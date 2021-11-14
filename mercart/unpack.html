@@ -20,8 +20,17 @@
             </a>
         </header>
         <main>
+            <div class="row-my-3">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="collection_lbl" data-bs-toggle="dropdown" aria-expanded="false">
+                        Please select Collection
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="collection_lbl" id="collection">
+                    </ul>
+                </div>
+            </div>
             <div class="row my-3">
-                <div id="loading" class="d-flex justify-content-center">
+                <div id="loading" class="d-flex justify-content-center visually-hidden">
                     <div class="spinner-border" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
@@ -83,6 +92,7 @@
         <table class="table table-sm table-bordered">
             <thead>
                 <tr class="table-dark">
+                    <th scope="col">No.</th>
                     <th scope="col">Account</th>
                     <th scope="col">Unpacked</th>
                 </tr>
@@ -96,7 +106,8 @@
 
 <script id="tmplt_result_item" type="x-tmpl-mustache">
 <tr>
-    <th scope="row"><a href="javascript:void(0)" onclick="summary('{{address}}', '{{key}}')" data-bs-toggle="modal" data-bs-target="#txns">{{address}}</a></th>
+    <th scope="row">{{item_count}}</th>
+    <td><a href="javascript:void(0)" onclick="summary('{{address}}', '{{key}}')" data-bs-toggle="modal" data-bs-target="#txns">{{address}}</a></td>
     <td>{{count}}</td>
 </tr>
 </script>
@@ -107,6 +118,10 @@
     <td>{{time}}</td>
     <td><a href="{{txn}}" target="_blank">View</a></td>
 </tr>
+</script>
+
+<script id="tmplt_filter" type="x-tmpl-mustache">
+<li><a class="dropdown-item" href="?c={{collection}}">{{collection}}</a></li>
 </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
