@@ -1,0 +1,104 @@
+<html>
+<head>
+    <title>WhiteDragon NFT Donate</title>
+</head>
+<body>
+    <a id="twitch_login" href="https://id.twitch.tv/oauth2/authorize?response_type=id_token&client_id=a68m7c8h9tqrxwn1yrxydamn2v9x5f&redirect_uri=https://ryucrypt.github.io/nft/wd/donate.html&scope=openid&claims={%22id_token%22:{%22preferred_username%22:null}}">Twitch Login</a>
+    <div id="twitch_in" style="display:none">
+        <h4>Twitch Username: <span id="twitch"></span></h4>
+        <div id="wallet_login">
+            <button type="button" onclick="loginSpecificWallet('cloud');">Cloud Wallet</button>
+            <button type="button" onclick="loginSpecificWallet('anchor')">Anchor</button>
+            <br>
+            <h4 id="error"></h4>
+        </div>
+    </div>
+    <div id="wallet_in" style="display:none">
+        <h4>Wallet: <span id="wallet"></span></h4>
+        <input type="number" id="amount" oninput="restrict(this);" /> WAX
+        <br><br>
+        <button type="button" id="donate" onclick="load();">Donate</button>
+        <br><br>
+        <h4 id="txn"></h4>
+    </div>
+</body>
+<script src="https://unpkg.com/anchor-link@3"></script>
+<script src="https://unpkg.com/anchor-link-browser-transport@3"></script>
+<script src="/js/waxjs.js"></script>
+<script src="/js/wallets.js"></script>
+<script>
+var twitch = "";
+var wallet = "";
+
+const parseJwt = (token) => {
+    var base64Url = token.split(".")[1];
+    var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    var jsonPayload = decodeURIComponent(atob(base64).split("").map(function(c) {
+        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(""));
+
+    return JSON.parse(jsonPayload);
+}
+
+if (document.location.hash != "") {
+    twitch = parseJwt(document.location.hash.split("=")[1]).preferred_username
+    document.getElementById("twitch").innerHTML = twitch;
+    document.getElementById("twitch_login").outerHTML = "";
+    document.getElementById("twitch_in").style.display = "block";
+}
+
+const restrict = (tis) => {
+    var prev = tis.getAttribute("data-prev");
+    prev = (prev != "") ? prev : "";
+    if (Math.round(tis.value * 100000000) / 100000000 != tis.value) {
+        tis.value=prev;
+    }
+    tis.setAttribute("data-prev", tis.value);
+}
+
+const login = async() => {
+    try {
+        document.getElementById("error").innerHTML = "";
+        wallet = await wallet_login();
+        document.getElementById("wallet").innerHTML = wallet;
+        document.getElementById("wallet_login").style.display = "none";
+        document.getElementById("wallet_in").style.display = "block";
+    } catch(e) {
+        document.getElementById('error').innerHTML = e.message;
+    }
+}
+
+const loginSpecificWallet = async(walletType) => {
+    wallet_selectWallet(walletType);
+    login();
+}
+
+const load = async() => {
+    try {
+        var amount = (Math.round(document.getElementById("amount").value * 100000000)/100000000).toFixed(8);
+        document.getElementById("txn").innerHTML = "";
+        var actions = [{
+            account: "eosio.token",
+            name: "transfer",
+            authorization: [{
+                actor: wallet,
+                permission: "active",
+            }],
+            data: {
+                from: wallet,
+                to: "wdgiveawaysx",
+                quantity: amount + " WAX",
+                memo: "Donation from: " + twitch
+            }
+        }];
+        console.log(actions);
+        var txn = await wallet_transact(actions);
+        console.log(txn);
+        document.getElementById("txn").innerHTML = "Success! <a href='https://wax.bloks.io/transaction/" + txn.transaction_id + "' target='_blank'>View Transaction</a>";
+    } catch(e) {
+        document.getElementById("txn").innerHTML = e.message;
+    }
+}
+</script>
+</body>
+</html>
