@@ -15,6 +15,7 @@
     <div style="display:inline-block;">
         <h2>Donations for WhiteDragon NFT</h2>
         <img src="res/favi.png" style="display:block;margin:auto"></img>
+        <h4>All proceeds will go to WhiteDragon NFT team to support the project and stream! ❤</h4>
     </div>
     <br><br>
     <a id="twitch_login" href="https://id.twitch.tv/oauth2/authorize?response_type=id_token&client_id=a68m7c8h9tqrxwn1yrxydamn2v9x5f&redirect_uri=https://ryucrypt.github.io/nft/wd/donate.html&scope=openid&claims={%22id_token%22:{%22preferred_username%22:null}}"><button type="button">Twitch Login</button></a>
@@ -30,10 +31,12 @@
     <div id="wallet_in" style="display:none">
         <h4>Wallet: <span id="wallet"></span></h4>
         <input type="number" id="amount" oninput="restrict(this);" />
-        <select id="token" onchange="updateBalance();">
+        <select id="token" onchange="updateToken();">
         </select>
         <br>
         <span id="balance"></span>
+        <br>
+        <span>You need to donate a minimum of 1 WAX<span id="minimum"></span> in order to pop up on stream.</span>
         <br><br>
         <button type="button" id="donate" onclick="load();">Donate</button>
         <br><br>
@@ -45,16 +48,19 @@
 <script src="/nft/js/waxjs.js"></script>
 <script src="/nft/js/wallets.js"></script>
 <script>
+const MIN_DONATE = 1;
+const ALCOR = "https://wax.alcor.exchange/api/markets/";
 const TOKENS = [
     {symbol: "WAX", contract: "eosio.token", precision: 8},
-    {symbol: "NBMFUS", contract: "battleminers", precision: 6},
-    {symbol: "NBMACT", contract: "battleminers", precision: 6},
-    {symbol: "NBMMIN", contract: "battleminers", precision: 6},
-    {symbol: "NBMCON", contract: "battleminers", precision: 6},
-    {symbol: "MST", contract: "metatoken.gm", precision: 8},
-    {symbol: "TACO", contract: "t.taco", precision: 4},
-    {symbol: "LOOT", contract: "warsaken", precision: 4},
+    {symbol: "NBMFUS", contract: "battleminers", precision: 6, market_id: 125},
+    {symbol: "NBMACT", contract: "battleminers", precision: 6, market_id: 134},
+    {symbol: "NBMMIN", contract: "battleminers", precision: 6, market_id: 136},
+    {symbol: "NBMCON", contract: "battleminers", precision: 6, market_id: 135},
+    {symbol: "MST", contract: "metatoken.gm", precision: 8, swap_id: 531},
+    {symbol: "TACO", contract: "t.taco", precision: 4, market_id: 131},
+    {symbol: "LOOT", contract: "warsaken", precision: 4, market_id: 173},
 ];
+const Gyt75PoQy6 = "h#-[jh2gAMkV8VD";
 
 var twitch = "";
 var wallet = "";
@@ -74,12 +80,62 @@ const updateBalance = async() => {
     var token = getToken();
     var bal = await wax.rpc.get_currency_balance(token.contract, wallet, token.symbol);
     if (bal.length < 1) {
-        document.getElementById("balance").innerHTML = "No balance";
+        return "No balance";
     } else {
-        document.getElementById("balance").innerHTML = "Balance: " + bal[0];
+        return "Balance: " + bal[0];
     }
 }
 
+const formatToken = (token, amount) => {
+    return (amount * Math.pow(10, token.precision)/Math.pow(10, token.precision)).toFixed(token.precision) + " " + token.symbol;
+}
+
+const minDonation = async() => {
+    var token = getToken();
+    var output = "";
+
+    if (token.market_id != undefined) {
+        var r = await fetch(ALCOR);
+        var response = await r.json();
+        output = formatToken(token, MIN_DONATE / response.find(o => o.id == token.market_id).last_price);
+    } else if (token.symbol != "WAX") {
+        var response = await wax.rpc.get_table_rows({
+            json: true,
+            code: "alcorammswap",
+            scope: "alcorammswap",
+            table: "pairs",
+            lower_bound: token.swap_id,
+            upper_bound: token.swap_id,
+            limit: 1,
+        });
+        var pool1 = response.rows[0].pool1.quantity;
+        var pool2 = response.rows[0].pool2.quantity;
+        if (pool1.split(" ")[1] == "WAX") {
+            output = formatToken(token, MIN_DONATE / (pool1.split(" ")[0] / pool2.split(" ")[0]));
+        } else {
+            output = formatToken(token, MIN_DONATE / (pool2.split(" ")[0] / pool1.split(" ")[0]));
+        }
+    }
+    if (token.symbol != "WAX") {
+        output = " equivalent (approx. " + output + ")";
+    }
+
+    return output;
+}
+
+const cipher = (salt) => {
+    const textToChars = text => text.split('').map(c => c.charCodeAt(0));
+    const byteHex = n => ("0" + Number(n).toString(16)).substr(-2);
+    const applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code);
+
+    return text => text.split("")
+        .map(textToChars)
+        .map(applySaltToChar)
+        .map(byteHex)
+        .join("");
+}
+
+// Controller
 if (document.location.hash != "") {
     twitch = parseJwt(document.location.hash.split("=")[1]).preferred_username;
     document.getElementById("twitch").innerHTML = twitch;
@@ -94,9 +150,9 @@ const login = async() => {
         document.getElementById("wallet").innerHTML = wallet;
         document.getElementById("wallet_login").style.display = "none";
         document.getElementById("wallet_in").style.display = "block";
-        await updateBalance();
+        await updateToken();
     } catch(e) {
-        document.getElementById('error').innerHTML = e.message;
+        document.getElementById("error").innerHTML = e.message;
     }
 }
 
@@ -106,10 +162,13 @@ const loginSpecificWallet = async(walletType) => {
 }
 
 const load = async() => {
-    document.getElementById("donate").disabled = true;
+    const myCipher = cipher(Gyt75PoQy6);
+    var memo = myCipher("Twitch Donation from: " + twitch);
     var token = getToken();
+
+    document.getElementById("donate").disabled = true;
+
     try {
-        var amount = (document.getElementById("amount").value * Math.pow(10, token.precision)/Math.pow(10, token.precision)).toFixed(token.precision);
         document.getElementById("txn").innerHTML = "";
         var actions = [{
             account: token.contract,
@@ -121,15 +180,14 @@ const load = async() => {
             data: {
                 from: wallet,
                 to: "wddonationsx",
-                quantity: amount + " " + token.symbol,
-                memo: "Twitch Donation from: " + twitch
+                quantity: formatToken(token, document.getElementById("amount").value),
+                memo: memo
             }
         }];
         console.log(actions);
         var txn = await wallet_transact(actions);
-        console.log(txn);
         document.getElementById("txn").innerHTML = "Success! <a href='https://wax.bloks.io/transaction/" + txn.transaction_id + "' target='_blank'>View Transaction</a>";
-        await updateBalance();
+        document.getElementById("balance").innerHTML = await updateBalance();
     } catch(e) {
         document.getElementById("txn").innerHTML = e.message;
     }
@@ -154,6 +212,11 @@ const restrict = (tis) => {
 
 const getToken = () => {
     return TOKENS.find(o => o.symbol == document.getElementById("token").value);
+}
+
+const updateToken = async() => {
+    document.getElementById("balance").innerHTML = await updateBalance();
+    document.getElementById("minimum").innerHTML = await minDonation();
 }
 
 setOptions();
