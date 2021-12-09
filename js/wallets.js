@@ -10,9 +10,6 @@ const anchorLink = new AnchorLink( { transport: anchorTransport, verifyProofs: t
 
 async function wallet_isAutoLoginAvailable()
 {
-	var lastLogin = wallet_getLastLogin();
-	wallet_setLastLogin("");
-
 	var sessionList = await anchorLink.listSessions(dapp);
 	if (sessionList && sessionList.length > 0)
 	{
@@ -53,8 +50,6 @@ async function wallet_login()
 		wallet_session = wax.api;
 	}
 
-	wallet_setLastLogin(wallet_type);
-
 	return wallet_userAccount;
 }
 
@@ -64,8 +59,6 @@ async function wallet_logout()
 	{
 		await anchorLink.clearSessions(dapp);
 	}
-
-	wallet_setLastLogin("");
 }
 
 async function wallet_transact(actions)
@@ -95,24 +88,4 @@ async function wallet_transact(actions)
 	}
 
 	return "Unknown wallet";
-}
-
-function wallet_getLastLogin()
-{
-    if (typeof(Storage) === "undefined")
-    {
-        return "";
-    }
-    else
-    {
-        return localStorage.hasOwnProperty("lastLogin") ? localStorage.lastLogin : "";
-    }
-}
-
-function wallet_setLastLogin(lastLogin)
-{
-    if (typeof(Storage) !== "undefined")
-    {
-        localStorage.lastLogin = lastLogin;
-    }
 }
