@@ -6,12 +6,12 @@ const dapp = "ryucrypt.github.io";
 const wax = new waxjs.WaxJS({rpcEndpoint: "https://" + endpoint, tryAutoLogin: false});
 
 const anchorTransport = new AnchorLinkBrowserTransport();
-const anchorLink = new AnchorLink( { transport: anchorTransport, verifyProofs: true, chains: [ {chainId: chainId, nodeUrl: 'https://'+endpoint} ] } );
+const anchorLink = new AnchorLink( { transport: anchorTransport, verifyProofs: true, chains: [ {chainId: chainId, nodeUrl: "https://"+endpoint} ] } );
 
 async function wallet_isAutoLoginAvailable()
 {
 	var lastLogin = wallet_getLastLogin();
-	wallet_setLastLogin('');
+	wallet_setLastLogin("");
 
 	var sessionList = await anchorLink.listSessions(dapp);
 	if (sessionList && sessionList.length > 0)
@@ -45,7 +45,7 @@ async function wallet_login()
 			wallet_session = (await anchorLink.login(dapp)).session;
 		}**/
 		wallet_session = (await anchorLink.login(dapp)).session;
-		wallet_userAccount = String(wallet_session.auth).split('@')[0];
+		wallet_userAccount = String(wallet_session.auth).split("@")[0];
 	}
 	else if (wallet_type == "cloud")
 	{
@@ -65,7 +65,7 @@ async function wallet_logout()
 		await anchorLink.clearSessions(dapp);
 	}
 
-	wallet_setLastLogin('');
+	wallet_setLastLogin("");
 }
 
 async function wallet_transact(actions)
@@ -79,7 +79,7 @@ async function wallet_transact(actions)
         }
         catch(e)
         {
-            if (e.hasOwnProperty('error') && e.error.hasOwnProperty('details') && Array.isArray(e.error.details) && e.error.details.length > 0)
+            if (e.hasOwnProperty("error") && e.error.hasOwnProperty("details") && Array.isArray(e.error.details) && e.error.details.length > 0)
             {
                 throw ({message: e.error.details[0].message});
             }
