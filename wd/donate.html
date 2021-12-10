@@ -10,6 +10,7 @@
         color: #eee;
     }
     </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 <body>
     <div style="display:inline-block;">
@@ -20,7 +21,7 @@
     </div>
     <br><br>
     <a id="twitch_login" href="https://id.twitch.tv/oauth2/authorize?response_type=id_token&client_id=a68m7c8h9tqrxwn1yrxydamn2v9x5f&redirect_uri=https://ryucrypt.github.io/nft/wd/donate.html&scope=openid&claims={%22id_token%22:{%22preferred_username%22:null}}"><button type="button">Twitch Login</button></a>
-    <div id="twitch_in" style="display:none">
+    <div id="twitch_in" style="display:block">
         <h4>Twitch Username: <span id="twitch"></span></h4>
         <div id="wallet_login">
             <button type="button" onclick="loginSpecificWallet('cloud');">Cloud Wallet</button>
@@ -29,7 +30,7 @@
             <h4 id="error"></h4>
         </div>
     </div>
-    <div id="wallet_in" style="display:none">
+    <div id="wallet_in" style="display:block">
         <h4>Wallet: <span id="wallet"></span></h4>
         <input type="number" id="amount" oninput="restrict(this);" />
         <select id="token" onchange="updateToken();">
@@ -46,8 +47,9 @@
 </body>
 <script src="https://unpkg.com/anchor-link@3"></script>
 <script src="https://unpkg.com/anchor-link-browser-transport@3"></script>
-<script src="/nft/js/waxjs.js"></script>
-<script src="/nft/js/wallets.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="../js/waxjs.js"></script>
+<script src="../js/wallets.js"></script>
 <script>
 const MIN_DONATE = 1;
 const ALCOR = "https://wax.alcor.exchange/api/markets/";
@@ -136,6 +138,10 @@ const cipher = (salt) => {
         .join("");
 }
 
+const sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 // Controller
 if (document.location.hash != "") {
     twitch = parseJwt(document.location.hash.split("=")[1]).preferred_username;
@@ -188,8 +194,19 @@ const load = async() => {
         console.log(actions);
         var txn = await wallet_transact(actions);
         document.getElementById("txn").innerHTML = "Success! <a href='https://wax.bloks.io/transaction/" + txn.transaction_id + "' target='_blank'>View Transaction</a>";
+        Toastify({
+            text: "Success!",
+            style: {background: "#2ECC7175"},
+            close: true
+        }).showToast();
+        await sleep(1000);
         document.getElementById("balance").innerHTML = await updateBalance();
     } catch(e) {
+        Toastify({
+            text: "Error: " + e.message,
+            style: {background: "#E74C3C75"},
+            close: true
+        }).showToast();
         document.getElementById("txn").innerHTML = e.message;
     }
     document.getElementById("donate").disabled = false;
