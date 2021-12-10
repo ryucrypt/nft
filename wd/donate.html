@@ -196,7 +196,7 @@ const load = async() => {
         document.getElementById("txn").innerHTML = "Success! <a href='https://wax.bloks.io/transaction/" + txn.transaction_id + "' target='_blank'>View Transaction</a>";
         Toastify({
             text: "Success!",
-            style: {background: "#2ECC7175"},
+            style: {background: "#2ECC71"},
             close: true
         }).showToast();
         await sleep(1000);
@@ -204,7 +204,7 @@ const load = async() => {
     } catch(e) {
         Toastify({
             text: "Error: " + e.message,
-            style: {background: "#E74C3C75"},
+            style: {background: "#E74C3C"},
             close: true
         }).showToast();
         document.getElementById("txn").innerHTML = e.message;
