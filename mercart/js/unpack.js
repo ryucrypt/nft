@@ -1,4 +1,4 @@
-const EXPLORER = "https://wax.bloks.io/transaction/";
+const EXPLORER = "https://wax.eosx.io/tx/";
 const COLLECTIONS = [
     {"collection": "dustandblood"},
     {"collection": "littlemonst1"},
