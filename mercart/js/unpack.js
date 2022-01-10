@@ -9,6 +9,7 @@ const PACKS = [
     {"collection_name": "dustandblood", "template_id": "349044", "template_name": "Original Art Chase Drop 1"},
     {"collection_name": "littlemonst1", "template_id": "340235", "template_name": "Halloween Special Blend Pack"},
     {"collection_name": "littlemonst1", "template_id": "289610", "template_name": "Series 2 Little Monsters"},
+    {"collection_name": "fantasyartio", "template_id": "410249", "template_name": "Fantasy io Original Art Chase Drop 3"},
     {"collection_name": "fantasyartio", "template_id": "377671", "template_name": "Fantasy io Original Art Chase Drop 2"},
     {"collection_name": "fantasyartio", "template_id": "359211", "template_name": "Fantasy io Original Art Chase Drop 1"},
     {"collection_name": "fantasyartio", "template_id": "294536", "template_name": "Small Pack"},
