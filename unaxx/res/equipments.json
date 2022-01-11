@@ -1,0 +1,594 @@
+[
+    {
+        "template_id": "404353",
+        "name": "Amphibit's Stick Potion",
+        "role": "any",
+        "slot": "trinket",
+        "rarity": "common",
+        "desc": "A random enemy at the start of the battle suffers a 25% miss chance on all its actions."
+    },
+    {
+        "template_id": "404506",
+        "name": "Amphibit's Stick Potion",
+        "role": "any",
+        "slot": "trinket",
+        "rarity": "rare",
+        "desc": "A random enemy at the start of the battle suffers a 42.5% miss chance on all its actions."
+    },
+    {
+        "template_id": "404508",
+        "name": "Amphibit's Stick Potion",
+        "role": "any",
+        "slot": "trinket",
+        "rarity": "legendary",
+        "desc": "A random enemy at the start of the battle suffers a 60% miss chance on all its actions."
+    },
+    {
+        "template_id": "404358",
+        "name": "Arsonist's Dream",
+        "role": "soldier, scientist",
+        "slot": "trinket",
+        "rarity": "common",
+        "desc": "When an ally uses a regular attack on a burning enemy, he propagates the burning damage to another random enemy."
+    },
+    {
+        "template_id": "404364",
+        "name": "Banner of Bravery",
+        "role": "scientist, xenologist",
+        "slot": "trinket",
+        "rarity": "common",
+        "desc": "The last Unaxx alive on your team has its damage and health doubled, and is then healed to 75%."
+    },
+    {
+        "template_id": "404686",
+        "name": "Beads of Cruelty",
+        "role": "scout, soldier",
+        "slot": "trinket",
+        "rarity": "legendary",
+        "desc": "As long as they may freely choose their targets, your Unaxxes will always target the enemy with lowest HP."
+    },
+    {
+        "template_id": "404370",
+        "name": "Blamster's Potion",
+        "role": "any",
+        "slot": "trinket",
+        "rarity": "common",
+        "desc": "When enemies crit naturally, 40% to miss instead."
+    },
+    {
+        "template_id": "404510",
+        "name": "Blamster's Potion",
+        "role": "any",
+        "slot": "trinket",
+        "rarity": "rare",
+        "desc": "When enemies crit naturally, 70% to miss instead."
+    },
+    {
+        "template_id": "404514",
+        "name": "Blamster's Potion",
+        "role": "any",
+        "slot": "trinket",
+        "rarity": "legendary",
+        "desc": "When enemies crit naturally, 100% to miss instead."
+    },
+    {
+        "template_id": "404391",
+        "name": "Bloodsplint's Totem",
+        "role": "scout, soldier",
+        "slot": "ring",
+        "rarity": "common",
+        "desc": "A random Slayer in your team gains +9 damage and +5 penetration for the battle."
+    },
+    {
+        "template_id": "404394",
+        "name": "Bone Amulet",
+        "role": "scout, xenologist",
+        "slot": "necklace",
+        "rarity": "common",
+        "desc": "+6 defense on skeletons"
+    },
+    {
+        "template_id": "404519",
+        "name": "Bottled Thunder",
+        "role": "scientist, soldier",
+        "slot": "trinket",
+        "rarity": "rare",
+        "desc": "Your lightning Elementalist’s ability now target the whole enemy team spreading 250% of the damage equally between remaining targets."
+    },
+    {
+        "template_id": "404397",
+        "name": "Burnt Boxing Glove",
+        "role": "scout, soldier",
+        "slot": "necklace",
+        "rarity": "common",
+        "desc": "Critical hits inflicted by Unaxxes in your team ignore defense."
+    },
+    {
+        "template_id": "404687",
+        "name": "Call of The Grave",
+        "role": "scout, xenologist",
+        "slot": "ring",
+        "rarity": "legendary",
+        "desc": "The first two enemies to die in a fight are immediately raised as skeletons on your side. You need to have a Necromancer alive in your team for the effect to work."
+    },
+    {
+        "template_id": "404688",
+        "name": "Carrotae's Focus",
+        "role": "scout, soldier",
+        "slot": "necklace",
+        "rarity": "legendary",
+        "desc": "If you have a Slayer in your team at the start of the battle, your Unaxxes gain +3 damage for each 10 max health they are missing."
+    },
+    {
+        "template_id": "404761",
+        "name": "Conduit",
+        "role": "scientist, soldier",
+        "slot": "ring",
+        "rarity": "legendary",
+        "desc": "A random Elementalist in your team gain +1 damage per ally Unaxxes of the same elements. This item triggers twice, and both iterations can effect the same Elementalist."
+    },
+    {
+        "template_id": "404522",
+        "name": "Corpse Shield",
+        "role": "scout, xenologist",
+        "slot": "necklace",
+        "rarity": "rare",
+        "desc": "Your skeletons have +25hp and +1def, and are always targeted first if possible."
+    },
+    {
+        "template_id": "406862",
+        "name": "Crashing Wave",
+        "role": "scientist, soldier",
+        "slot": "necklace",
+        "rarity": "rare",
+        "desc": "When your water Elementalists use their ability, they stun an additional random enemy."
+    },
+    {
+        "template_id": "404543",
+        "name": "Cursed Offering",
+        "role": "scout, xenologist",
+        "slot": "trinket",
+        "rarity": "rare",
+        "desc": "When one of your necromancers kills an enemy, it immediately summons a skeleton."
+    },
+    {
+        "template_id": "362251",
+        "name": "Dark Seeka's Horn",
+        "role": "any",
+        "slot": "trinket",
+        "rarity": "legendary",
+        "desc": "10% of your fastest Unaxx's effective speed is added to its damage."
+    },
+    {
+        "template_id": "404762",
+        "name": "Druid's Sigil",
+        "role": "any",
+        "slot": "ring",
+        "rarity": "legendary",
+        "desc": "When a Mender would crit, they now summon a healing spirit. This spirit loses 15hp at the end of its turn and heals a single random ally for its damage."
+    },
+    {
+        "template_id": "404763",
+        "name": "Egge's Aura",
+        "role": "scientist, xenologist",
+        "slot": "necklace",
+        "rarity": "legendary",
+        "desc": "One random defender on your team is always targeted first, until it dies."
+    },
+    {
+        "template_id": "404398",
+        "name": "Essence of Life",
+        "role": "any",
+        "slot": "necklace",
+        "rarity": "common",
+        "desc": " Increases the health points of Unaxxes in your team by 6 for the battle."
+    },
+    {
+        "template_id": "404552",
+        "name": "Essence of Life",
+        "role": "any",
+        "slot": "necklace",
+        "rarity": "rare",
+        "desc": "Increases the health points of Unaxxes in your team by 10.5 for the battle."
+    },
+    {
+        "template_id": "404764",
+        "name": "Essence of Life",
+        "role": "any",
+        "slot": "necklace",
+        "rarity": "legendary",
+        "desc": "Increases the health points of Unaxxes in your team by 15 for the battle."
+    },
+    {
+        "template_id": "404400",
+        "name": "Essence of Rage",
+        "role": "any",
+        "slot": "ring",
+        "rarity": "common",
+        "desc": "Increases the damage of Unaxxes in your team by 1.2 for the battle."
+    },
+    {
+        "template_id": "404573",
+        "name": "Essence of Rage",
+        "role": "any",
+        "slot": "ring",
+        "rarity": "rare",
+        "desc": "Increases the damage of the Unaxxes in your team by 2.1 for the battle."
+    },
+    {
+        "template_id": "404765",
+        "name": "Essence of Rage",
+        "role": "any",
+        "slot": "ring",
+        "rarity": "legendary",
+        "desc": "Increases the damage of Unaxxes in your team by 3 for the battle."
+    },
+    {
+        "template_id": "404401",
+        "name": "Flyn's Hunger",
+        "role": "any",
+        "slot": "ring",
+        "rarity": "common",
+        "desc": "Increases the Penetration of Unaxxes in your team by 2 for the battle."
+    },
+    {
+        "template_id": "404660",
+        "name": "Flyn's Hunger",
+        "role": "any",
+        "slot": "ring",
+        "rarity": "rare",
+        "desc": "Increases the Penetration of Unaxxes in your team by 3.5 for the battle. Penetration allows the attacking Unaxx to ignore the same amount of defense."
+    },
+    {
+        "template_id": "404661",
+        "name": "Flyn's Hunger",
+        "role": "any",
+        "slot": "ring",
+        "rarity": "legendary",
+        "desc": "Increases the Penetration of Unaxxes in your team by 5 for the battle. Penetration allows the attacking Unaxx to ignore the same amount of defense."
+    },
+    {
+        "template_id": "404827",
+        "name": "Force Binding",
+        "role": "any",
+        "slot": "ring",
+        "rarity": "common",
+        "desc": "When a Defender on your team uses a regular attack, they reduce the target's damage by 5 for the next action."
+    },
+    {
+        "template_id": "404662",
+        "name": "Fractured Mirror",
+        "role": "any",
+        "slot": "ring",
+        "rarity": "rare",
+        "desc": "When your Menders use an attack, they heal a random ally by the amount of damage dealt. This heal can't trigger overheal."
+    },
+    {
+        "template_id": "404663",
+        "name": "Griffar's Intel",
+        "role": "scientist, xenologist",
+        "slot": "necklace",
+        "rarity": "rare",
+        "desc": "A random defender in your team gains +50 health points and +4 defense for the battle."
+    },
+    {
+        "template_id": "404768",
+        "name": "Healing Font",
+        "role": "any",
+        "slot": "trinket",
+        "rarity": "legendary",
+        "desc": "When one of your Menders end their turn, they heal a random ally for their 130% of the mender's damage. This ability lasts for the first 5 rounds of combat."
+    },
+    {
+        "template_id": "404664",
+        "name": "Hemolytic Poison",
+        "role": "scout, soldier",
+        "slot": "necklace",
+        "rarity": "rare",
+        "desc": "An enemy hit by one of your Slayers has 75% chance to not be able to receive healing anymore."
+    },
+    {
+        "template_id": "404406",
+        "name": "Hope Restored",
+        "role": "any",
+        "slot": "trinket",
+        "rarity": "common",
+        "desc": "The first Unaxx on your team to fall below 50% hp triggers an immediate heal from a random mender."
+    },
+    {
+        "template_id": "404408",
+        "name": "Ice-breaker",
+        "role": "scientist, soldier",
+        "slot": "ring",
+        "rarity": "common",
+        "desc": "When your Unaxxes target a stunned enemy, they deal +7 damage."
+    },
+    {
+        "template_id": "404676",
+        "name": "Inferno Ring",
+        "role": "scientist, soldier",
+        "slot": "ring",
+        "rarity": "rare",
+        "desc": "As long as you have a fire Elementalist in your team at the start of the battle, when an ally uses an attack, a critical attack or an ability against a burning enemy, they inflict an additional +10 pure damage."
+    },
+    {
+        "template_id": "404410",
+        "name": "Krabbu's Shell",
+        "role": "any",
+        "slot": "necklace",
+        "rarity": "common",
+        "desc": "Increases the defense of Unaxxes in your team by 0.6 for the battle."
+    },
+    {
+        "template_id": "404665",
+        "name": "Krabbu's Shell",
+        "role": "any",
+        "slot": "necklace",
+        "rarity": "rare",
+        "desc": "Increases the defense of Unaxxes in your team by 1.4 for the battle."
+    },
+    {
+        "template_id": "404674",
+        "name": "Krabbu's Shell",
+        "role": "any",
+        "slot": "necklace",
+        "rarity": "legendary",
+        "desc": "Increases the defense of Unaxxes in your team by 2 for the battle."
+    },
+    {
+        "template_id": "404412",
+        "name": "Last Sacrifice",
+        "role": "any",
+        "slot": "necklace",
+        "rarity": "common",
+        "desc": "When the first Mender on your team dies, it heals the entire team for 120% of its initial health, starting with the lowest health ally. If the last ally healed is sent in overheal, said buff is doubled on that ally."
+    },
+    {
+        "template_id": "404415",
+        "name": "Leper Ring",
+        "role": "any",
+        "slot": "ring",
+        "rarity": "common",
+        "desc": "A random Mender on your team can’t be targeted as long as there are other living team members."
+    },
+    {
+        "template_id": "404667",
+        "name": "Light Crown",
+        "role": "scout, soldier",
+        "slot": "trinket",
+        "rarity": "rare",
+        "desc": "When one of your Slayer attacks with a normal attack, they have a 50% chance to stun the target."
+    },
+    {
+        "template_id": "404668",
+        "name": "Limit-break Potion",
+        "role": "any",
+        "slot": "trinket",
+        "rarity": "rare",
+        "desc": "If you have a Mender in your team at the start of the battle, the overheal buff has its effects increased by 25%."
+    },
+    {
+        "template_id": "404669",
+        "name": "Lost Altar",
+        "role": "any",
+        "slot": "necklace",
+        "rarity": "rare",
+        "desc": "If you have a Mender in your team at the start of the battle, any healing done in your team has its value increased by 50%."
+    },
+    {
+        "template_id": "404418",
+        "name": "Luck-leaf",
+        "role": "any",
+        "slot": "trinket",
+        "rarity": "common",
+        "desc": "33% of your Unaxxes natural misses are converted into crits."
+    },
+    {
+        "template_id": "404670",
+        "name": "Luck-leaf",
+        "role": "any",
+        "slot": "trinket",
+        "rarity": "rare",
+        "desc": "66% of your Unaxxes natural misses are converted into crits."
+    },
+    {
+        "template_id": "404672",
+        "name": "Luck-leaf",
+        "role": "any",
+        "slot": "trinket",
+        "rarity": "legendary",
+        "desc": "100% of your Unaxxes natural misses are converted into crits."
+    },
+    {
+        "template_id": "404769",
+        "name": "Magmoai's Lava Shield",
+        "role": "scientist, xenologist",
+        "slot": "ring",
+        "rarity": "legendary",
+        "desc": "A random defender on your team deals 10 pure damage to every attacker that damages it."
+    },
+    {
+        "template_id": "404419",
+        "name": "Maskeet Talisman",
+        "role": "any",
+        "slot": "necklace",
+        "rarity": "common",
+        "desc": "Every time one of your Unaxx triggers a normal attack, they heal for 4hp."
+    },
+    {
+        "template_id": "405334",
+        "name": "Maskeet Talisman",
+        "role": "any",
+        "slot": "necklace",
+        "rarity": "rare",
+        "desc": "Every time one of your Unaxx triggers a normal attack, they heal for 7hp."
+    },
+    {
+        "template_id": "405335",
+        "name": "Maskeet Talisman",
+        "role": "any",
+        "slot": "necklace",
+        "rarity": "legendary",
+        "desc": "Every time one of your Unaxx triggers a normal attack, they heal for 10hp."
+    },
+    {
+        "template_id": "404427",
+        "name": "Neuro Link",
+        "role": "scientist, xenologist",
+        "slot": "necklace",
+        "rarity": "common",
+        "desc": "When a defender on your team uses his ability, he increases the defense of two random allies by +1 for 2 turns."
+    },
+    {
+        "template_id": "404772",
+        "name": "Omni",
+        "role": "scientist, soldier",
+        "slot": "trinket",
+        "rarity": "legendary",
+        "desc": "Whenever Elementalists in your team would miss, they have an 80% chance to trigger their ability instead"
+    },
+    {
+        "template_id": "404779",
+        "name": "Overcharge",
+        "role": "scientist, soldier",
+        "slot": "necklace",
+        "rarity": "legendary",
+        "desc": "When one of your Elementalists uses his ability, he gives shield to itself and a random ally. Shield prevents all damage done until the recipient's next turn."
+    },
+    {
+        "template_id": "341584",
+        "name": "Phoenix Tears",
+        "role": "any role",
+        "slot": "trinket",
+        "rarity": "legendary",
+        "desc": "Effect: Revives your first Unaxx to die in battle. Unaxx comes back to life with 100% hp, and cleansed of any buffs or debuffs. Only triggers once per battle."
+    },
+    {
+        "template_id": "404783",
+        "name": "Portable Seal",
+        "role": "scientist, soldier",
+        "slot": "trinket",
+        "rarity": "legendary",
+        "desc": "Unaxxes in your team are immune to damage during the first round of combat."
+    },
+    {
+        "template_id": "404432",
+        "name": "Power-charger",
+        "role": "scout, soldier",
+        "slot": "trinket",
+        "rarity": "common",
+        "desc": "The slowest Unaxx in your team will always trigger a critical hit if it’s allowed to."
+    },
+    {
+        "template_id": "404433",
+        "name": "Rhaeder Formula",
+        "role": "any",
+        "slot": "trinket",
+        "rarity": "common",
+        "desc": "Increase the critical damage of Unaxxes in your team by 15% for the battle."
+    },
+    {
+        "template_id": "405082",
+        "name": "Rhaeder Formula",
+        "role": "any",
+        "slot": "trinket",
+        "rarity": "rare",
+        "desc": "Increase the critical damage of Unaxxes in your team by 25% for the battle."
+    },
+    {
+        "template_id": "405081",
+        "name": "Rhaeder Formula",
+        "role": "any",
+        "slot": "trinket",
+        "rarity": "legendary",
+        "desc": "Increase the critical damage of Unaxxes in your team by 35% for the battle."
+    },
+    {
+        "template_id": "404784",
+        "name": "Seed Cloud",
+        "role": "any",
+        "slot": "necklace",
+        "rarity": "legendary",
+        "desc": "As long as you have a Mender in your team at the start of the battle, your Unaxxes are immune to burning and stun effects."
+    },
+    {
+        "template_id": "404824",
+        "name": "Service Beyond Death",
+        "role": "xenologist, scout",
+        "slot": "necklace",
+        "rarity": "legendary",
+        "desc": "If you have a Necromancer in your team at the start of the battle, the first two allies to fall in the battle are immediately raised as skeletons."
+    },
+    {
+        "template_id": "404435",
+        "name": "Skullring",
+        "role": "scout, xenologist",
+        "slot": "ring",
+        "rarity": "common",
+        "desc": "Your skeletons have +6 damage for the fight."
+    },
+    {
+        "template_id": "405611",
+        "name": "Soulshear",
+        "role": "scout, soldier",
+        "slot": "ring",
+        "rarity": "legendary",
+        "desc": "Whenever a slayer on your team attacks, crits or uses an ability, it deals 8% of the max hp of its target as additional damage."
+    },
+    {
+        "template_id": "406861",
+        "name": "Storm Shield",
+        "role": "scientist, soldier",
+        "slot": "necklace",
+        "rarity": "common",
+        "desc": "As long as you have a Electric Elementalist at the start of the battle, your team deal 3 pure damage to any attackers that damage them."
+    },
+    {
+        "template_id": "404682",
+        "name": "Synergy Band",
+        "role": "scout, soldier",
+        "slot": "ring",
+        "rarity": "rare",
+        "desc": "When a slayer on your team attacks, he increases the damage of a random ally by 7 for its next action."
+    },
+    {
+        "template_id": "404683",
+        "name": "Unborn's Halo",
+        "role": "scientist, xenologist",
+        "slot": "ring",
+        "rarity": "rare",
+        "desc": "Enemies have 15% of missing whenever they use an attack, a skill or a critical strike."
+    },
+    {
+        "template_id": "404684",
+        "name": "Undead Commander",
+        "role": "scout, xenologist",
+        "slot": "ring",
+        "rarity": "rare",
+        "desc": "When an ally critically hits, all your skeletons immediately attack the same target."
+    },
+    {
+        "template_id": "404826",
+        "name": "Unstable Regeant",
+        "role": "xenologist, scout",
+        "slot": "trinket",
+        "rarity": "legendary",
+        "desc": "When one of your skeletons die, they explode inflicting their damage as pure damage to every enemy."
+    },
+    {
+        "template_id": "404685",
+        "name": "Uxxium Bracers",
+        "role": "scientist, xenologist",
+        "slot": "trinket",
+        "rarity": "rare",
+        "desc": "Your Unaxxes no longer suffer from elemental disadvantage when attacked."
+    },
+    {
+        "template_id": "404467",
+        "name": "Uxxium Coating",
+        "role": "scout, xenologist",
+        "slot": "trinket",
+        "rarity": "common",
+        "desc": "The skeletons summoned by your necromancers ignore the defense of their enemies."
+    }
+]

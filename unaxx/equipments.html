@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="96x96" href="res/logo.gif">
+    <title>Unaxxopedia</title>
+    <meta property="og:title" content="Unaxxopedia">
+    <meta property="og:image" content="https://ryucrypt.github.io/nft/unaxx/res/logo.gif">
+    <meta property="og:type" content="website">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="./" class="align-items-center me-auto text-dark text-decoration-none">
+                <h2>Unaxxopedia 📖</h2>
+                <p>Check Unaxx Equipment details</p>
+            </a>
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="./" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active" class="nav-link" aria-current="page">Equipments</a></li>
+            </ul>
+        </header>
+        <main>
+            <div class="table-responsive">
+                <table
+                    class="table table-sm table-bordered"
+                    data-toggle="table"
+                    data-filter-control="true"
+                    data-url="res/equipments.json">
+                    <thead>
+                        <tr class="table-dark">
+                            <th scope="col" data-field="operate" data-formatter="operateFormatter" data-events="operateEvents" data-align="center">Copy</th>
+                            <th scope="col" data-field="name" data-filter-control="input">Name</th>
+                            <th scope="col" data-field="rarity" data-filter-control="select">Rarity</th>
+                            <th scope="col" data-field="slot" data-filter-control="select">Slot</th>
+                            <th scope="col" data-field="role" data-filter-control="select">Role</th>
+                            <th scope="col" data-field="desc" data-filter-control="input">Description</th>
+                            <th scope="col" data-field="template_id">Template ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <footer>
+            <div class="row justify-content-center border-top">
+                <p class="text-center text-muted my-3">Made by ryucrypt: wwiem.wam</p>
+                <p class="text-center text-muted">This is an unofficial tool, please use at your own discretion.</p>
+            </div>
+        </footer>
+    </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script>
+function operateFormatter(value, row) {
+    return "<a id='copy' href='javascript:void(0)'><i class='bi bi-clipboard-plus'></i></a>";
+}
+
+window.operateEvents = {
+    "click #copy": function(e, value, row, index) {
+        navigator.clipboard.writeText(row.template_id);
+        alert(`Template ID for ${row.name} copied (${row.template_id})!`);
+    }
+}
+</script>
+</body>
+</html>
