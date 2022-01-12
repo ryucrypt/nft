@@ -39,7 +39,7 @@
                             <th scope="col" data-field="slot" data-filter-control="select">Slot</th>
                             <th scope="col" data-field="role" data-filter-control="select">Role</th>
                             <th scope="col" data-field="desc" data-filter-control="input">Description</th>
-                            <th scope="col" data-field="template_id">Template ID</th>
+                            <th scope="col" data-field="template_id" data-formatter="urlFormatter" data-align="center">Template ID</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,6 +60,10 @@
 <script>
 function operateFormatter(value, row) {
     return "<a id='copy' href='javascript:void(0)'><i class='bi bi-clipboard-plus'></i></a>";
+}
+
+function urlFormatter(value, row) {
+    return `<a href="https://wax.atomichub.io/explorer/template/unaxxtrdcrds/${value}" target="_blank">${value}</a>`;
 }
 
 window.operateEvents = {

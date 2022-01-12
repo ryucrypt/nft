@@ -39,11 +39,11 @@
                             <th scope="col" data-field="class" data-filter-control="select">Class</th>
                             <th scope="col" data-field="rarity" data-filter-control="select">Rarity</th>
                             <th scope="col" data-field="variant" data-filter-control="select">Variant</th>
-                            <th scope="col" data-field="speed" data-sortable="true">Speed</th>
-                            <th scope="col" data-field="damage" data-sortable="true">Damage</th>
-                            <th scope="col" data-field="health" data-sortable="true">Health</th>
-                            <th scope="col" data-field="defense" data-sortable="true">Defense</th>
-                            <th scope="col" data-field="template_id">Template ID</th>
+                            <th scope="col" data-field="speed" data-align="center" data-sortable="true">Speed</th>
+                            <th scope="col" data-field="damage" data-align="center" data-sortable="true">Damage</th>
+                            <th scope="col" data-field="health" data-align="center" data-sortable="true">Health</th>
+                            <th scope="col" data-field="defense" data-align="center" data-sortable="true">Defense</th>
+                            <th scope="col" data-field="template_id" data-align="center" data-formatter="urlFormatter">Template ID</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,6 +64,10 @@
 <script>
 function operateFormatter(value, row) {
     return "<a id='copy' href='javascript:void(0)'><i class='bi bi-clipboard-plus'></i></a>";
+}
+
+function urlFormatter(value, row) {
+    return `<a href="https://wax.atomichub.io/explorer/template/unaxxtrdcrds/${value}" target="_blank">${value}</a>`;
 }
 
 window.operateEvents = {
