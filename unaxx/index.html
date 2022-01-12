@@ -68,8 +68,9 @@ function operateFormatter(value, row) {
 
 window.operateEvents = {
     "click #copy": function(e, value, row, index) {
-        navigator.clipboard.writeText(row.name);
-        alert(`Name copied (${row.name})!`);
+        navigator.clipboard.writeText(row.name).then(() => {
+            alert(`Name copied (${row.name})!`);
+        });
     }
 }
 </script>

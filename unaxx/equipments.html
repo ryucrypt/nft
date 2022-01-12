@@ -64,8 +64,9 @@ function operateFormatter(value, row) {
 
 window.operateEvents = {
     "click #copy": function(e, value, row, index) {
-        navigator.clipboard.writeText(row.template_id);
-        alert(`Template ID for ${row.name} (${row.rarity}) copied (${row.template_id})!`);
+        navigator.clipboard.writeText(row.template_id).then(() => {
+            alert(`Template ID for ${row.name} (${row.rarity}) copied (${row.template_id})!`);
+        });
     }
 }
 </script>
