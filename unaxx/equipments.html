@@ -124,10 +124,9 @@ const initialise = async() => {
         await run(address);
     } else {
         $table.bootstrapTable("load", raw);
+        $table.removeClass("visually-hidden");
+        $("#loading").addClass("visually-hidden");
     }
-
-    $table.removeClass("visually-hidden");
-    $("#loading").addClass("visually-hidden");
 }
 
 const run = async(address) => {
