@@ -34,7 +34,9 @@
                     <thead>
                         <tr class="table-dark">
                             <th scope="col" data-field="operate" data-formatter="operateFormatter" data-events="operateEvents" data-align="center">Copy</th>
+                            <th scope="col" data-field="img" data-formatter="imgFormatter" data-align="center">Image</th>
                             <th scope="col" data-field="name" data-filter-control="input">Name</th>
+                            <th scope="col" data-field="gen" data-filter-control="select" data-align="center" data-sortable="true">Gen</th>
                             <th scope="col" data-field="type" data-filter-control="select">Type</th>
                             <th scope="col" data-field="class" data-filter-control="select">Class</th>
                             <th scope="col" data-field="rarity" data-filter-control="select">Rarity</th>
@@ -64,6 +66,10 @@
 <script>
 function operateFormatter(value, row) {
     return "<a id='copy' href='javascript:void(0)'><i class='bi bi-clipboard-plus'></i></a>";
+}
+
+function imgFormatter(value, row) {
+    return `<img class="img-fluid" width="50" src="${value}">`;
 }
 
 function urlFormatter(value, row) {

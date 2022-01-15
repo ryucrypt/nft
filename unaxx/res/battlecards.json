@@ -2,6 +2,7 @@
     {
         "template_id": "337784",
         "name": "Amphibit",
+        "gen": "1.1",
         "variant": "normal",
         "type": "life",
         "class": "defender",
@@ -9,11 +10,13 @@
         "speed": "125",
         "damage": "7",
         "health": "60",
-        "defense": "6"
+        "defense": "6",
+        "img": "res/battlecards/amphibit.png"
     },
     {
         "template_id": "338156",
         "name": "Deadly Amphibit",
+        "gen": "1.1",
         "variant": "deadly",
         "type": "life",
         "class": "defender",
@@ -21,11 +24,13 @@
         "speed": "125",
         "damage": "7",
         "health": "65",
-        "defense": "7"
+        "defense": "7",
+        "img": "res/battlecards/amphibit.png"
     },
     {
         "template_id": "365339",
         "name": "Lethal Amphibit",
+        "gen": "1.1",
         "variant": "lethal",
         "type": "life",
         "class": "defender",
@@ -33,11 +38,13 @@
         "speed": "130",
         "damage": "7",
         "health": "70",
-        "defense": "7"
+        "defense": "7",
+        "img": "res/battlecards/amphibit.png"
     },
     {
         "template_id": "254611",
         "name": "Blamster",
+        "gen": "1.0",
         "variant": "normal",
         "type": "water",
         "class": "mender",
@@ -45,11 +52,13 @@
         "speed": "120",
         "damage": "23",
         "health": "65",
-        "defense": "3"
+        "defense": "3",
+        "img": "res/battlecards/blamster.png"
     },
     {
         "template_id": "260966",
         "name": "Deadly Blamster",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "water",
         "class": "mender",
@@ -57,11 +66,13 @@
         "speed": "120",
         "damage": "24",
         "health": "75",
-        "defense": "3"
+        "defense": "3",
+        "img": "res/battlecards/blamster.png"
     },
     {
         "template_id": "364837",
         "name": "Lethal Blamster",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "water",
         "class": "mender",
@@ -69,11 +80,13 @@
         "speed": "125",
         "damage": "25",
         "health": "80",
-        "defense": "3"
+        "defense": "3",
+        "img": "res/battlecards/blamster.png"
     },
     {
         "template_id": "254612",
         "name": "Blitzbaer",
+        "gen": "1.0",
         "variant": "normal",
         "type": "fire",
         "class": "elementalist",
@@ -81,11 +94,13 @@
         "speed": "130",
         "damage": "22",
         "health": "65",
-        "defense": "3"
+        "defense": "3",
+        "img": "res/battlecards/blitzbaer.png"
     },
     {
         "template_id": "261101",
         "name": "Deadly Blitzbaer",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "earth",
         "class": "elementalist",
@@ -93,11 +108,13 @@
         "speed": "130",
         "damage": "24",
         "health": "70",
-        "defense": "3"
+        "defense": "3",
+        "img": "res/battlecards/blitzbaer.png"
     },
     {
         "template_id": "364701",
         "name": "Lethal Blitzbaer",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "fire",
         "class": "elementalist",
@@ -105,11 +122,13 @@
         "speed": "135",
         "damage": "26",
         "health": "70",
-        "defense": "3"
+        "defense": "3",
+        "img": "res/battlecards/blitzbaer.png"
     },
     {
         "template_id": "254613",
         "name": "Bloodsplint",
+        "gen": "1.0",
         "variant": "normal",
         "type": "dark",
         "class": "slayer",
@@ -117,11 +136,13 @@
         "speed": "120",
         "damage": "23",
         "health": "65",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/bloodsplint.png"
     },
     {
         "template_id": "260970",
         "name": "Deadly Bloodsplint",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "dark",
         "class": "slayer",
@@ -129,11 +150,13 @@
         "speed": "120",
         "damage": "25",
         "health": "70",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/bloodsplint.png"
     },
     {
         "template_id": "364699",
         "name": "Lethal Bloodsplint",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "dark",
         "class": "slayer",
@@ -141,11 +164,13 @@
         "speed": "125",
         "damage": "27",
         "health": "70",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/bloodsplint.png"
     },
     {
         "template_id": "254575",
         "name": "Bluffer",
+        "gen": "1.0",
         "variant": "normal",
         "type": "water",
         "class": "mender",
@@ -153,11 +178,13 @@
         "speed": "115",
         "damage": "14",
         "health": "40",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/bluffer.png"
     },
     {
         "template_id": "260677",
         "name": "Deadly Bluffer",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "water",
         "class": "mender",
@@ -165,11 +192,13 @@
         "speed": "115",
         "damage": "15",
         "health": "45",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/bluffer.png"
     },
     {
         "template_id": "364694",
         "name": "Lethal Bluffer",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "water",
         "class": "mender",
@@ -177,11 +206,13 @@
         "speed": "120",
         "damage": "15",
         "health": "50",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/bluffer.png"
     },
     {
         "template_id": "254598",
         "name": "Bony",
+        "gen": "1.0",
         "variant": "normal",
         "type": "dark",
         "class": "necromancer",
@@ -189,11 +220,13 @@
         "speed": "110",
         "damage": "12",
         "health": "50",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/bony.png"
     },
     {
         "template_id": "260922",
         "name": "Deadly Bony",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "dark",
         "class": "necromancer",
@@ -201,11 +234,13 @@
         "speed": "110",
         "damage": "13",
         "health": "55",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/bony.png"
     },
     {
         "template_id": "364696",
         "name": "Lethal Bony",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "dark",
         "class": "necromancer",
@@ -213,11 +248,13 @@
         "speed": "115",
         "damage": "14",
         "health": "55",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/bony.png"
     },
     {
         "template_id": "337786",
         "name": "Carrotae",
+        "gen": "1.1",
         "variant": "normal",
         "type": "life",
         "class": "slayer",
@@ -225,11 +262,13 @@
         "speed": "135",
         "damage": "14",
         "health": "40",
-        "defense": "3"
+        "defense": "3",
+        "img": "res/battlecards/carrotae.png"
     },
     {
         "template_id": "338157",
         "name": "Deadly Carrotae",
+        "gen": "1.1",
         "variant": "deadly",
         "type": "life",
         "class": "slayer",
@@ -237,11 +276,13 @@
         "speed": "135",
         "damage": "15",
         "health": "40",
-        "defense": "4"
+        "defense": "4",
+        "img": "res/battlecards/carrotae.png"
     },
     {
         "template_id": "365346",
         "name": "Lethal Carrotae",
+        "gen": "1.1",
         "variant": "lethal",
         "type": "life",
         "class": "slayer",
@@ -249,11 +290,13 @@
         "speed": "140",
         "damage": "16",
         "health": "40",
-        "defense": "4"
+        "defense": "4",
+        "img": "res/battlecards/carrotae.png"
     },
     {
         "template_id": "339119",
         "name": "Dandaelion",
+        "gen": "1.1",
         "variant": "normal",
         "type": "life",
         "class": "mender",
@@ -261,11 +304,13 @@
         "speed": "110",
         "damage": "23",
         "health": "100",
-        "defense": "10"
+        "defense": "10",
+        "img": "res/battlecards/dandaelion.png"
     },
     {
         "template_id": "338158",
         "name": "Deadly Dandaelion",
+        "gen": "1.1",
         "variant": "deadly",
         "type": "life",
         "class": "mender",
@@ -273,11 +318,13 @@
         "speed": "110",
         "damage": "24",
         "health": "105",
-        "defense": "12"
+        "defense": "12",
+        "img": "res/battlecards/dandaelion.png"
     },
     {
         "template_id": "365357",
         "name": "Lethal Dandaelion",
+        "gen": "1.1",
         "variant": "lethal",
         "type": "life",
         "class": "mender",
@@ -285,11 +332,13 @@
         "speed": "115",
         "damage": "25",
         "health": "115",
-        "defense": "12"
+        "defense": "12",
+        "img": "res/battlecards/dandaelion.png"
     },
     {
         "template_id": "254599",
         "name": "Deadnik",
+        "gen": "1.0",
         "variant": "normal",
         "type": "dark",
         "class": "slayer",
@@ -297,11 +346,13 @@
         "speed": "120",
         "damage": "15",
         "health": "45",
-        "defense": "0.5"
+        "defense": "0.5",
+        "img": "res/battlecards/deadnik.png"
     },
     {
         "template_id": "260938",
         "name": "Deadly Deadnik",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "dark",
         "class": "slayer",
@@ -309,11 +360,13 @@
         "speed": "120",
         "damage": "16",
         "health": "50",
-        "defense": "0.5"
+        "defense": "0.5",
+        "img": "res/battlecards/deadnik.png"
     },
     {
         "template_id": "364697",
         "name": "Lethal Deadnik",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "dark",
         "class": "slayer",
@@ -321,11 +374,13 @@
         "speed": "125",
         "damage": "17",
         "health": "50",
-        "defense": "0.5"
+        "defense": "0.5",
+        "img": "res/battlecards/deadnik.png"
     },
     {
         "template_id": "254600",
         "name": "Egge",
+        "gen": "1.0",
         "variant": "normal",
         "type": "normal",
         "class": "defender",
@@ -333,11 +388,13 @@
         "speed": "100",
         "damage": "5",
         "health": "65",
-        "defense": "5"
+        "defense": "5",
+        "img": "res/battlecards/egge.png"
     },
     {
         "template_id": "260953",
         "name": "Deadly Egge",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "normal",
         "class": "defender",
@@ -345,11 +402,13 @@
         "speed": "100",
         "damage": "5",
         "health": "70",
-        "defense": "6"
+        "defense": "6",
+        "img": "res/battlecards/egge.png"
     },
     {
         "template_id": "364844",
         "name": "Lethal Egge",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "normal",
         "class": "defender",
@@ -357,11 +416,13 @@
         "speed": "105",
         "damage": "5",
         "health": "75",
-        "defense": "6"
+        "defense": "6",
+        "img": "res/battlecards/egge.png"
     },
     {
         "template_id": "254619",
         "name": "Eggeore",
+        "gen": "1.0",
         "variant": "normal",
         "type": "normal",
         "class": "defender",
@@ -369,11 +430,13 @@
         "speed": "105",
         "damage": "18",
         "health": "80",
-        "defense": "5"
+        "defense": "5",
+        "img": "res/battlecards/eggeore.png"
     },
     {
         "template_id": "364845",
         "name": "Lethal Eggeore",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "normal",
         "class": "defender",
@@ -381,11 +444,13 @@
         "speed": "110",
         "damage": "18",
         "health": "95",
-        "defense": "6"
+        "defense": "6",
+        "img": "res/battlecards/eggeore.png"
     },
     {
         "template_id": "260989",
         "name": "Deadly Eggore",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "normal",
         "class": "defender",
@@ -393,11 +458,13 @@
         "speed": "105",
         "damage": "18",
         "health": "95",
-        "defense": "5"
+        "defense": "5",
+        "img": "res/battlecards/eggore.png"
     },
     {
         "template_id": "254633",
         "name": "Fanflow",
+        "gen": "1.0",
         "variant": "normal",
         "type": "life",
         "class": "slayer",
@@ -405,11 +472,13 @@
         "speed": "170",
         "damage": "33",
         "health": "90",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/fanflow.png"
     },
     {
         "template_id": "261011",
         "name": "Deadly Fanflow",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "life",
         "class": "slayer",
@@ -417,11 +486,13 @@
         "speed": "170",
         "damage": "34",
         "health": "100",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/fanflow.png"
     },
     {
         "template_id": "364552",
         "name": "Lethal Fanflow",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "life",
         "class": "slayer",
@@ -429,11 +500,13 @@
         "speed": "175",
         "damage": "36",
         "health": "105",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/fanflow.png"
     },
     {
         "template_id": "337788",
         "name": "Firefowl",
+        "gen": "1.1",
         "variant": "normal",
         "type": "fire",
         "class": "elementalist",
@@ -441,11 +514,13 @@
         "speed": "160",
         "damage": "25",
         "health": "65",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/firefowl.png"
     },
     {
         "template_id": "338160",
         "name": "Deadly Firefowl",
+        "gen": "1.1",
         "variant": "deadly",
         "type": "fire",
         "class": "elementalist",
@@ -453,11 +528,13 @@
         "speed": "160",
         "damage": "27",
         "health": "65",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/firefowl.png"
     },
     {
         "template_id": "365383",
         "name": "Lethal Firefowl",
+        "gen": "1.1",
         "variant": "lethal",
         "type": "fire",
         "class": "elementalist",
@@ -465,11 +542,13 @@
         "speed": "165",
         "damage": "29",
         "health": "65",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/firefowl.png"
     },
     {
         "template_id": "254620",
         "name": "Flyn",
+        "gen": "1.0",
         "variant": "normal",
         "type": "life",
         "class": "slayer",
@@ -477,11 +556,13 @@
         "speed": "140",
         "damage": "25",
         "health": "65",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/flyn.png"
     },
     {
         "template_id": "260991",
         "name": "Deadly Flyn",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "life",
         "class": "slayer",
@@ -489,11 +570,13 @@
         "speed": "140",
         "damage": "27",
         "health": "70",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/flyn.png"
     },
     {
         "template_id": "364700",
         "name": "Lethal Flyn",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "life",
         "class": "slayer",
@@ -501,11 +584,13 @@
         "speed": "145",
         "damage": "29",
         "health": "70",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/flyn.png"
     },
     {
         "template_id": "254601",
         "name": "Gapin",
+        "gen": "1.0",
         "variant": "normal",
         "type": "light",
         "class": "slayer",
@@ -513,11 +598,13 @@
         "speed": "125",
         "damage": "12",
         "health": "45",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/gapin.png"
     },
     {
         "template_id": "260954",
         "name": "Deadly Gapin",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "light",
         "class": "slayer",
@@ -525,11 +612,13 @@
         "speed": "125",
         "damage": "13",
         "health": "50",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/gapin.png"
     },
     {
         "template_id": "364708",
         "name": "Lethal Gapin",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "light",
         "class": "slayer",
@@ -537,11 +626,13 @@
         "speed": "130",
         "damage": "14",
         "health": "50",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/gapin.png"
     },
     {
         "template_id": "254602",
         "name": "Griffar",
+        "gen": "1.0",
         "variant": "normal",
         "type": "earth",
         "class": "defender",
@@ -549,11 +640,13 @@
         "speed": "90",
         "damage": "7",
         "health": "55",
-        "defense": "4"
+        "defense": "4",
+        "img": "res/battlecards/griffar.png"
     },
     {
         "template_id": "260958",
         "name": "Deadly Griffar",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "earth",
         "class": "defender",
@@ -561,11 +654,13 @@
         "speed": "90",
         "damage": "7",
         "health": "60",
-        "defense": "5"
+        "defense": "5",
+        "img": "res/battlecards/griffar.png"
     },
     {
         "template_id": "364842",
         "name": "Lethal Griffar",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "earth",
         "class": "defender",
@@ -573,11 +668,13 @@
         "speed": "95",
         "damage": "7",
         "health": "65",
-        "defense": "5"
+        "defense": "5",
+        "img": "res/battlecards/griffar.png"
     },
     {
         "template_id": "254621",
         "name": "Gripply",
+        "gen": "1.0",
         "variant": "normal",
         "type": "light",
         "class": "slayer",
@@ -585,11 +682,13 @@
         "speed": "130",
         "damage": "22",
         "health": "75",
-        "defense": "1.5"
+        "defense": "1.5",
+        "img": "res/battlecards/gripply.png"
     },
     {
         "template_id": "260993",
         "name": "Deadly Gripply",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "light",
         "class": "slayer",
@@ -597,11 +696,13 @@
         "speed": "130",
         "damage": "24",
         "health": "80",
-        "defense": "1.5"
+        "defense": "1.5",
+        "img": "res/battlecards/gripply.png"
     },
     {
         "template_id": "364709",
         "name": "Lethal Gripply",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "light",
         "class": "slayer",
@@ -609,11 +710,13 @@
         "speed": "135",
         "damage": "26",
         "health": "80",
-        "defense": "1.5"
+        "defense": "1.5",
+        "img": "res/battlecards/gripply.png"
     },
     {
         "template_id": "254622",
         "name": "Gruffalo",
+        "gen": "1.0",
         "variant": "normal",
         "type": "earth",
         "class": "defender",
@@ -621,11 +724,13 @@
         "speed": "100",
         "damage": "16",
         "health": "80",
-        "defense": "6"
+        "defense": "6",
+        "img": "res/battlecards/gruffalo.png"
     },
     {
         "template_id": "260994",
         "name": "Deadly Gruffalo",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "earth",
         "class": "defender",
@@ -633,11 +738,13 @@
         "speed": "100",
         "damage": "16",
         "health": "90",
-        "defense": "7"
+        "defense": "7",
+        "img": "res/battlecards/gruffalo.png"
     },
     {
         "template_id": "364840",
         "name": "Lethal Gruffalo",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "earth",
         "class": "defender",
@@ -645,11 +752,13 @@
         "speed": "105",
         "damage": "16",
         "health": "90",
-        "defense": "8"
+        "defense": "8",
+        "img": "res/battlecards/gruffalo.png"
     },
     {
         "template_id": "254623",
         "name": "Kingrang",
+        "gen": "1.0",
         "variant": "normal",
         "type": "water",
         "class": "elementalist",
@@ -657,11 +766,13 @@
         "speed": "115",
         "damage": "22",
         "health": "70",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/kingrang.png"
     },
     {
         "template_id": "260998",
         "name": "Deadly Kingrang",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "water",
         "class": "elementalist",
@@ -669,11 +780,13 @@
         "speed": "115",
         "damage": "24",
         "health": "75",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/kingrang.png"
     },
     {
         "template_id": "364693",
         "name": "Lethal Kingrang",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "water",
         "class": "elementalist",
@@ -681,11 +794,13 @@
         "speed": "120",
         "damage": "26",
         "health": "75",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/kingrang.png"
     },
     {
         "template_id": "254603",
         "name": "Krabbu",
+        "gen": "1.0",
         "variant": "normal",
         "type": "water",
         "class": "defender",
@@ -693,11 +808,13 @@
         "speed": "100",
         "damage": "5",
         "health": "55",
-        "defense": "6"
+        "defense": "6",
+        "img": "res/battlecards/krabbu.png"
     },
     {
         "template_id": "260960",
         "name": "Deadly Krabbu",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "water",
         "class": "defender",
@@ -705,11 +822,13 @@
         "speed": "100",
         "damage": "5",
         "health": "60",
-        "defense": "7"
+        "defense": "7",
+        "img": "res/battlecards/krabbu.png"
     },
     {
         "template_id": "364695",
         "name": "Lethal Krabbu",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "water",
         "class": "defender",
@@ -717,11 +836,13 @@
         "speed": "105",
         "damage": "5",
         "health": "65",
-        "defense": "7"
+        "defense": "7",
+        "img": "res/battlecards/krabbu.png"
     },
     {
         "template_id": "254632",
         "name": "Luga",
+        "gen": "1.0",
         "variant": "normal",
         "type": "electric",
         "class": "elementalist",
@@ -729,11 +850,13 @@
         "speed": "150",
         "damage": "30",
         "health": "99",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/luga.png"
     },
     {
         "template_id": "261010",
         "name": "Deadly Luga",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "electric",
         "class": "elementalist",
@@ -741,11 +864,13 @@
         "speed": "150",
         "damage": "32",
         "health": "104",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/luga.png"
     },
     {
         "template_id": "364548",
         "name": "Lethal Luga",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "electric",
         "class": "elementalist",
@@ -753,11 +878,13 @@
         "speed": "155",
         "damage": "34",
         "health": "109",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/luga.png"
     },
     {
         "template_id": "337791",
         "name": "Magmoai",
+        "gen": "1.1",
         "variant": "normal",
         "type": "fire",
         "class": "defender",
@@ -765,11 +892,13 @@
         "speed": "90",
         "damage": "12",
         "health": "90",
-        "defense": "8"
+        "defense": "8",
+        "img": "res/battlecards/magmoai.png"
     },
     {
         "template_id": "338161",
         "name": "Deadly Magmoai",
+        "gen": "1.1",
         "variant": "deadly",
         "type": "fire",
         "class": "defender",
@@ -777,11 +906,13 @@
         "speed": "90",
         "damage": "12",
         "health": "95",
-        "defense": "10"
+        "defense": "10",
+        "img": "res/battlecards/magmoai.png"
     },
     {
         "template_id": "365393",
         "name": "Lethal Magmoai",
+        "gen": "1.1",
         "variant": "lethal",
         "type": "fire",
         "class": "defender",
@@ -789,11 +920,13 @@
         "speed": "95",
         "damage": "12",
         "health": "95",
-        "defense": "11"
+        "defense": "11",
+        "img": "res/battlecards/magmoai.png"
     },
     {
         "template_id": "337792",
         "name": "Maskeet",
+        "gen": "1.1",
         "variant": "normal",
         "type": "normal",
         "class": "slayer",
@@ -801,11 +934,13 @@
         "speed": "140",
         "damage": "15",
         "health": "40",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/maskeet.png"
     },
     {
         "template_id": "338162",
         "name": "Deadly Maskeet",
+        "gen": "1.1",
         "variant": "deadly",
         "type": "normal",
         "class": "slayer",
@@ -813,11 +948,13 @@
         "speed": "140",
         "damage": "17",
         "health": "40",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/maskeet.png"
     },
     {
         "template_id": "365462",
         "name": "Lethal Maskeet",
+        "gen": "1.1",
         "variant": "lethal",
         "type": "normal",
         "class": "slayer",
@@ -825,11 +962,13 @@
         "speed": "145",
         "damage": "18",
         "health": "40",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/maskeet.png"
     },
     {
         "template_id": "337793",
         "name": "Molleggnaut",
+        "gen": "1.1",
         "variant": "normal",
         "type": "earth",
         "class": "slayer",
@@ -837,11 +976,13 @@
         "speed": "120",
         "damage": "25",
         "health": "60",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/molleggnaut.png"
     },
     {
         "template_id": "338164",
         "name": "Deadly Molleggnaut",
+        "gen": "1.1",
         "variant": "deadly",
         "type": "earth",
         "class": "slayer",
@@ -849,11 +990,13 @@
         "speed": "120",
         "damage": "26",
         "health": "65",
-        "defense": "3"
+        "defense": "3",
+        "img": "res/battlecards/molleggnaut.png"
     },
     {
         "template_id": "365434",
         "name": "Lethal Molleggnaut",
+        "gen": "1.1",
         "variant": "lethal",
         "type": "earth",
         "class": "slayer",
@@ -861,11 +1004,13 @@
         "speed": "125",
         "damage": "28",
         "health": "65",
-        "defense": "3"
+        "defense": "3",
+        "img": "res/battlecards/molleggnaut.png"
     },
     {
         "template_id": "254624",
         "name": "Newborn",
+        "gen": "1.0",
         "variant": "normal",
         "type": "light",
         "class": "mender",
@@ -873,11 +1018,13 @@
         "speed": "140",
         "damage": "24",
         "health": "65",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/newborn.png"
     },
     {
         "template_id": "260999",
         "name": "Deadly Newborn",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "light",
         "class": "mender",
@@ -885,11 +1032,13 @@
         "speed": "140",
         "damage": "26",
         "health": "70",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/newborn.png"
     },
     {
         "template_id": "364835",
         "name": "Lethal Newborn",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "light",
         "class": "mender",
@@ -897,11 +1046,13 @@
         "speed": "145",
         "damage": "27",
         "health": "75",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/newborn.png"
     },
     {
         "template_id": "254604",
         "name": "Pouchrabbi",
+        "gen": "1.0",
         "variant": "normal",
         "type": "fire",
         "class": "slayer",
@@ -909,11 +1060,13 @@
         "speed": "130",
         "damage": "12",
         "health": "50",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/pouchrabbi.png"
     },
     {
         "template_id": "260962",
         "name": "Deadly Pouchrabbi",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "fire",
         "class": "slayer",
@@ -921,11 +1074,13 @@
         "speed": "130",
         "damage": "13",
         "health": "55",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/pouchrabbi.png"
     },
     {
         "template_id": "364704",
         "name": "Lethal Pouchrabbi",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "fire",
         "class": "slayer",
@@ -933,11 +1088,13 @@
         "speed": "135",
         "damage": "14",
         "health": "55",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/pouchrabbi.png"
     },
     {
         "template_id": "339118",
         "name": "Rhaeder",
+        "gen": "1.1",
         "variant": "normal",
         "type": "light",
         "class": "defender",
@@ -945,11 +1102,13 @@
         "speed": "120",
         "damage": "19",
         "health": "120",
-        "defense": "11"
+        "defense": "11",
+        "img": "res/battlecards/rhaeder.png"
     },
     {
         "template_id": "338166",
         "name": "Deadly Rhaeder",
+        "gen": "1.1",
         "variant": "deadly",
         "type": "light",
         "class": "defender",
@@ -957,11 +1116,13 @@
         "speed": "120",
         "damage": "19",
         "health": "130",
-        "defense": "13"
+        "defense": "13",
+        "img": "res/battlecards/rhaeder.png"
     },
     {
         "template_id": "365362",
         "name": "Lethal Rhaeder",
+        "gen": "1.1",
         "variant": "lethal",
         "type": "light",
         "class": "defender",
@@ -969,11 +1130,13 @@
         "speed": "125",
         "damage": "19",
         "health": "135",
-        "defense": "14"
+        "defense": "14",
+        "img": "res/battlecards/rhaeder.png"
     },
     {
         "template_id": "337795",
         "name": "Seeka",
+        "gen": "1.1",
         "variant": "normal",
         "type": "electric",
         "class": "slayer",
@@ -981,11 +1144,13 @@
         "speed": "145",
         "damage": "15",
         "health": "45",
-        "defense": "0"
+        "defense": "0",
+        "img": "res/battlecards/seeka.png"
     },
     {
         "template_id": "338169",
         "name": "Deadly Seeka",
+        "gen": "1.1",
         "variant": "deadly",
         "type": "electric",
         "class": "slayer",
@@ -993,11 +1158,13 @@
         "speed": "145",
         "damage": "16",
         "health": "50",
-        "defense": "0"
+        "defense": "0",
+        "img": "res/battlecards/seeka.png"
     },
     {
         "template_id": "365404",
         "name": "Lethal Seeka",
+        "gen": "1.1",
         "variant": "lethal",
         "type": "electric",
         "class": "slayer",
@@ -1005,11 +1172,13 @@
         "speed": "155",
         "damage": "17",
         "health": "50",
-        "defense": "0"
+        "defense": "0",
+        "img": "res/battlecards/seeka.png"
     },
     {
         "template_id": "337796",
         "name": "Shadowl",
+        "gen": "1.1",
         "variant": "normal",
         "type": "electric",
         "class": "mender",
@@ -1017,11 +1186,13 @@
         "speed": "115",
         "damage": "25",
         "health": "70",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/shadowl.png"
     },
     {
         "template_id": "338171",
         "name": "Deadly Shadowl",
+        "gen": "1.1",
         "variant": "deadly",
         "type": "electric",
         "class": "mender",
@@ -1029,11 +1200,13 @@
         "speed": "115",
         "damage": "25",
         "health": "75",
-        "defense": "3"
+        "defense": "3",
+        "img": "res/battlecards/shadowl.png"
     },
     {
         "template_id": "365410",
         "name": "Lethal Shadowl",
+        "gen": "1.1",
         "variant": "lethal",
         "type": "electric",
         "class": "mender",
@@ -1041,11 +1214,13 @@
         "speed": "120",
         "damage": "26",
         "health": "80",
-        "defense": "3"
+        "defense": "3",
+        "img": "res/battlecards/shadowl.png"
     },
     {
         "template_id": "337864",
         "name": "Slaggut",
+        "gen": "1.1",
         "variant": "normal",
         "type": "dark",
         "class": "slayer",
@@ -1053,11 +1228,13 @@
         "speed": "100",
         "damage": "12",
         "health": "40",
-        "defense": "5"
+        "defense": "5",
+        "img": "res/battlecards/slaggut.png"
     },
     {
         "template_id": "338153",
         "name": "Deadly Slaggut",
+        "gen": "1.1",
         "variant": "deadly",
         "type": "dark",
         "class": "slayer",
@@ -1065,11 +1242,13 @@
         "speed": "100",
         "damage": "14",
         "health": "40",
-        "defense": "5"
+        "defense": "5",
+        "img": "res/battlecards/slaggut.png"
     },
     {
         "template_id": "365426",
         "name": "Lethal Slaggut",
+        "gen": "1.1",
         "variant": "lethal",
         "type": "dark",
         "class": "slayer",
@@ -1077,11 +1256,13 @@
         "speed": "105",
         "damage": "15",
         "health": "40",
-        "defense": "5"
+        "defense": "5",
+        "img": "res/battlecards/slaggut.png"
     },
     {
         "template_id": "254625",
         "name": "Spikony",
+        "gen": "1.0",
         "variant": "normal",
         "type": "dark",
         "class": "necromancer",
@@ -1089,11 +1270,13 @@
         "speed": "115",
         "damage": "22",
         "health": "75",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/spikony.png"
     },
     {
         "template_id": "261001",
         "name": "Deadly Spikony",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "dark",
         "class": "necromancer",
@@ -1101,11 +1284,13 @@
         "speed": "115",
         "damage": "24",
         "health": "80",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/spikony.png"
     },
     {
         "template_id": "364698",
         "name": "Lethal Spikony",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "dark",
         "class": "necromancer",
@@ -1113,11 +1298,13 @@
         "speed": "120",
         "damage": "26",
         "health": "80",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/spikony.png"
     },
     {
         "template_id": "254626",
         "name": "Sunchrabbi",
+        "gen": "1.0",
         "variant": "normal",
         "type": "fire",
         "class": "slayer",
@@ -1125,11 +1312,13 @@
         "speed": "135",
         "damage": "25",
         "health": "65",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/sunchrabbi.png"
     },
     {
         "template_id": "261004",
         "name": "Deadly Sunchrabbi",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "fire",
         "class": "slayer",
@@ -1137,11 +1326,13 @@
         "speed": "135",
         "damage": "27",
         "health": "70",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/sunchrabbi.png"
     },
     {
         "template_id": "364703",
         "name": "Lethal Sunchrabbi",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "fire",
         "class": "slayer",
@@ -1149,11 +1340,13 @@
         "speed": "140",
         "damage": "29",
         "health": "70",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/sunchrabbi.png"
     },
     {
         "template_id": "254606",
         "name": "Unborn",
+        "gen": "1.0",
         "variant": "normal",
         "type": "light",
         "class": "mender",
@@ -1161,11 +1354,13 @@
         "speed": "125",
         "damage": "12",
         "health": "45",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/unborn.png"
     },
     {
         "template_id": "260964",
         "name": "Deadly Unborn",
+        "gen": "1.0",
         "variant": "deadly",
         "type": "light",
         "class": "mender",
@@ -1173,11 +1368,13 @@
         "speed": "125",
         "damage": "13",
         "health": "50",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/unborn.png"
     },
     {
         "template_id": "364707",
         "name": "Lethal Unborn",
+        "gen": "1.0",
         "variant": "lethal",
         "type": "light",
         "class": "mender",
@@ -1185,11 +1382,13 @@
         "speed": "130",
         "damage": "13",
         "health": "55",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/unborn.png"
     },
     {
         "template_id": "351630",
         "name": "Voodude",
+        "gen": "1.1",
         "variant": "normal",
         "type": "dark",
         "class": "necromancer",
@@ -1197,11 +1396,13 @@
         "speed": "155",
         "damage": "30",
         "health": "100",
-        "defense": "1"
+        "defense": "1",
+        "img": "res/battlecards/voodude.png"
     },
     {
         "template_id": "351693",
         "name": "Deadly Voodude",
+        "gen": "1.1",
         "variant": "deadly",
         "type": "dark",
         "class": "necromancer",
@@ -1209,11 +1410,13 @@
         "speed": "155",
         "damage": "32",
         "health": "105",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/voodude.png"
     },
     {
         "template_id": "365422",
         "name": "Lethal Voodude",
+        "gen": "1.1",
         "variant": "lethal",
         "type": "dark",
         "class": "necromancer",
@@ -1221,11 +1424,13 @@
         "speed": "160",
         "damage": "34",
         "health": "110",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/voodude.png"
     },
     {
         "template_id": "337798",
         "name": "Xxopi",
+        "gen": "1.1",
         "variant": "normal",
         "type": "water",
         "class": "elementalist",
@@ -1233,11 +1438,13 @@
         "speed": "135",
         "damage": "24",
         "health": "70",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/xxopi.png"
     },
     {
         "template_id": "338172",
         "name": "Deadly Xxopi",
+        "gen": "1.1",
         "variant": "deadly",
         "type": "water",
         "class": "elementalist",
@@ -1245,11 +1452,13 @@
         "speed": "135",
         "damage": "27",
         "health": "70",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/xxopi.png"
     },
     {
         "template_id": "374829",
         "name": "Lethal Xxopi",
+        "gen": "1.1",
         "variant": "lethal",
         "type": "water",
         "class": "elementalist",
@@ -1257,6 +1466,7 @@
         "speed": "140",
         "damage": "29",
         "health": "70",
-        "defense": "2"
+        "defense": "2",
+        "img": "res/battlecards/xxopi.png"
     }
 ]
