@@ -32,6 +32,7 @@
     </div>
     <div id="wallet_in" style="display:none">
         <h4>Wallet: <span id="wallet"></span></h4>
+        <h4>Message: <input type="text" id="msg"/></h4>
         <input type="number" id="amount" oninput="restrict(this);" />
         <select id="token" onchange="updateToken();">
         </select>
@@ -61,9 +62,9 @@ const TOKENS = [
     {symbol: "NBMCON", contract: "battleminers", precision: 6, market_id: 135},
     {symbol: "MST", contract: "metatoken.gm", precision: 8, swap_id: 531},
     {symbol: "TACO", contract: "t.taco", precision: 4, market_id: 131},
+    {symbol: "SHING", contract: "t.taco", precision: 4, market_id: 221},
     {symbol: "LOOT", contract: "warsaken", precision: 4, market_id: 173},
 ];
-const Gyt75PoQy6 = "h#-[jh2gAMkV8VD";
 
 var twitch = "";
 var wallet = "";
@@ -126,18 +127,6 @@ const minDonation = async() => {
     return output;
 }
 
-const cipher = (salt) => {
-    const textToChars = text => text.split("").map(c => c.charCodeAt(0));
-    const byteHex = n => ("0" + Number(n).toString(16)).substr(-2);
-    const applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code);
-
-    return text => text.split("")
-        .map(textToChars)
-        .map(applySaltToChar)
-        .map(byteHex)
-        .join("");
-}
-
 const sleep = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -169,8 +158,8 @@ const loginSpecificWallet = async(walletType) => {
 }
 
 const load = async() => {
-    const myCipher = cipher(Gyt75PoQy6);
-    var memo = myCipher("Twitch Donation from: " + twitch);
+    var msg = document.getElementById("msg").value;
+    var memo = `${twitch}:${msg}`;
     var token = getToken();
 
     document.getElementById("donate").disabled = true;
