@@ -72,6 +72,7 @@
 <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
 <script>
 const AH = "https://aa-testnet.neftyblocks.com/atomicassets/v1/";
+const SKIP = ["nftbemanager", "uknownothing", "mercartgames", "neftyblpacks"];
 var $table = $("#table");
 
 const fetchAssets = async(schema) => {
@@ -97,6 +98,9 @@ const fetchAssets = async(schema) => {
             break;
         } else {
             for (var i = 0; i < response.data.length; i++) {
+                if (SKIP.includes(response.data[i].owner)) {
+                    continue;
+                }
                 output.push({
                     "asset_id": response.data[i].asset_id,
                     "name": response.data[i].name,
