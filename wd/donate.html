@@ -32,7 +32,7 @@
     </div>
     <div id="wallet_in" style="display:none">
         <h4>Wallet: <span id="wallet"></span></h4>
-        <h4>Message: <input type="text" id="msg"/></h4>
+        <h4>Message: <input type="text" id="msg" maxlength="150"/></h4>
         <input type="number" id="amount" oninput="restrict(this);" />
         <select id="token" onchange="updateToken();">
         </select>
