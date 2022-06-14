@@ -105,9 +105,9 @@ const fetchAssets = async(schema) => {
                     "asset_id": response.data[i].asset_id,
                     "name": response.data[i].name,
                     "owner": response.data[i].owner,
-                    "attack": response.data[i].data["Attack"] == undefined ? 0 : response.data[i].data["Attack"],
-                    "defense": response.data[i].data["Defense"] == undefined ? 0 : response.data[i].data["Defense"],
-                    "hp": response.data[i].data["Hit Points"] == undefined ? 0 : response.data[i].data["Hit Points"]
+                    "attack": response.data[i].data["Attack"] == undefined ? 0 : (response.data[i].data["Attack"] / 100).toFixed(2),
+                    "defense": response.data[i].data["Defense"] == undefined ? 0 : (response.data[i].data["Defense"] / 100).toFixed(2),
+                    "hp": response.data[i].data["Hit Points"] == undefined ? 0 : (response.data[i].data["Hit Points"] / 100).toFixed(2)
                 })
             }
             page++;
