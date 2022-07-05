@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/jpg" sizes="96x96" href="res/logo.jpg">
+    <title>Cosmos Eleven Weekly Leaderboard</title>
+    <meta property="og:title" content="Cosmos Eleven Weekly Leaderboard">
+    <meta property="og:image" content="https://ryucrypt.github.io/nft/c11/res/logo.jpg">
+    <meta property="og:type" content="website">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="./" class="align-items-center me-auto text-dark text-decoration-none">
+                <h2>Cosmos Eleven Weekly Leaderboard ⚽</h2>
+            </a>
+        </header>
+        <main>
+            <div class="row my-3">
+                <p>Week Starting</p>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="weeks_lbl" data-bs-toggle="dropdown" aria-expanded="false">
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="weeks_lbl" id="weeks">
+                    </ul>
+                </div>
+            </div>
+            <div class="row my-3">
+                <p>Last update: <span id="last_update">-</span></p>
+            </div>
+            <div class="row mb-3">
+                <div id="loading" class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table
+                        id="table"
+                        class="visually-hidden table table-sm table-bordered"
+                        data-toggle="table">
+                        <thead>
+                            <tr class="table-dark">
+                                <th scope="col" data-field="wallet" data-formatter="urlFormatter" data-align="center">Wallet</th>
+                                <th scope="col" data-field="scores" data-align="center">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal fade" id="wins">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Wins (<span id="wallet"></span>)</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="table-responsive">
+                                <table
+                                    id="details"
+                                    class="table table-sm table-bordered"
+                                    data-toggle="table">
+                                    <thead>
+                                        <tr class="table-dark">
+                                            <th scope="col" data-field="index" data-align="center">Index</th>
+                                            <th scope="col" data-field="name" data-align="center">Name</th>
+                                            <th scope="col" data-field="score" data-align="center">Score</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="row justify-content-center border-top">
+                <p class="text-center text-muted my-3">Made by ryucrypt: wwiem.wam</p>
+                <p class="text-center text-muted">This is an unofficial tool, please use at your own discretion.</p>
+            </div>
+        </footer>
+    </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script>
+var $table = $("#table");
+var $details = $("#details");
+var raw = "";
+var cur = "";
+
+const fetchInfo = async() => {
+    var url = "./res/c11_results.json";
+    var r = await fetch(url);
+    var response = await r.json();
+    return response;
+}
+
+const initialise = async() => {
+    raw = await fetchInfo();
+    cur = raw[raw.weeks[0]];
+
+    $("#weeks_lbl").html(raw.weeks[0]);
+    for (let i = 0; i < raw.weeks.length; i++) {
+        $("#weeks").append(`<li><a class="dropdown-item" href="javascript:void(0)" onclick="run('${raw.weeks[i]}')">${raw.weeks[i]}</a></li>`);
+    }
+
+    $table.bootstrapTable("load", cur);
+    $table.removeClass("visually-hidden");
+    $("#loading").addClass("visually-hidden");
+    $("#last_update").html(new Date(raw.last_update));
+}
+
+const summary = async(wallet) => {
+    var result = cur.find(e => e.wallet == wallet);
+    $details.bootstrapTable("load", result.wins);
+    $("#wallet").html(wallet);
+}
+
+const run = async(week) => {
+    $table.addClass("visually-hidden");
+    $("#loading").removeClass("visually-hidden");
+
+    cur = raw[week]
+    $table.bootstrapTable("load", cur);
+    $("#weeks_lbl").html(week);
+
+    $table.removeClass("visually-hidden");
+    $("#loading").addClass("visually-hidden");
+}
+
+function urlFormatter(value, row) {
+    return `<a href="javascript:void(0)" onclick="summary('${value}')" data-bs-toggle="modal" data-bs-target="#wins">${value}</a>`;
+}
+
+initialise();
+</script>
+</body>
+</html>
