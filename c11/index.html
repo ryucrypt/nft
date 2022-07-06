@@ -45,6 +45,7 @@
                         data-toggle="table">
                         <thead>
                             <tr class="table-dark">
+                                <th scope="col" data-formatter="rankFormatter" data-align="center">Rank</th>
                                 <th scope="col" data-field="wallet" data-formatter="urlFormatter" data-align="center">Wallet</th>
                                 <th scope="col" data-field="scores" data-align="center">Score</th>
                             </tr>
@@ -145,6 +146,10 @@ const run = async(week) => {
 
 function urlFormatter(value, row) {
     return `<a href="javascript:void(0)" onclick="summary('${value}')" data-bs-toggle="modal" data-bs-target="#wins">${value}</a>`;
+}
+
+function rankFormatter(value, row, index, field) {
+    return index + 1;
 }
 
 initialise();
