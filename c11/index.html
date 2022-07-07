@@ -47,7 +47,8 @@
                             <tr class="table-dark">
                                 <th scope="col" data-formatter="rankFormatter" data-align="center">Rank</th>
                                 <th scope="col" data-field="wallet" data-formatter="urlFormatter" data-align="center">Wallet</th>
-                                <th scope="col" data-field="scores" data-align="center">Score</th>
+                                <th scope="col" data-sortable="true" data-field="scores" data-align="center">Score</th>
+                                <th scope="col" data-sortable="true" data-field="joined" data-align="center">Total Joins</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -101,29 +102,29 @@
 <script>
 var $table = $("#table");
 var $details = $("#details");
-var raw = "";
+var index = "";
 var cur = "";
 
-const fetchInfo = async() => {
-    var url = "./res/c11_results.json";
+const fetchInfo = async(file) => {
+    var url = `./res/${file}.json`;
     var r = await fetch(url);
     var response = await r.json();
     return response;
 }
 
 const initialise = async() => {
-    raw = await fetchInfo();
-    cur = raw[raw.weeks[0]];
+    index = await fetchInfo("c11_results");
+    cur = await fetchInfo(index.weeks[0]);
 
-    $("#weeks_lbl").html(raw.weeks[0]);
-    for (let i = 0; i < raw.weeks.length; i++) {
-        $("#weeks").append(`<li><a class="dropdown-item" href="javascript:void(0)" onclick="run('${raw.weeks[i]}')">${raw.weeks[i]}</a></li>`);
+    $("#weeks_lbl").html(index.weeks[0]);
+    for (let i = 0; i < index.weeks.length; i++) {
+        $("#weeks").append(`<li><a class="dropdown-item" href="javascript:void(0)" onclick="run('${index.weeks[i]}')">${index.weeks[i]}</a></li>`);
     }
 
     $table.bootstrapTable("load", cur);
     $table.removeClass("visually-hidden");
     $("#loading").addClass("visually-hidden");
-    $("#last_update").html(new Date(raw.last_update));
+    $("#last_update").html(new Date(index.last_update));
 }
 
 const summary = async(wallet) => {
@@ -136,7 +137,7 @@ const run = async(week) => {
     $table.addClass("visually-hidden");
     $("#loading").removeClass("visually-hidden");
 
-    cur = raw[week]
+    cur = await fetchInfo(week);
     $table.bootstrapTable("load", cur);
     $("#weeks_lbl").html(week);
 
