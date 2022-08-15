@@ -30,5 +30,13 @@
     {
         "template_id": 557854,
         "name": "The Undead King"
+    },
+    {
+        "template_id": 581122,
+        "name": "Lair Keeper"
+    },
+    {
+        "template_id": 581123,
+        "name": "Lair Keeper"
     }
 ]
