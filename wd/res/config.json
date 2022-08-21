@@ -38,5 +38,29 @@
     {
         "template_id": 581123,
         "name": "Lair Keeper"
+    },
+    {
+        "template_id": 582385,
+        "name": "Naga Warrior"
+    },
+    {
+        "template_id": 582386,
+        "name": "Naga Warrior"
+    },
+	{
+        "template_id": 582387,
+        "name": "The Queen of Life"
+    },
+    {
+        "template_id": 582388,
+        "name": "The Queen of Life"
+    },
+	{
+        "template_id": 582389,
+        "name": "Nephilim"
+    },
+    {
+        "template_id": 582390,
+        "name": "Nephilim"
     }
 ]
