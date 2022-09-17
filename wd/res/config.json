@@ -47,7 +47,7 @@
         "template_id": 582386,
         "name": "Naga Warrior"
     },
-	{
+    {
         "template_id": 582387,
         "name": "The Queen of Life"
     },
@@ -55,12 +55,44 @@
         "template_id": 582388,
         "name": "The Queen of Life"
     },
-	{
+    {
         "template_id": 582389,
         "name": "Nephilim"
     },
     {
         "template_id": 582390,
+        "name": "Nephilim"
+    },
+    {
+        "template_id": 600412,
+        "name": "The Diviner"
+    },
+    {
+        "template_id": 600413,
+        "name": "The Underworld King"
+    },
+    {
+        "template_id": 600414,
+        "name": "Lars"
+    },
+    {
+        "template_id": 600415,
+        "name": "The Undead King"
+    },
+    {
+        "template_id": 600416,
+        "name": "Lair Keeper"
+    },
+    {
+        "template_id": 600417,
+        "name": "Naga Warrior"
+    },
+    {
+        "template_id": 600418,
+        "name": "The Queen of Life"
+    },
+    {
+        "template_id": 600419,
         "name": "Nephilim"
     }
 ]
