@@ -26,6 +26,12 @@
         <img src="res/favi.png" style="display:block;margin:auto"></img>
         <h4>All proceeds will go to WhiteDragon NFT team to support the project and stream! ❤</h4>
         <p style="font-size:14px">* No user info (Twitch, WAX wallet etc.) is stored in this site.</p>
+        <h4>If you choose to donate manually:</h4>
+        <ol>
+            <li>Transfer at least 1 WAX or 1 WAX equivalent of supported tokens to <b>donate.drgn</b></li>
+            <li>The memo should be:<br><b>twitch_username:message to appear on stream</b></li>
+            <li>Supported tokens: <div id="tokens"></div></li>
+        </ol>
     </div>
     <br><br>
     <a id="twitch_login" href="https://id.twitch.tv/oauth2/authorize?response_type=id_token&client_id=a68m7c8h9tqrxwn1yrxydamn2v9x5f&redirect_uri=https://ryucrypt.github.io/nft/wd/donate.html&scope=openid&claims={%22id_token%22:{%22preferred_username%22:null}}"><button type="button">Twitch Login</button></a>
@@ -226,6 +232,21 @@ const setOptions = () => {
     }
 }
 
+const setTokens = () => {
+    tokens = "";
+    for (let i = 0; i < TOKENS.length; i++) {
+        if (tokens == "") {
+            tokens = TOKENS[i].symbol;
+        } else {
+            tokens += TOKENS[i].symbol;
+        }
+        if (i != TOKENS.length - 1) {
+            tokens += ", ";
+        }
+    }
+    document.getElementById("tokens").innerHTML = tokens;
+}
+
 const restrict = (tis) => {
     var token = getToken();
     var t = tis.value;
@@ -242,6 +263,7 @@ const updateToken = async() => {
 }
 
 setOptions();
+setTokens();
 </script>
 </body>
 </html>
