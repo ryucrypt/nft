@@ -170,8 +170,8 @@ const fetchInfo = async(file) => {
 }
 
 const initialise = async() => {
-    data = await fetchInfo("wd_results");
-    lookup = await fetchInfo("config");
+    data = await fetchInfo("wd_nsfw_results");
+    lookup = await fetchInfo("config_nsfw");
 
     $table.bootstrapTable("load", data.data);
     $table.removeClass("visually-hidden");
@@ -223,7 +223,7 @@ const copy = () => {
     var output = "";
     for (let i = 0; i < data.data.length; i++) {
         for (let j = 0; j < data.data[i].entries; j++) {
-            output = output + `${data.data[i].wallet}\n`
+            output = output + `${data.data[i].wallet}\n`;
         }
     }
     navigator.clipboard.writeText(output).then(() => {

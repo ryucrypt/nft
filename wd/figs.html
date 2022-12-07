@@ -58,6 +58,8 @@
                                 <th scope="col" data-formatter="rankFormatter" data-align="center">Rank</th>
                                 <th scope="col" data-field="wallet" data-formatter="urlFormatter" data-align="center">Wallet</th>
                                 <th scope="col" data-sortable="true" data-field="entries" data-align="center">Score</th>
+                                <th scope="col" data-sortable="true" data-field="boost" data-formatter="percentFormatter" data-align="center">Boost</th>
+                                <th scope="col" data-field="special" data-formatter="booleanFormatter" data-align="center" data-filter-control="select">Special Pool?</th>
                                 <!-- <th scope="col" data-sortable="true" data-field="completed" data-align="center">Completed Sets</th> -->
                                 <!-- <th scope="col" data-field="has_unique" data-formatter="booleanFormatter" data-align="center" data-filter-control="select">Eligible for Top Collectors</th> -->
                             </tr>
@@ -219,11 +221,18 @@ function templateFormatter(value, row, index, field) {
     return `<a href="https://wax.atomichub.io/explorer/template/whitedragnft/${value}" target="_blank">${result.name}</a>`;
 }
 
+function percentFormatter(value, row, index, field) {
+    return value.toFixed(0) + "%";
+}
+
 const copy = () => {
     var output = "";
     for (let i = 0; i < data.data.length; i++) {
+        if (!data.data[i].special) {
+            continue;
+        }
         for (let j = 0; j < data.data[i].entries; j++) {
-            output = output + `${data.data[i].wallet}\n`
+            output = output + `${data.data[i].wallet}\n`;
         }
     }
     navigator.clipboard.writeText(output).then(() => {
