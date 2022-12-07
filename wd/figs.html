@@ -222,7 +222,7 @@ function templateFormatter(value, row, index, field) {
 }
 
 function percentFormatter(value, row, index, field) {
-    return value.toFixed(0) + "%";
+    return (value * 100).toFixed(0) + "%";
 }
 
 const copy = () => {
