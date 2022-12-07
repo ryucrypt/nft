@@ -3,14 +3,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/jpg" sizes="96x96" href="res/favi.png">
-    <title>WhiteDragon NFT Figurines Season 1 Leaderboard</title>
-    <meta property="og:title" content="WhiteDragon NFT Figurines Season 1 Leaderboard">
-    <meta property="og:image" content="https://ryucrypt.github.io/nft/wd/res/favi.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="res/favi.png">
+    <title>WhiteDragon NFT Links</title>
+    <meta property="og:title" content="WhiteDragon NFT">
+    <meta property="og:image" content="https://ryucrypt.github.io/nft/res/favi.png">
+    <meta property="og:description" content="WhiteDragon NFT Links">
     <meta property="og:type" content="website">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HG5WVNP5BP"></script>
     <script>
@@ -24,215 +23,27 @@
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
             <a href="./" class="align-items-center me-auto text-dark text-decoration-none">
-                <h2>WhiteDragon NFT Figurines Season 1 Leaderboard 🏆</h2>
+                <h2>WhiteDragon NFT</h2>
+                <p>Various links for the WhiteDragon NFT project</p>
             </a>
-            <ul class="nav nav-pills">
-                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-                <li class="nav-item"><a href="./donate.html" class="nav-link">Donations</a></li>
-            </ul>
         </header>
         <main>
-            <div class="row my-3">
-                <div>
-                    <button class="btn btn-primary" type="button" id="copy" onclick="copy()" disabled>
-                        Copy entries
-                    </button>
-                </div>
-            </div>
-            <div class="row my-3">
-                <p>Last update: <span id="last_update">-</span></p>
-            </div>
-            <div class="row mb-3">
-                <div id="loading" class="d-flex justify-content-center">
-                    <div class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-                </div>
-                <div class="table-responsive">
-                    <table
-                        id="table"
-                        class="visually-hidden table table-sm table-bordered"
-                        data-filter-control="true"
-                        data-toggle="table">
-                        <thead>
-                            <tr class="table-dark">
-                                <th scope="col" data-formatter="rankFormatter" data-align="center">Rank</th>
-                                <th scope="col" data-field="wallet" data-formatter="urlFormatter" data-align="center">Wallet</th>
-                                <th scope="col" data-sortable="true" data-field="entries" data-align="center">Score</th>
-                                <th scope="col" data-sortable="true" data-field="completed" data-align="center">Completed Sets</th>
-                                <th scope="col" data-field="has_unique" data-formatter="booleanFormatter" data-align="center" data-filter-control="select">Eligible for Top Collectors</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="modal fade" id="details">
-                <div class="modal-dialog modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Details for <a id="wallet" target="_blank"></a></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <h5 class="my-2">Base</h5>
-                            <div class="table-responsive">
-                                <table
-                                    id="base"
-                                    class="table table-sm table-bordered"
-                                    data-filter-control="true"
-                                    data-toggle="table">
-                                    <thead>
-                                        <tr class="table-dark">
-                                            <th scope="col" data-field="template_id" data-formatter="templateFormatter" data-align="center">Template</th>
-                                            <th scope="col" data-field="season" data-align="center" data-filter-control="select">Season</th>
-                                            <th scope="col" data-sortable="true" data-field="owned" data-align="center">Owned</th>
-                                            <th scope="col" data-sortable="true" data-field="staked" data-align="center">Staked</th>
-                                            <th scope="col" data-sortable="true" data-field="entries" data-align="center">Score</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <h5 class="my-2">Painted</h5>
-                            <div class="table-responsive">
-                                <table
-                                    id="painted"
-                                    class="table table-sm table-bordered"
-                                    data-filter-control="true"
-                                    data-toggle="table">
-                                    <thead>
-                                        <tr class="table-dark">
-                                            <th scope="col" data-field="template_id" data-formatter="templateFormatter" data-align="center">Template</th>
-                                            <th scope="col" data-field="season" data-align="center" data-filter-control="select">Season</th>
-                                            <th scope="col" data-sortable="true" data-field="owned" data-align="center">Owned</th>
-                                            <th scope="col" data-sortable="true" data-field="staked" data-align="center">Staked</th>
-                                            <th scope="col" data-sortable="true" data-field="entries" data-align="center">Score</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <h5 class="my-2">Unique</h5>
-                            <div class="table-responsive">
-                                <table
-                                    id="unique"
-                                    class="table table-sm table-bordered"
-                                    data-filter-control="true"
-                                    data-toggle="table">
-                                    <thead>
-                                        <tr class="table-dark">
-                                            <th scope="col" data-field="template_id" data-formatter="templateFormatter" data-align="center">Template</th>
-                                            <th scope="col" data-field="season" data-align="center" data-filter-control="select">Season</th>
-                                            <th scope="col" data-sortable="true" data-field="owned" data-align="center">Owned</th>
-                                            <th scope="col" data-sortable="true" data-field="staked" data-align="center">Staked</th>
-                                            <th scope="col" data-sortable="true" data-field="entries" data-align="center">Score</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="col">
+                    <ul>
+                        <li><a href="./figs.html">Main Figurines Leaderboard</a></li>
+                        <li><a href="./figs-nsfw.html">NSFW Figurines Leaderboard</a></li>
+                        <li><a href="./donate.html">Twitch Donations</a></li>
+                    </ul>
                 </div>
             </div>
         </main>
         <footer>
             <div class="row justify-content-center border-top">
                 <p class="text-center text-muted my-3">Made by ryucrypt: wwiem.wam</p>
-                <p class="text-center text-muted">This is an unofficial tool, please use at your own discretion.</p>
+                <p class="text-center text-muted">These are unofficial tools, please use at your own discretion.</p>
             </div>
         </footer>
     </div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
-<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
-<script>
-var $table = $("#table");
-var $base = $("#base");
-var $painted = $("#painted");
-var $unique = $("#unique");
-var data = "";
-var lookup = "";
-
-const fetchInfo = async(file) => {
-    var url = `./res/${file}.json`;
-    var r = await fetch(url);
-    var response = await r.json();
-    return response;
-}
-
-const initialise = async() => {
-    data = await fetchInfo("wd_results");
-    lookup = await fetchInfo("config");
-
-    $table.bootstrapTable("load", data.data);
-    $table.removeClass("visually-hidden");
-    $("#loading").addClass("visually-hidden");
-    $("#last_update").html(new Date(data.last_update));
-    $("#copy").removeAttr("disabled");
-}
-
-const summary = async(wallet) => {
-    $("#wallet").html(wallet);
-    $("#wallet").attr("href", `https://wax.atomichub.io/profile/${wallet}?collection_name=whitedragnft`);
-    var result = data.data.find(e => e.wallet == wallet);
-
-    if (result.owns.base == undefined) {
-        $base.bootstrapTable("load", []);
-    } else {
-        $base.bootstrapTable("load", result.owns.base);
-    }
-    if (result.owns.painted == undefined) {
-        $painted.bootstrapTable("load", []);
-    } else {
-        $painted.bootstrapTable("load", result.owns.painted);
-    }
-    if (result.owns.unique == undefined) {
-        $unique.bootstrapTable("load", []);
-    } else {
-        $unique.bootstrapTable("load", result.owns.unique);
-    }
-}
-
-function urlFormatter(value, row) {
-    return `<a href="javascript:void(0)" onclick="summary('${value}')" data-bs-toggle="modal" data-bs-target="#details">${value}</a>`;
-}
-
-function rankFormatter(value, row, index, field) {
-    return index + 1;
-}
-
-function booleanFormatter(value, row, index, field) {
-    return value ? "Yes" : "No";
-}
-
-function templateFormatter(value, row, index, field) {
-    var result = lookup.find(e => e.template_id == value);
-    return `<a href="https://wax.atomichub.io/explorer/template/whitedragnft/${value}" target="_blank">${result.name}</a>`;
-}
-
-const copy = () => {
-    var output = "";
-    for (let i = 0; i < data.data.length; i++) {
-        for (let j = 0; j < data.data[i].entries; j++) {
-            output = output + `${data.data[i].wallet}\n`
-        }
-    }
-    navigator.clipboard.writeText(output).then(() => {
-        alert("Entries copied to clipboard!");
-    });
-}
-
-initialise();
-</script>
 </body>
 </html>
