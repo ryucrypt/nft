@@ -74,7 +74,7 @@ const TOKENS = [
     {symbol: "NBMACT", contract: "battleminers", precision: 6, market_id: 134},
     {symbol: "NBMMIN", contract: "battleminers", precision: 6, market_id: 136},
     {symbol: "NBMCON", contract: "battleminers", precision: 6, market_id: 135},
-    {symbol: "MST", contract: "metatoken.gm", precision: 8, swap_id: 531},
+    {symbol: "NFTV", contract: "token.nftg", precision: 8, swap_id: "NFTWAX"},
     {symbol: "TACO", contract: "t.taco", precision: 4, market_id: 131},
     {symbol: "SHING", contract: "t.taco", precision: 4, market_id: 221},
     {symbol: "LOOT", contract: "warsaken", precision: 4, market_id: 173},
@@ -128,8 +128,8 @@ const minDonation = async() => {
     } else if (token.symbol != "WAX") {
         var response = await wax.rpc.get_table_rows({
             json: true,
-            code: "alcorammswap",
-            scope: "alcorammswap",
+            code: "swap.taco",
+            scope: "swap.taco",
             table: "pairs",
             lower_bound: token.swap_id,
             upper_bound: token.swap_id,
