@@ -42,12 +42,14 @@
                         data-toggle="table"
                         data-sort-name="score"
                         data-sort-order="desc"
+                        data-show-footer="true"
                         data-filter-control="true">
                         <thead>
                             <tr class="table-dark">
-                                <th scope="col" data-formatter="rankFormatter" data-align="center">Rank</th>
+                                <th scope="col" data-formatter="rankFormatter" data-footer-formatter="rankFooterFormatter" data-align="center">Rank</th>
                                 <th scope="col" data-field="wallet" data-filter-control="input" data-align="center">Account</th>
-                                <th scope="col" data-field="score" data-align="center" data-sortable="true">Score</th>
+                                <th scope="col" data-field="score" data-footer-formatter="totalScoreFormatter" data-align="center" data-sortable="true">Score</th>
+                                <th scope="col"data-formatter="eligibleFormatter" data-field="eligible" data-filter-control="select" data-align="center">Eligible for Pack?</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,6 +76,22 @@ function rankFormatter(value, row, index, field) {
     return index + 1;
 }
 
+function eligibleFormatter(value, row, index, field) {
+    return value ? "Yes" : "No";
+}
+
+function rankFooterFormatter(data) {
+    return "Total";
+}
+
+function totalScoreFormatter(data) {
+    return data.map(function (row) {
+        return row.score;
+    }).reduce(function (sum, i) {
+        return sum + i;
+    }, 0);
+}
+
 const fetchScores = async() => {
     var output = [];
 
@@ -97,11 +115,17 @@ const fetchScores = async() => {
     }
 
     var response = await r.json();
+    var total = 0;
     for (var i = 0; i < response.rows.length; i++) {
         output.push({
             "wallet": response.rows[i].wallet,
             "score": response.rows[i].score
-        })
+        });
+        total += response.rows[i].score;
+    }
+
+    for (var i = 0; i < output.length; i++) {
+        output[i].eligible = output[i].score / total >= 0.01;
     }
 
     return output;
