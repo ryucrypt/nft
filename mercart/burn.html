@@ -50,7 +50,7 @@
                                 <th scope="col" data-formatter="rankFormatter" data-footer-formatter="rankFooterFormatter" data-align="center">Rank</th>
                                 <th scope="col" data-field="wallet" data-filter-control="input" data-align="center">Account</th>
                                 <th scope="col" data-field="score" data-footer-formatter="totalScoreFormatter" data-align="center" data-sortable="true">Score</th>
-                                <th scope="col"data-formatter="eligibleFormatter" data-field="eligible" data-filter-control="select" data-align="center">Eligible for Pack?</th>
+                                <th scope="col"data-formatter="eligibleFormatter" data-field="eligible" data-footer-formatter="totalPacksFormatter" data-align="center" data-sortable="true">Eligible Packs</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -78,7 +78,7 @@ function rankFormatter(value, row, index, field) {
 }
 
 function eligibleFormatter(value, row, index, field) {
-    return value ? "Yes" : "No";
+    return value == 0 ? "-" : value;
 }
 
 function rankFooterFormatter(data) {
@@ -88,6 +88,14 @@ function rankFooterFormatter(data) {
 function totalScoreFormatter(data) {
     return data.map(function (row) {
         return row.score;
+    }).reduce(function (sum, i) {
+        return sum + i;
+    }, 0);
+}
+
+function totalPacksFormatter(data) {
+    return data.map(function (row) {
+        return parseInt(row.eligible);
     }).reduce(function (sum, i) {
         return sum + i;
     }, 0);
@@ -126,7 +134,12 @@ const fetchScores = async() => {
     }
 
     for (var i = 0; i < output.length; i++) {
-        output[i].eligible = output[i].score / total > 0.01;
+        if (output[i].score >= 400) {
+            output[i].eligible = (output[i].score / total * 100).toFixed(0);
+        } else {
+            output[i].eligible = 0;
+        }
+        
     }
 
     return output;
@@ -139,7 +152,7 @@ const run = async() => {
 
     var scores = await fetchScores();
     $table.bootstrapTable("load", scores);
-    $("#threshold").text(`Score above ${(scores.map((val) => val.score).reduce((total, val) => total + val) * 0.01).toFixed(0)} (more than 1% of total score) to be eligible for packs.`);
+    $("#threshold").text(`Score at least 400 to be eligible for packs.`);
 
     $table.removeClass("visually-hidden");
     $("#threshold").removeClass("visually-hidden");
