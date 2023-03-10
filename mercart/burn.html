@@ -117,7 +117,8 @@ const fetchScores = async() => {
         "reverse": false,
         "show_payer": false
     };
-    var r = await fetch(API, {method: "POST", body: JSON.stringify(params)});
+    //var r = await fetch(API, {method: "POST", body: JSON.stringify(params)});
+    var r = await fetch("./res/burn.json");
 
     if (!r.ok) {
         return false;
@@ -158,7 +159,7 @@ const run = async() => {
     if (min > 400) {
         min = 400;
     }
-    $("#threshold").text(`Score at least ${min.toFixed(0)} to be eligible for packs.`);
+    $("#threshold").text(`Score at least ${min.toFixed(0)} to be eligible for packs. Snapshot taken at ${new Date(1678435200000)}`);
 
     $table.removeClass("visually-hidden");
     $("#threshold").removeClass("visually-hidden");
