@@ -26,7 +26,7 @@
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
             <a href="./index.html" class="align-items-center me-auto text-dark text-decoration-none">
                 <h2>WAX Historian 📜</h2>
-                <p>Fetch historical transactions and token prices on the WAX blockchain. Must have a WAX pair in Alcor Market.</p>
+                <p>Fetch historical transactions and token prices on the WAX blockchain. Must have a WAX pair in Alcor Market. Fiat rates from CoinGecko.</p>
             </a>
         </header>
         <main>
@@ -36,12 +36,11 @@
                     <input type="text" class="form-control" id="address">
                 </div>
                 <div class="col-md-auto mb-3">
-                    <label for="contract" class="form-label">Token Contract</label>
-                    <input type="text" class="form-control" id="contract">
-                </div>
-                <div class="col-md-auto mb-3">
-                    <label for="symbol" class="form-label">Token Symbol</label>
-                    <input type="text" class="form-control" id="symbol">
+                    <label for="token" class="form-label">Symbol,Contract</label>
+                    <input class="form-control" list="tokenOptions" id="token" placeholder="Type to search...">
+                    <datalist id="tokenOptions">
+                        <option value="WAX,eosio.token">
+                    </datalist>
                 </div>
                 <div class="col-md-auto mb-3">
                     <label for="start" class="form-label">Start</label>
@@ -130,6 +129,7 @@ const HIST = "https://{0}/v2/history/get_actions?skip={1}&after={2}&before={3}&l
 const ALCOR = "https://alcor.exchange/api/v2/tickers/{0}-{1}_wax-eosio.token/charts?resolution=240&from={2}&to={3}";
 const GECKO = "https://api.coingecko.com/api/v3/coins/wax/market_chart?vs_currency={0}&days=max";
 const CURRENCIES = "https://api.coingecko.com/api/v3/simple/supported_vs_currencies"
+const TOKENS = "https://alcor.exchange/api/v2/pairs";
 
 function txnFormatter(value, row, index, field) {
     return `<a href="${EXPLORER + "transaction/" + value}" target="_blank">View</a>`;
@@ -260,16 +260,25 @@ const run = async() => {
         setErr("Address cannot be empty");
         return;
     }
-    var contract = $("#contract").val().trim().toLowerCase();
-    if (contract == "") {
-        setErr("Contract cannot be empty");
+    var token = $("#token").val().trim()
+    var splitToken = token.split(",");
+    if (splitToken.length != 2) {
+        setErr("Token in wrong format, must be 'Symbol,contract'");
         return;
     }
-    var symbol = $("#symbol").val().trim().toUpperCase();
-    if (symbol == "") {
-        setErr("Symbol cannot be empty");
+    var check = false;
+    $("#tokenOptions option").each(function() {
+        check = $(this).val().toLowerCase() == token.toLowerCase()
+        if (check) {
+            return false;
+        }
+    });
+    if (!check) {
+        setErr("Unsupported token");
         return;
     }
+    var symbol = splitToken[0].toUpperCase();
+    var contract = splitToken[1].toLowerCase();
     var start = new Date($("#start").val());
     if ($("#start").val() == "") {
         setErr("Start cannot be empty");
@@ -284,8 +293,7 @@ const run = async() => {
     var endpoint = $("#endpoint").val();
 
     localStorage.setItem("inputAddress", address);
-    localStorage.setItem("inputContract", contract);
-    localStorage.setItem("inputSymbol", symbol);
+    localStorage.setItem("inputToken", token);
     localStorage.setItem("inputStart", $("#start").val());
     localStorage.setItem("inputEnd", $("#end").val());
 
@@ -385,17 +393,27 @@ $(document).ready(function() {
         })
         .catch(err => setErr("Failed to get supported currencies, defaulted to USD"));
 
+    fetch(TOKENS)
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(item => {
+                if (item.target.id == "wax-eosio.token") {
+                    var option = $("<option>");
+                    option.val(`${item.base.symbol},${item.base.contract}`);
+                    $("#tokenOptions").append(option);
+                }
+            });
+        })
+        .catch(err => setErr("Failed to get supported tokens"));
+
     if (localStorage.getItem("selectedEndpoint")) {
         $("#endpoint").val(localStorage.getItem("selectedEndpoint"));
     }
     if (localStorage.getItem("inputAddress")) {
         $("#address").val(localStorage.getItem("inputAddress"));
     }
-    if (localStorage.getItem("inputContract")) {
-        $("#contract").val(localStorage.getItem("inputContract"));
-    }
-    if (localStorage.getItem("inputSymbol")) {
-        $("#symbol").val(localStorage.getItem("inputSymbol"));
+    if (localStorage.getItem("inputToken")) {
+        $("#token").val(localStorage.getItem("inputToken"));
     }
     if (localStorage.getItem("inputStart")) {
         $("#start").val(localStorage.getItem("inputStart"));
