@@ -85,7 +85,7 @@
                     <div class="input-group">
                         <button class="btn btn-danger" type="button" onclick="incrementStake(-50);">-50</button>
                         <button class="btn btn-danger" type="button" onclick="incrementStake(-100);">-100</button>
-                        <input id="stake" value="100" type="number" class="form-control text-center" min="1" onkeydown="if (event.keyCode === 189 || event.keyCode === 190) event.preventDefault();">
+                        <input id="stake" value="100" type="number" class="form-control text-center" min="1" oninput="this.value = Math.abs(Math.floor(this.value)) > 0 ? Math.abs(Math.floor(this.value)) : 1;">
                         <button class="btn btn-primary" type="button" onclick="incrementStake(50);">+50</button>
                         <button class="btn btn-primary" type="button" onclick="incrementStake(100);">+100</button>
                     </div>
