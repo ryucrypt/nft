@@ -93,6 +93,7 @@ const TOKENS = [
 
 var twitch = "";
 var wallet = "";
+var perms = "";
 
 // Helper
 const parseJwt = (token) => {
@@ -168,6 +169,8 @@ const login = async() => {
     try {
         document.getElementById("error").innerHTML = "";
         wallet = await wallet_login();
+        perms = wallet.split("@")[1];
+        wallet = wallet.split("@")[0];
         document.getElementById("wallet").innerHTML = wallet;
         document.getElementById("wallet_login").style.display = "none";
         document.getElementById("wallet_in").style.display = "block";
@@ -196,7 +199,7 @@ const load = async() => {
             name: "transfer",
             authorization: [{
                 actor: wallet,
-                permission: "active",
+                permission: perms,
             }],
             data: {
                 from: wallet,

@@ -1,6 +1,5 @@
 const chainId = "1064487b3cd1a897ce03ae5b6a865651747e2e152090f99c1d19d44e01aea5a4";
 const endpoint = "wax.greymass.com";
-//const endpoint = "wax.pink.gg";
 const dapp = "ryucrypt.github.io";
 
 const wax = new waxjs.WaxJS({rpcEndpoint: "https://" + endpoint, tryAutoLogin: false});
@@ -42,11 +41,12 @@ async function wallet_login()
 			wallet_session = (await anchorLink.login(dapp)).session;
 		}**/
 		wallet_session = (await anchorLink.login(dapp)).session;
-		wallet_userAccount = String(wallet_session.auth).split("@")[0];
+		wallet_userAccount = String(wallet_session.auth);
 	}
 	else if (wallet_type == "cloud")
 	{
 		wallet_userAccount = await wax.login();
+		wallet_userAccount += "@active";
 		wallet_session = wax.api;
 	}
 
