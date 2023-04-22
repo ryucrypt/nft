@@ -85,7 +85,7 @@
                     <div class="input-group">
                         <button class="btn btn-danger" type="button" onclick="incrementStake(-50);">-50</button>
                         <button class="btn btn-danger" type="button" onclick="incrementStake(-100);">-100</button>
-                        <input id="stake" value="100" type="number" class="form-control text-center" min="1" onkeydown="if (event.key === '-' || event.key === '.') event.preventDefault();">
+                        <input id="stake" value="100" type="number" class="form-control text-center" min="1" onkeydown="if (event.keyCode === 189 || event.keyCode === 190) event.preventDefault();">
                         <button class="btn btn-primary" type="button" onclick="incrementStake(50);">+50</button>
                         <button class="btn btn-primary" type="button" onclick="incrementStake(100);">+100</button>
                     </div>
@@ -227,7 +227,7 @@ const calcRate = (days, precision, symbol) => {
     var base = rates.filter(obj => obj.days == days);
     var stake = 0;
     if ($("#stake").val() != "") {
-        stake = parseInt($("#stake").val());
+        stake = parseFloat($("#stake").val());
     }
     var rate = stake / base[0].multiplier * base[0].rate;
     return formatToken(precision, rate) + " " + symbol;
