@@ -53,9 +53,7 @@
                 <li class="nav-item" id="loginbtn"><a href="javascript:void(0)" class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#login">Login</a></li>
                 <li class="nav-item dropdown visually-hidden" id="wallet">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">wallet</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="javascript:void(0)" id="wax">WAX</a></li>
-                        <li><a class="dropdown-item" href="javascript:void(0)" id="token">BRIX</a></li>
+                    <ul class="dropdown-menu" id="balances">
                         <li><a class="dropdown-item" href="javascript:void(0)" onclick="logout()">Logout</a></li>
                     </ul>
                 </li>
@@ -69,6 +67,15 @@
             <div class="row mb-3 d-flex text-center">
                 <h6>CPU Available</h6>
                 <h2 id="balance">0 WAX</h2>
+            </div>
+            <div class="row mb-3 d-flex justify-content-center text-center">
+                <div class="col-auto">
+                    <label for="currency" class="form-label">Pay with</label>
+                    <select class="form-select" id="currency">
+                        <option value="BRIX" selected>BRIX</option>
+                        <option value="WAX">WAX</option>
+                    </select>
+                </div>
             </div>
             <div class="row mb-3 d-flex justify-content-center">
                 <div class="col-auto">
@@ -165,9 +172,18 @@
 const EXPLORER = "https://testnet.waxblock.io/transaction/";
 const NODE = "nhreplaytest";
 const CONTRACT = "cpurental123";
-const TOKEN = "testingtoken";
-const SYMBOL = "BRIX";
-const PRECISION = 4;
+const TOKENS = [
+    {
+        "contract": "testingtoken",
+        "symbol": "BRIX",
+        "precision": 4
+    },
+    {
+        "contract": "eosio.token",
+        "symbol": "WAX",
+        "precision": 8
+    }
+]
 const DAYS = [1, 3, 7, 15, 30];
 const DEFAULT = 100;
 const PARAMS = {
@@ -184,8 +200,9 @@ const PARAMS = {
 };
 var wallet = "";
 var perms = "";
-var rates = [];
+var rates = {};
 var loggedin = false;
+var token = TOKENS[0];
 
 String.prototype.format = function () {
     var args = arguments;
@@ -195,27 +212,21 @@ String.prototype.format = function () {
 };
 
 const formatToken = (precision, amount) => {
-    return (amount * Math.pow(10, precision) / Math.pow(10, precision)).toFixed(precision);
+    return (+(Math.round(+(amount + 'e' + precision)) + 'e' + -precision)).toFixed(precision);
 }
 
 const fetchBalances = (mode) => {
     if (mode) {
-        wax.rpc.get_currency_balance("eosio.token", wallet, "WAX")
+        for (let i = 0; i < TOKENS.length; i++) {
+            wax.rpc.get_currency_balance(TOKENS[i].contract, wallet, TOKENS[i].symbol)
             .then(data => {
                 if (data.length < 1) {
-                    $("#wax").text("0 WAX");
+                    $("#balances").prepend(`<li><a class='dropdown-item' href='javascript:void(0)'>0 ${TOKENS[i].symbol}</a></li>`);
                 } else {
-                    $("#wax").text(data[0]);
+                    $("#balances").prepend(`<li><a class='dropdown-item' href='javascript:void(0)'>${data[0]}</a></li>`);
                 }
             });
-        wax.rpc.get_currency_balance(TOKEN, wallet, SYMBOL)
-            .then(data => {
-                if (data.length < 1) {
-                    $("#token").text("0 " + SYMBOL);
-                } else {
-                    $("#token").text(data[0]);
-                }
-            });
+        }
     }
     wax.rpc.get_currency_balance("eosio.token", NODE, "WAX")
         .then(data => {
@@ -224,7 +235,7 @@ const fetchBalances = (mode) => {
 }
 
 const calcRate = (days, precision, symbol) => {
-    var base = rates.filter(obj => obj.days == days);
+    var base = rates[symbol].filter(obj => obj.days == days);
     var stake = 0;
     if ($("#stake").val() != "") {
         stake = parseFloat($("#stake").val());
@@ -234,16 +245,20 @@ const calcRate = (days, precision, symbol) => {
 }
 
 const calcUnit = (days, precision, symbol) => {
-    var base = rates.filter(obj => obj.days == days);
+    var base = rates[symbol].filter(obj => obj.days == days);
     var rate = DEFAULT / base[0].multiplier * base[0].rate / days;
     return formatToken(precision, rate) + " " + symbol;
 }
 
 const update = (mode) => {
     for (let i = 0; i < DAYS.length; i++) {
-        $(`#price${DAYS[i]}`).text(calcRate(DAYS[i], PRECISION, SYMBOL));
+        var precision = 4;
+        if (token.symbol != "WAX") {
+            precision = token.precision;
+        }
+        $(`#price${DAYS[i]}`).text(calcRate(DAYS[i], precision, token.symbol));
         if (mode) {
-            $(`#unit${DAYS[i]}`).text(calcUnit(DAYS[i], PRECISION, SYMBOL));
+            $(`#unit${DAYS[i]}`).text(calcUnit(DAYS[i], precision, token.symbol));
         }
     }
 }
@@ -320,10 +335,10 @@ const run = async(days) => {
         var to = wallet;
     }
 
-    var qty = calcRate(days, PRECISION, SYMBOL);
+    var qty = calcRate(days, token.precision, token.symbol);
     try {
         var actions = [{
-            account: TOKEN,
+            account: token.contract,
             name: "transfer",
             authorization: [{
                 actor: wallet,
@@ -349,20 +364,31 @@ $(document).ready(function() {
     wax.rpc.get_table_rows(PARAMS)
         .then(data => {
             for (let i = 0; i < data.rows.length; i++) {
-                let rate = data.rows[i].rates[0].quantity.split(" ")[0];
-                let multiplier = data.rows[i].multiplier.split(" ")[0];
-                rates.push({
-                    days: data.rows[i].days,
-                    rate: parseFloat(rate),
-                    multiplier: parseFloat(multiplier)
-                });
+                var row = data.rows[i];
+                let currencies = row.rates;
+
+                for (let j = 0; j < currencies.length; j++) {
+                    let currency = currencies[j].quantity.split(" ")[1];
+                    let rate = currencies[j].quantity.split(" ")[0];
+                    if (rates[currency] == undefined) {
+                        rates[currency] = [];
+                    }
+                    rates[currency].push({
+                        days: row.days,
+                        rate: parseFloat(rate),
+                        multiplier: parseFloat(row.multiplier.split(" ")[0])
+                    });
+                }
             }
             update(true);
             $("#stake").change(() => {update(false)});
             $("#stake").on("input", () => {update(false)});
         });
 
-    $("#stake_other").change(() => {$("#stake_for").toggleClass("visually-hidden")});
+    $("#currency").change(() => {
+        token = TOKENS.filter(obj => obj.symbol == $("#currency").val())[0];
+        update(true);
+    });
 });
 </script>
 </body>

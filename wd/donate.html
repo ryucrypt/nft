@@ -117,7 +117,7 @@ const updateBalance = async() => {
 }
 
 const formatToken = (token, amount) => {
-    return (amount * Math.pow(10, token.precision)/Math.pow(10, token.precision)).toFixed(token.precision) + " " + token.symbol;
+    return (+(Math.round(+(amount + 'e' + token.precision)) + 'e' + -token.precision)).toFixed(token.precision) + " " + token.symbol;
 }
 
 const minDonation = async() => {

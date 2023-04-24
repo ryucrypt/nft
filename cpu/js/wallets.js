@@ -1,5 +1,5 @@
 const chainId = "f16b1833c747c43682f4386fca9cbb327929334a762755ebec17f6f23c9b8a12";
-const endpoint = "waxtest.eosdac.io";
+const endpoint = "api.waxtest.alohaeos.com";
 const dapp = "ryucrypt.github.io";
 
 const wax = new waxjs.WaxJS({rpcEndpoint: "https://" + endpoint, tryAutoLogin: false});
