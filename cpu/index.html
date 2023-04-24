@@ -394,6 +394,7 @@ $(document).ready(function() {
             $("#stake").on("input", () => {update(false)});
         });
 
+    $("#stake_other").change(() => {$("#stake_for").toggleClass("visually-hidden")});
     $("#currency").change(() => {
         token = TOKENS.filter(obj => obj.symbol == $("#currency").val())[0];
         update(true);
