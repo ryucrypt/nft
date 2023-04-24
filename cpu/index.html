@@ -203,6 +203,7 @@ var perms = "";
 var rates = {};
 var loggedin = false;
 var token = TOKENS[0];
+var balances = [];
 
 String.prototype.format = function () {
     var args = arguments;
@@ -217,15 +218,23 @@ const formatToken = (precision, amount) => {
 
 const fetchBalances = (mode) => {
     if (mode) {
+        for (let i = 0; i < balances.length; i++) {
+            balances[i].remove();
+        }
+        balances = [];
         for (let i = 0; i < TOKENS.length; i++) {
             wax.rpc.get_currency_balance(TOKENS[i].contract, wallet, TOKENS[i].symbol)
-            .then(data => {
-                if (data.length < 1) {
-                    $("#balances").prepend(`<li><a class='dropdown-item' href='javascript:void(0)'>0 ${TOKENS[i].symbol}</a></li>`);
-                } else {
-                    $("#balances").prepend(`<li><a class='dropdown-item' href='javascript:void(0)'>${data[0]}</a></li>`);
-                }
-            });
+                .then(data => {
+                    if (data.length < 1) {
+                        let item = $(`<li><a class='dropdown-item' href='javascript:void(0)'>0 ${TOKENS[i].symbol}</a></li>`);
+                        $("#balances").prepend(item);
+                        balances.push(item);
+                    } else {
+                        let item = $(`<li><a class='dropdown-item' href='javascript:void(0)'>${data[0]}</a></li>`);
+                        $("#balances").prepend(item);
+                        balances.push(item);
+                    }
+                });
         }
     }
     wax.rpc.get_currency_balance("eosio.token", NODE, "WAX")
