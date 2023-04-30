@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="96x96" href="res/favi.png">
+    <title>Account Delegation</title>
+    <meta property="og:title" content="Account Delegation">
+    <meta property="og:image" content="https://ryucrypt.github.io/nft/delegate/res/favi.png">
+    <meta property="og:description" content="Setup an account delegation.">
+    <meta property="og:type" content="website">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="container">
+        <div class="modal fade" id="login" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="loginLabel">Select wallet</h1>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div id="login_msg" class="alert alert-danger visually-hidden mb-3" role="alert"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <button class="btn" style="color:white;background-color:rgb(54, 80, 162)" onclick="login('anchor');"><img src="/nft/res/anchor.svg" class="float-start" height="24">Anchor</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header class="d-flex flex-wrap justify-content-center text-center py-3 mb-4 border-bottom">
+            <a href="./index.html" class="navbar-brand me-auto text-light text-wrap">
+                <h2>Account Delegation</h2>
+            </a>
+            <ul class="nav nav-pills">
+                <li class="nav-item" id="loginbtn"><a href="javascript:void(0)" class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#login">Login</a></li>
+                <li class="nav-item dropdown visually-hidden" id="wallet">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">wallet</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="javascript:void(0)" onclick="logout()">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+        <main>
+            <div class="row mb-3">
+                <div class="accordion" id="about">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#about_content" aria-expanded="true" aria-controls="about_content">
+                            What does this tool do?
+                        </button>
+                      </h2>
+                      <div id="about_content" class="accordion-collapse collapse" data-bs-parent="#about">
+                        <div class="accordion-body">
+                            <div class="alert alert-warning" role="alert">
+                                <i class="bi bi-exclamation-triangle-fill"></i>
+                                Your account permissions will be modified, tread carefully! It is recommended to start with an empty account in case anything goes wrong.
+                            </div>
+                            This tool allows you to create "read-only" account delegations, i.e. adding keys with no permissions to execute any contract actions.
+                            These keys can still be used to login to dapps, but will not be able to execute any on-chain action (e.g. transfer tokens or NFTs).
+                            Off-chain actions should still work because no signatures are required.
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3 container">
+                <h3><u>Steps:</u></h3>
+                <ol>
+                    <li class="mb-2">
+                        Make sure you are on desktop, the following steps will not work for Anchor mobile.
+                    </li>
+                    <li class="mb-2">
+                        Launch Anchor and navigate to Settings.<br>
+                        <img class="img-fluid" width="480" src="res/1.png">
+                    </li>
+                    <li class="mb-2">
+                        Scroll down and change the "Allow dangerous transactions in URI signer" setting to "Allow dangerous transactions".<br>
+                        <img class="img-fluid" width="480" src="res/2.png">
+                    </li>
+                    <li class="mb-2">
+                        Generate a key pair from <a href="https://waxblock.io/wallet/utilities/keys" target="_blank">this site</a>. Make sure you record the public and private keys.<br>
+                        <img class="img-fluid" width="480" src="res/3.png">
+                    </li>
+                    <li class="mb-2">
+                        Login using the button on the top right of this page. Remember to login using the target account with <code>@active</code> permission.
+                        <img class="img-fluid" width="480" src="res/4.png">
+                    </li>
+                    <li class="mb-2">
+                        Provide a delegation name (max 12 characters) and the <b>public key</b> (starts with "PUB_K1_...") from step 4, then sign the transaction.
+                    </li>
+                </ol>
+                <div class="col-md-auto">
+                    <label for="delegation" class="form-label">Delegation Name</label>
+                    <input type="text" class="form-control" maxlength="12" id="delegation">
+                </div>
+                <div class="col-md-auto">
+                    <label for="pub_key" class="form-label">Public Key</label>
+                    <input type="text" class="form-control" id="pub_key">
+                </div>
+                <div class="col-auto d-flex align-items-center">
+                    <button type="submit" class="btn btn-primary" onclick="run()">Submit</button>
+                </div>
+                <div id="err_msg" class="alert alert-danger visually-hidden mt-3" role="alert"></div>
+                <div id="pass_msg" class="alert alert-success visually-hidden mt-3" role="alert"></div>
+                <ol class="mt-3" start="7">
+                    <li class="mb-2">
+                        Navigate to <a href="javascript:void(0)" id="explorer">the block explorer</a>. Under the "Keys" tab you should see <code>@<span id="delegated">xxxx</span></code> as a child of <code>@active</code>.<br>
+                        <img class="img-fluid" width="480" src="res/5.png">
+                    </li>
+                    <li class="mb-2">
+                        Use/share the <b>private key</b> (starts with "PVT_K1_...") from step 4 to login as the delegate.
+                    </li>
+                    <li class="mb-2">
+                        To delete a delegation created via this tool, provide the delegation name below and sign the transaction.
+                    </li>
+                </ol>
+                <div class="col-md-auto">
+                    <label for="delegation_del" class="form-label">Delegation Name</label>
+                    <input type="text" class="form-control" maxlength="12" id="delegation_del">
+                </div>
+                <div class="col-auto d-flex align-items-center">
+                    <button type="submit" class="btn btn-danger" onclick="del()">Delete</button>
+                </div>
+                <div id="err_msg2" class="alert alert-danger visually-hidden mt-3" role="alert"></div>
+                <div id="pass_msg2" class="alert alert-success visually-hidden mt-3" role="alert"></div>
+            </div>
+        </main>
+        <footer>
+            <div class="row justify-content-center border-top">
+                <p class="text-center text-muted my-3">Made by ryucrypt: wwiem.wam</p>
+            </div>
+        </footer>
+    </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/anchor-link@3"></script>
+<script src="https://unpkg.com/anchor-link-browser-transport@3"></script>
+<script src="/nft//js/waxjs.js"></script>
+<script src="/nft/js/wallets.js"></script>
+<script>
+const EXPLORER = "https://waxblock.io/transaction/";
+const ACC = "https://waxblock.io/account/";
+var wallet = "";
+var perms = "";
+var auth = [];
+var loggedin = false;
+
+String.prototype.format = function () {
+    var args = arguments;
+    return this.replace(/{([0-9]+)}/g, function (match, index) {
+        return typeof args[index] == 'undefined' ? match : args[index];
+    });
+};
+
+const convertToAlpha = (num) => {
+    let result = "";
+    while (num > 0) {
+        let remainder = (num - 1) % 26;
+        result = String.fromCharCode(97 + remainder) + result;
+        num = Math.floor((num - 1) / 26);
+    }
+    return result;
+}
+
+const reverseToNum = (str) => {
+    let result = 0;
+    for (let i = 0; i < str.length; i++) {
+        let charCode = str.charCodeAt(i) - 96;
+        result = result * 26 + charCode;
+    }
+    return result;
+}
+
+const logout = () => {
+    $("#loginbtn").toggleClass("visually-hidden");
+    $("#wallet").toggleClass("visually-hidden");
+    $("#err_msg").addClass("visually-hidden");
+    $("#pass_msg").addClass("visually-hidden");
+    $("#err_msg2").addClass("visually-hidden");
+    $("#pass_msg2").addClass("visually-hidden");
+    $("#explorer").attr("href", "javascript:void(0)");
+    $("#explorer").removeAttr("target");
+    loggedin = false;
+    auth = [];
+}
+
+const login = async(walletType) => {
+    wallet_selectWallet(walletType);
+    try {
+        $("#login_msg").addClass("visually-hidden");
+        wallet = await wallet_login();
+        perms = wallet.split("@")[1];
+        if (perms != "active") {
+            wallet = "";
+            $("#login_msg").text("Please login with active permission!");
+            $("#login_msg").removeClass("visually-hidden");
+            return;
+        }
+        wallet = wallet.split("@")[0];
+        $("#wallet a:first").text(wallet);
+        $("#explorer").attr("href", ACC + wallet);
+        $("#explorer").attr("target", "_blank");
+        $("#loginbtn").addClass("visually-hidden");
+        $("#wallet").removeClass("visually-hidden");
+        bootstrap.Modal.getOrCreateInstance("#login").hide();
+        loggedin = true;
+        acc();
+        $("#err_msg").addClass("visually-hidden");
+        $("#err_msg2").addClass("visually-hidden");
+    } catch(e) {
+        $("#login_msg").removeClass("visually-hidden");
+        $("#login_msg").text(e.message);
+    }
+}
+
+const setErr = (element, msg) => {
+    $(element).text(msg);
+    $(element).removeClass("visually-hidden");
+}
+
+const setPass = (element, msg) => {
+    $(element).html(msg);
+    $(element).removeClass("visually-hidden");
+}
+
+const acc = () => {
+    wax.rpc.get_account(wallet)
+        .then(data => {
+            auth = data.permissions;
+        });
+}
+
+const run = async() => {
+    $("#err_msg").addClass("visually-hidden");
+    $("#pass_msg").addClass("visually-hidden");
+
+    if (!loggedin) {
+        setErr("#err_msg", "Please login first");
+        return;
+    }
+
+    var delegation = $("#delegation").val();
+    if (delegation == "") {
+        setErr("#err_msg", "Please provide the delegation name");
+        return;
+    }
+    var perm = auth.filter(obj => obj.perm_name == delegation);
+    if (perm.length > 0) {
+        setErr("#err_msg", `${delegation} already exists`);
+        return;
+    }
+    perm = auth.filter(obj => obj.linked_actions.length > 0 && obj.linked_actions[0].account == "eosio" && obj.linked_actions[0].action.startsWith("deny"));
+    var actions = [];
+    for (const i of perm) {
+        actions.push(i.linked_actions[0].action);
+    }
+    var idx = "a";
+    if (actions.length > 0) {
+        actions.sort((a, b) => {
+            a = a.replace("deny.", "");
+            b = b.replace("deny.", "");
+            if (a.length !== b.length) {
+                return b.length - a.length;
+            } else {
+                return b.localeCompare(a);
+            }
+        });
+        idx = convertToAlpha(reverseToNum(actions[0].replace("deny.", "")) + 1);
+    }
+    action = `deny.${idx}`;
+
+    var pub_key = $("#pub_key").val();
+    if (pub_key == "") {
+        setErr("#err_msg", "Please provide the public key");
+        return;
+    } else if (!pub_key.startsWith("PUB_K1_")) {
+        setErr("#err_msg", "Invalid public key format");
+        return;
+    }
+
+    try {
+        var actions = [
+            {
+                "account": "eosio",
+                "name": "updateauth",
+                "authorization": [{
+                    "actor": wallet,
+                    "permission": perms
+                }],
+                "data": {
+                    "account": wallet,
+                    "permission": delegation,
+                    "parent": "active",
+                    "auth": {
+                        "threshold": 1,
+                        "keys": [{
+                            "key": pub_key,
+                            "weight": 1
+                        }],
+                        "accounts": [],
+                        "waits": []
+                    },
+                    "authorized_by": null
+                }
+            },
+            {
+                "account": "eosio",
+                "name": "linkauth",
+                "authorization": [{
+                    "actor": wallet,
+                    "permission": perms
+                }],
+                "data": {
+                    "account": wallet,
+                    "code": "eosio",
+                    "type": action,
+                    "requirement": delegation,
+                    "authorized_by": null
+                }
+            }
+        ];
+        var txn = await wallet_transact(actions);
+        setPass("#pass_msg", "Success! <a href='{0}{1}' target='_blank'>View Transaction</a>".format(EXPLORER, txn.transaction_id));
+        setTimeout(acc(), 1000);
+    } catch(e) {
+        setErr("#err_msg", e.message);
+    }
+}
+
+const del = async() => {
+    $("#err_msg2").addClass("visually-hidden");
+    $("#pass_msg2").addClass("visually-hidden");
+
+    if (!loggedin) {
+        setErr("#err_msg2", "Please login first");
+        return;
+    }
+
+    var delegation = $("#delegation_del").val();
+    if (delegation == "") {
+        setErr("#err_msg2", "Please provide the delegation name");
+        return;
+    }
+    var perm = auth.filter(obj => obj.perm_name == delegation);
+    if (perm.length < 1) {
+        setErr("#err_msg2", `${delegation} does not exist`);
+        return;
+    }
+    var action = perm[0].linked_actions[0].action;
+
+    try {
+        var actions = [
+            {
+                "account": "eosio",
+                "name": "unlinkauth",
+                "authorization": [{
+                    "actor": wallet,
+                    "permission": perms
+                }],
+                "data": {
+                    "account": wallet,
+                    "code": "eosio",
+                    "type": action
+                }
+            },
+            {
+                "account": "eosio",
+                "name": "deleteauth",
+                "authorization": [{
+                    "actor": wallet,
+                    "permission": perms
+                }],
+                "data": {
+                    "account": wallet,
+                    "permission": delegation
+                }
+            }
+        ];
+        var txn = await wallet_transact(actions);
+        setPass("#pass_msg2", "Success! <a href='{0}{1}' target='_blank'>View Transaction</a>".format(EXPLORER, txn.transaction_id));
+        setTimeout(acc(), 1000);
+    } catch(e) {
+        setErr("#err_msg2", e.message);
+    }
+}
+
+$(document).ready(function() {
+    $("#delegation").on("input", () => {
+        let delegate = $("#delegation").val();
+        if (delegate == "") {
+            delegate = "xxxx";
+        }
+        $("#delegated").text(delegate);
+    })
+});
+</script>
+</body>
+</html>
