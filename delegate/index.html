@@ -74,7 +74,7 @@
                 <h3><u>Steps:</u></h3>
                 <ol>
                     <li class="mb-2">
-                        Make sure you are on desktop, the following steps will not work for Anchor mobile.
+                        Make sure you are on desktop, the following steps are meant for Anchor desktop.
                     </li>
                     <li class="mb-2">
                         Launch Anchor and navigate to Settings.<br>
@@ -142,8 +142,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/anchor-link@3"></script>
 <script src="https://unpkg.com/anchor-link-browser-transport@3"></script>
-<script src="/nft/js/waxjs.js"></script>
-<script src="/nft/js/wallets.js"></script>
+<script src="/js/waxjs.js"></script>
+<script src="/js/wallets.js"></script>
 <script>
 const EXPLORER = "https://waxblock.io/transaction/";
 const ACC = "https://waxblock.io/account/";
@@ -351,6 +351,10 @@ const del = async() => {
     var perm = auth.filter(obj => obj.perm_name == delegation);
     if (perm.length < 1) {
         setErr("#err_msg2", `${delegation} does not exist`);
+        return;
+    }
+    if (perm[0].linked_actions.length < 1 || !perm[0].linked_actions[0].action.startsWith("deny.")) {
+        setErr("#err_msg2", `${delegation} not created by this tool`);
         return;
     }
     var action = perm[0].linked_actions[0].action;
