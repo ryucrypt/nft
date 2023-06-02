@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="96x96" href="res/favi.png">
+    <title>$NFTV Drips</title>
+    <meta property="og:title" content="$NFTV Drips">
+    <meta property="og:image" content="https://ryucrypt.github.io/nft/nftgtv/res/favi.png">
+    <meta property="og:description" content="Info on $NFTV drips.">
+    <meta property="og:type" content="website">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HG5WVNP5BP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HG5WVNP5BP');
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="./index.html" class="align-items-center me-auto text-dark text-decoration-none">
+                <h2>$NFTV Drips 🪂</h2>
+                <p>Info on $NFTV drips.</p>
+            </a>
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="javascript:void(0)" class="nav-link" aria-current="page">Logs</a></li>
+                <li class="nav-item"><a href="./rates.html" class="nav-link" aria-current="page">Rates</a></li>
+            </ul>
+        </header>
+        <main>
+            <div class="row mb-3">
+                <div class="col-md-auto">
+                    <label for="address" class="form-label">WAX Address</label>
+                    <input type="text" class="form-control" id="address">
+                </div>
+                <div class="col-auto d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary" onclick="run()">Submit</button>
+                </div>
+                <div class="col-auto d-flex align-items-end">
+                    <button id="csv" type="submit" class="btn btn-primary disabled" onclick="downloadCSV()">Download CSV</button>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div id="loading" class="d-flex justify-content-center visually-hidden">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <div id="err_msg" class="alert alert-danger visually-hidden" role="alert"></div>
+                <div class="table-responsive">
+                    <table
+                        id="table"
+                        class="visually-hidden table table-sm table-bordered"
+                        data-toggle="table"
+                        data-show-footer="true"
+                        data-filter-control="true">
+                        <thead>
+                            <tr class="table-dark">
+                                <th scope="col" data-field="asset_id" data-formatter="assetFormatter" data-align="center">Asset</th>
+                                <th scope="col" data-field="collection" data-formatter="collectionFormatter" data-filter-control="select" data-align="center">Collection</th>
+                                <th scope="col" data-field="template_id" data-formatter="templateFormatter" data-filter-control="select" data-align="center">Template</th>
+                                <th scope="col" data-field="mint_number" data-align="center">Mint #</th>
+                                <th scope="col" data-field="name" data-align="center">Name</th>
+                                <th scope="col" data-field="drip_amount" data-align="center" data-sortable="true">Base</th>
+                                <th scope="col" data-field="mint_number_bonus" data-align="center" data-sortable="true">Mint Bonus</th>
+                                <th scope="col" data-field="throttle_tax_reducer" data-align="center" data-sortable="true">Throttle</th>
+                                <th scope="col" data-field="net_drip_amount" data-footer-formatter="totalFormatter" data-align="center" data-sortable="true">Drip</th>
+                                <th scope="col" data-field="updated_at" data-align="center">Updated</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="row justify-content-center border-top">
+                <p class="text-center text-muted my-3">Made by ryucrypt: wwiem.wam</p>
+            </div>
+        </footer>
+    </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.21.4/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script>
+const COL = "https://chainchamps.com/collection/{0}"; 
+const DETAIL = "https://chainchamps.com/details/{0}/{1}";
+
+function totalFormatter(data) {
+    return data.map(function (row) {
+        return row.net_drip_amount;
+    }).reduce(function (sum, i) {
+        return sum + i
+    }, 0);
+}
+
+function assetFormatter(value, row, index, field) {
+    return `<a href="${DETAIL.format("asset", value)}" target="_blank">${value}</a>`;
+}
+
+function collectionFormatter(value, row, index, field) {
+    return `<a href="${COL.format(value)}" target="_blank">${value}</a>`;
+}
+
+function templateFormatter(value, row, index, field) {
+    return `<a href="${DETAIL.format("template", value)}" target="_blank">${value}</a>`;
+}
+
+String.prototype.format = function () {
+    var args = arguments;
+    return this.replace(/{([0-9]+)}/g, function (match, index) {
+        return typeof args[index] == 'undefined' ? match : args[index];
+    });
+};
+
+const fetchData = async(address) => {
+    var output = [];
+    var start = 0;
+    var end = 999;
+    while (true) {
+        const { data, error } = await client.from("drip_asset_data2").select().eq("owner", address).range(start, end);
+
+        if (error != undefined) {
+            throw new Error(error.message);
+        }
+
+        if (data.length < 1) {
+            break;
+        } else {
+            output = output.concat(data);
+            start += 1000;
+            end += 1000;
+        }
+    }
+
+    return output;
+}
+
+var $table = $("#table");
+var global_output = [];
+var global_csv = "";
+var header = "asset_id,collection,template_id,mint_number,name,base,mint_bonus,throttle,drip,updated\r\n";
+var client;
+
+const setErr = (msg) => {
+    $("#loading").addClass("visually-hidden");
+    $("#err_msg").text(msg);
+    $("#err_msg").removeClass("visually-hidden");
+}
+
+const run = async() => {
+    $table.addClass("visually-hidden");
+    $("#err_msg").addClass("visually-hidden");
+    $("#csv").addClass("disabled");
+    $("#loading").removeClass("visually-hidden");
+
+    var address = $("#address").val().trim().toLowerCase();
+    if (address == "") {
+        setErr("Address cannot be empty");
+        return;
+    }
+    localStorage.setItem("inputAddress", address);
+
+    try {
+        var data = await fetchData(address);
+    } catch(err) {
+        setErr(`Failed to fetch data: ${err.message}`);
+        return;
+    }
+
+    global_output = [];
+    global_csv = header;
+    for (var i = 0; i < data.length; i++) {
+        var obj = {
+            asset_id: data[i].asset_id,
+            collection: data[i].collection,
+            template_id: data[i].template_id,
+            mint_number: data[i].mint_number,
+            name: data[i].name,
+            drip_amount: data[i].drip_amount,
+            mint_number_bonus: data[i].mint_number_bonus,
+            throttle_tax_reducer: data[i].throttle_tax_reducer,
+            net_drip_amount: data[i].net_drip_amount,
+            updated_at: (new Date(data[i].updated_at)).toLocaleString()
+        };
+        global_output.push(obj);
+        var values = Object.values(obj).map((value)=>{
+            if (typeof value === "string" && value.includes(" ")) {
+                return '"' + value + '"';
+            }
+            return value;
+        });
+        global_csv += values.join(",") + "\r\n";
+    }
+    $table.bootstrapTable("load", global_output);
+
+    $table.removeClass("visually-hidden");
+    $("#csv").removeClass("disabled");
+    $("#loading").addClass("visually-hidden");
+}
+
+const downloadCSV = () => {
+    var csvFile = new Blob([global_csv], {type: "text/csv"});
+    var downloadLink = document.createElement("a");
+    downloadLink.download = "export.csv";
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+}
+
+$(document).ready(function() {
+    if (localStorage.getItem("inputAddress")) {
+        $("#address").val(localStorage.getItem("inputAddress"));
+    }
+    client = supabase.createClient(
+        "https://uoeiewsxsdhaxfoahhwp.supabase.co",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVvZWlld3N4c2RoYXhmb2FoaHdwIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE1Nzg1MjYsImV4cCI6MTk5NzE1NDUyNn0.VyWxyDl8MpSSWBxWIleYFCNaCey4EQR0QITu5QWnmIE"
+    );
+});
+</script>
+</body>
+</html>
