@@ -324,7 +324,6 @@ const setErr = (msg) => {
 const run = async() => {
     $table.addClass("visually-hidden");
     $("#err_msg").addClass("visually-hidden");
-    $("#threshold").addClass("visually-hidden");
     $("#csv").addClass("disabled");
     $("#loading").removeClass("visually-hidden");
 
@@ -385,7 +384,7 @@ const run = async() => {
         }
     }
     try {
-        var txns = await fetchTxns(endpoint, start.toISOString(), end.toISOString(), address, contract, symbol);;
+        var txns = await fetchTxns(endpoint, start.toISOString(), end.toISOString(), address, contract, symbol);
     } catch(err) {
         setErr(`Failed to fetch data from ${endpoint}: ${err.message}`);
         return;
@@ -433,7 +432,6 @@ const run = async() => {
     $table.bootstrapTable("updateColumnTitle", {field: "currency", title: currency.toUpperCase()});
 
     $table.removeClass("visually-hidden");
-    $("#threshold").removeClass("visually-hidden");
     $("#csv").removeClass("disabled");
     $("#loading").addClass("visually-hidden");
 }
