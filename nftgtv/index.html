@@ -95,12 +95,16 @@
 const COL = "https://chainchamps.com/collection/{0}"; 
 const DETAIL = "https://chainchamps.com/details/{0}/{1}";
 
+const formatToken = (precision, amount) => {
+    return (+(Math.round(+(amount + 'e' + precision)) + 'e' + -precision)).toFixed(precision);
+}
+
 function totalFormatter(data) {
-    return data.map(function (row) {
+    return formatToken(8, data.map(function (row) {
         return row.net_drip_amount;
     }).reduce(function (sum, i) {
         return sum + i
-    }, 0);
+    }, 0));
 }
 
 function assetFormatter(value, row, index, field) {
