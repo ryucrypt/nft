@@ -29,11 +29,23 @@
                 <p>Info on $NFTV drips.</p>
             </a>
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="./logs.html" class="nav-link" aria-current="page">Logs</a></li>
-                <li class="nav-item"><a href="./rates.html" class="nav-link active" aria-current="page">Rates</a></li>
+                <li class="nav-item"><a href="./logs.html" class="nav-link active" aria-current="page">Logs</a></li>
+                <li class="nav-item"><a href="./rates.html" class="nav-link" aria-current="page">Rates</a></li>
             </ul>
         </header>
         <main>
+            <div class="row mb-3">
+                <div class="col-md-auto">
+                    <label for="address" class="form-label">WAX Address</label>
+                    <input type="text" class="form-control" id="address">
+                </div>
+                <div class="col-auto d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary" onclick="run()">Submit</button>
+                </div>
+                <div class="col-auto d-flex align-items-end">
+                    <button id="csv" type="submit" class="btn btn-primary disabled" onclick="downloadCSV()">Download CSV</button>
+                </div>
+            </div>
             <div class="row mb-3">
                 <div id="loading" class="d-flex justify-content-center visually-hidden">
                     <div class="spinner-border" role="status">
@@ -46,15 +58,15 @@
                         id="table"
                         class="visually-hidden table table-sm table-bordered"
                         data-toggle="table"
-                        data-detail-view="true"
-                        data-detail-formatter="detailFormatter"
+                        data-show-footer="true"
                         data-filter-control="true">
                         <thead>
                             <tr class="table-dark">
-                                <th scope="col" data-field="collection" data-formatter="collectionFormatter" data-filter-control="select" data-align="center">Collection</th>
-                                <th scope="col" data-field="template_id" data-formatter="templateFormatter" data-filter-control="select" data-align="center">Template</th>
-                                <th scope="col" data-field="name" data-align="center">Name</th>
-                                <th scope="col" data-field="drip_amount" data-align="center" data-sortable="true">Rate</th>
+                                <th scope="col" data-field="txn_id" data-formatter="txnFormatter" data-align="center">Transaction ID</th>
+                                <th scope="col" data-field="to" data-formatter="accFormatter" data-align="center">To</th>
+                                <th scope="col" data-field="amount" data-footer-formatter="totalFormatter" data-align="center" data-sortable="true">Amount</th>
+                                <th scope="col" data-field="token" data-align="center">Token</th>
+                                <th scope="col" data-field="timestamp" data-align="center">Timestamp</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -75,8 +87,8 @@
 <script src="https://unpkg.com/bootstrap-table@1.21.4/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
 <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 <script>
-const COL = "https://chainchamps.com/collection/{0}"; 
-const DETAIL = "https://chainchamps.com/details/{0}/{1}";
+const EXPLORER = "https://waxblock.io/transaction/{0}";
+const ACC = "https://waxblock.io/account/{0}";
 
 String.prototype.format = function () {
     var args = arguments;
@@ -85,29 +97,33 @@ String.prototype.format = function () {
     });
 };
 
-function detailFormatter(index, row) {
-    var html = ["<b><u>Mint Bonuses:</u></b><ul>"];
-    $.each(row.mint_bonuses, function (key, value) {
-        html.push("<li>Mint #{0}: {1}</li>".format(key, value));
-    });
-    html.push("</ul>");
-    return html.join("");
+function totalFormatter(data) {
+    return data.map(function (row) {
+        return row.amount;
+    }).reduce(function (sum, i) {
+        return sum + i
+    }, 0);
 }
 
-function collectionFormatter(value, row, index, field) {
-    return `<a href="${COL.format(value)}" target="_blank">${value}</a>`;
+function txnFormatter(value, row, index, field) {
+    return `<a href="${EXPLORER.format(value)}" target="_blank">${value}</a>`;
 }
 
-function templateFormatter(value, row, index, field) {
-    return `<a href="${DETAIL.format("template", value)}" target="_blank">${value}</a>`;
+function accFormatter(value, row, index, field) {
+    return `<a href="${ACC.format(value)}" target="_blank">${value}</a>`;
 }
 
-const fetchData = async() => {
+const fetchData = async(address) => {
     var output = [];
     var start = 0;
     var end = 999;
     while (true) {
-        const { data, error } = await client.from("drip_template_data").select().range(start, end);
+        const { data, error } = await client
+            .from("drip_log")
+            .select()
+            .eq("to", address)
+            .order("created_at", { ascending: false })
+            .range(start, end);
 
         if (error != undefined) {
             throw new Error(error.message);
@@ -127,6 +143,8 @@ const fetchData = async() => {
 
 var $table = $("#table");
 var global_output = [];
+var global_csv = "";
+var header = "txn_id,to,amount,token,timestamp\r\n";
 var client;
 
 const setErr = (msg) => {
@@ -138,28 +156,67 @@ const setErr = (msg) => {
 const run = async() => {
     $table.addClass("visually-hidden");
     $("#err_msg").addClass("visually-hidden");
+    $("#csv").addClass("disabled");
     $("#loading").removeClass("visually-hidden");
 
+    var address = $("#address").val().trim().toLowerCase();
+    if (address == "") {
+        setErr("Address cannot be empty");
+        return;
+    }
+    localStorage.setItem("inputAddress", address);
+
     try {
-        var data = await fetchData();
+        var data = await fetchData(address);
     } catch(err) {
         setErr(`Failed to fetch data: ${err.message}`);
         return;
     }
 
-    global_output = data;
+    global_output = [];
+    global_csv = header;
+    for (var i = 0; i < data.length; i++) {
+        var obj = {
+            txn_id: data[i].txn_id,
+            to: data[i].to,
+            amount: data[i].amount,
+            token: data[i].token,
+            timestamp: (new Date(data[i].created_at)).toLocaleString()
+        };
+        global_output.push(obj);
+        var values = Object.values(obj).map((value)=>{
+            if (typeof value === "string" && value.includes(" ")) {
+                return '"' + value + '"';
+            }
+            return value;
+        });
+        global_csv += values.join(",") + "\r\n";
+    }
     $table.bootstrapTable("load", global_output);
 
     $table.removeClass("visually-hidden");
+    $("#csv").removeClass("disabled");
     $("#loading").addClass("visually-hidden");
 }
 
+const downloadCSV = () => {
+    var csvFile = new Blob([global_csv], {type: "text/csv"});
+    var downloadLink = document.createElement("a");
+    downloadLink.download = "export.csv";
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+}
+
 $(document).ready(function() {
+    if (localStorage.getItem("inputAddress")) {
+        $("#address").val(localStorage.getItem("inputAddress"));
+    }
     client = supabase.createClient(
         "https://uoeiewsxsdhaxfoahhwp.supabase.co",
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVvZWlld3N4c2RoYXhmb2FoaHdwIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODE1Nzg1MjYsImV4cCI6MTk5NzE1NDUyNn0.VyWxyDl8MpSSWBxWIleYFCNaCey4EQR0QITu5QWnmIE"
     );
-    run();
 });
 </script>
 </body>
