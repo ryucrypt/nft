@@ -97,12 +97,16 @@ String.prototype.format = function () {
     });
 };
 
+const formatToken = (precision, amount) => {
+    return (+(Math.round(+(amount + 'e' + precision)) + 'e' + -precision)).toFixed(precision);
+}
+
 function totalFormatter(data) {
-    return data.map(function (row) {
+    return formatToken(8, data.map(function (row) {
         return row.amount;
     }).reduce(function (sum, i) {
         return sum + i
-    }, 0);
+    }, 0));
 }
 
 function txnFormatter(value, row, index, field) {
