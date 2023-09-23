@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="96x96" href="res/favi.png">
+    <title>WAX Historian</title>
+    <meta property="og:title" content="WAX Historian">
+    <meta property="og:image" content="https://ryucrypt.github.io/nft/tokens/res/favi.png">
+    <meta property="og:description" content="Fetch historical transactions and token prices on the WAX blockchain.">
+    <meta property="og:type" content="website">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HG5WVNP5BP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HG5WVNP5BP');
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="modal fade" id="about" data-bs-keyboard="false" tabindex="-1" aria-labelledby="aboutLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="aboutLabel">About</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ol class="mb-4">
+                            <li class="mb-2">
+                                <i>How does this tool work?</i><br>
+                                    Historical token transfers are fetched using the <a href="https://hyperion.docs.eosrio.io/" target="_blank">Hyperion History API</a>.
+                            </li>
+                            <li class="mb-2">
+                                <i>Certain transactions seem to be missing?</i><br>
+                                Try switching endpoints.
+                            </li>
+                            <li class="mb-2">
+                                <i>Who can I contact for feedback or suggestions?</i><br>
+                                You can reach out to <kbd>Ryu#2799</kbd> in the <a href="https://discord.gg/whitedragonnft" target="_blank">WhiteDragon NFT Discord</a>.
+                            </li>
+                        </ol>
+                        <u>Acknowledgements:</u>
+                        <ul>
+                            <li><a href="https://waxtax.sixpm.dev/" target="_blank">WAXTax</a> for the inspiration</li>
+                            <li>WAX BPs for the Hyperion History API</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="disclaimer" data-bs-keyboard="false" tabindex="-1" aria-labelledby="disclaimerLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="disclaimerLabel">Disclaimer</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Please note that the historical WAX transaction data provided by this tool is for informational purposes only.
+                        The data is fetched from various sources, and may not be fully accurate or up-to-date.
+                        We do not guarantee the completeness or accuracy of the data, and we are not responsible for any errors or omissions in the information provided.
+                        Please use this tool at your own risk.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="./index2.html" class="align-items-center me-auto text-dark text-decoration-none">
+                <h2>WAX Historian Lite 📜</h2>
+                <p>Fetch historical transactions on the WAX blockchain.</p>
+            </a>
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="javascript:void(0)" class="nav-link" aria-current="page" data-bs-toggle="modal" data-bs-target="#about">About</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" class="nav-link" aria-current="page" data-bs-toggle="modal" data-bs-target="#disclaimer">Disclaimer</a></li>
+            </ul>
+        </header>
+        <main>
+            <div class="row">
+                <div class="col-md-auto mb-3">
+                    <label for="address" class="form-label">WAX Address</label>
+                    <input type="text" class="form-control" id="address">
+                </div>
+                <div class="col-md-auto mb-3">
+                    <label for="token" class="form-label">Symbol,Contract</label>
+                    <input class="form-control" id="token" placeholder="NFTV,token.nftg">
+                </div>
+                <div class="col-md-auto mb-3">
+                    <label for="start" class="form-label">Start</label>
+                    <input type="datetime-local" class="form-control" id="start">
+                </div>
+                <div class="col-md-auto mb-3">
+                    <label for="end" class="form-label">End</label>
+                    <input type="datetime-local" class="form-control" id="end">
+                </div>
+                <div class="col-md-auto mb-3">
+                    <label for="endpoint" class="form-label">Endpoint</label>
+                    <select class="form-select" id="endpoint">
+                        <option value="api.wax.alohaeos.com" selected>api.wax.alohaeos.com</option>
+                        <option value="hyperion.wax.blacklusion.io">hyperion.wax.blacklusion.io</option>
+                        <option value="hyperion.wax.tgg.gg">hyperion.wax.tgg.gg</option>
+                        <option value="api.wax.greeneosio.com">api.wax.greeneosio.com</option>
+                        <option value="wax.cryptolions.io">wax.cryptolions.io</option>
+                        <option value="wax.eosphere.io">wax.eosphere.io</option>
+                        <option value="apiwax.3dkrender.com">apiwax.3dkrender.com</option>
+                        <option value="wax.hivebp.io">wax.hivebp.io</option>
+                        <option value="api.waxsweden.org">api.waxsweden.org</option>
+                        <option value="wax.blokcrafters.io">wax.blokcrafters.io</option>
+                        <option value="wax-api.eosiomadrid.io">wax-api.eosiomadrid.io</option>
+                        <option value="wax.eosdublin.io">wax.eosdublin.io</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary" onclick="run()">Submit</button>
+                </div>
+                <div class="col-auto">
+                    <button id="csv" type="submit" class="btn btn-primary disabled" onclick="downloadCSV()">Download CSV</button>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div id="loading" class="d-flex justify-content-center visually-hidden">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <div id="err_msg" class="alert alert-danger visually-hidden" role="alert"></div>
+                <div class="table-responsive">
+                    <table
+                        id="table"
+                        class="visually-hidden table table-sm table-bordered"
+                        data-toggle="table"
+                        data-filter-control="true">
+                        <thead>
+                            <tr class="table-dark">
+                                <th scope="col" data-field="timestamp" data-align="center">Timestamp</th>
+                                <th scope="col" data-field="txn_id" data-formatter="txnFormatter" data-align="center">Transaction</th>
+                                <th scope="col" data-field="from" data-formatter="addressFormatter" data-filter-control="select" data-align="center">From</th>
+                                <th scope="col" data-field="to" data-formatter="addressFormatter" data-filter-control="select" data-align="center">To</th>
+                                <th scope="col" data-field="amount" data-align="center" data-sortable="true">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="row justify-content-center border-top">
+                <p class="text-center text-muted my-3">Made by ryucrypt: wwiem.wam</p>
+                <p class="text-center text-muted my-3">Powered by <a href="https://discord.gg/whitedragonnft">WhiteDragon NFT</a></p>
+            </div>
+        </footer>
+    </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.21.4/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script>
+const EXPLORER = "https://waxblock.io/";
+const INCREMENT = 1000;
+const HIST = "https://{0}/v2/history/get_actions?skip={1}&after={2}&before={3}&limit=1000&sort=asc&account={4}&filter={5}:transfer&transfer.symbol={6}&simple=true";
+
+function txnFormatter(value, row, index, field) {
+    return `<a href="${EXPLORER + "transaction/" + value}" target="_blank">View</a>`;
+}
+
+function addressFormatter(value, row, index, field) {
+    return `<a href="${EXPLORER + "account/" + value}" target="_blank">${value}</a>`;
+}
+
+String.prototype.format = function () {
+    var args = arguments;
+    return this.replace(/{([0-9]+)}/g, function (match, index) {
+        return typeof args[index] == 'undefined' ? match : args[index];
+    });
+};
+
+const fetchTxns = async(endpoint, start, end, address, contract, symbol) => {
+    var output = [];
+    var skip = 0;
+    while (true) {
+        var r = await fetch(HIST.format(endpoint, skip, start, end, address, contract, symbol));
+
+        if (!r.ok) {
+            throw new Error(`${r.status} - ${r.statusText}`);
+        }
+
+        var response = await r.json();
+        for (var i = 0; i < response.simple_actions.length; i++) {
+            output.push({
+                "timestamp": response.simple_actions[i].timestamp + "Z",
+                "txn_id": response.simple_actions[i].transaction_id,
+                "data": response.simple_actions[i].data
+            });
+        }
+
+        if (response.simple_actions.length < 1) {
+            break;
+        } else {
+            skip += INCREMENT;
+        }
+    }
+
+    return output;
+}
+
+var $table = $("#table");
+var global_output = [];
+var global_csv = "";
+var header = "timestamp,txn_id,from,to,contract,symbol,amount,memo\r\n";
+
+const setErr = (msg) => {
+    $("#loading").addClass("visually-hidden");
+    $("#err_msg").text(msg);
+    $("#err_msg").removeClass("visually-hidden");
+}
+
+const run = async() => {
+    $table.addClass("visually-hidden");
+    $("#err_msg").addClass("visually-hidden");
+    $("#csv").addClass("disabled");
+    $("#loading").removeClass("visually-hidden");
+
+    var address = $("#address").val().trim().toLowerCase();
+    if (address == "") {
+        setErr("Address cannot be empty");
+        return;
+    }
+    var token = $("#token").val().trim()
+    var splitToken = token.split(",");
+    if (splitToken.length != 2) {
+        setErr("Token in wrong format, must be 'Symbol,contract'");
+        return;
+    }
+    var symbol = splitToken[0].toUpperCase();
+    var contract = splitToken[1].toLowerCase();
+    var start = new Date($("#start").val());
+    if ($("#start").val() == "") {
+        setErr("Start cannot be empty");
+        return;
+    }
+    var end = new Date($("#end").val());
+    if ($("#end").val() == "") {
+        setErr("End cannot be empty");
+        return;
+    }
+    var currency = $("#currency").val();
+    var endpoint = $("#endpoint").val();
+
+    localStorage.setItem("inputAddress", address);
+    localStorage.setItem("inputToken", token);
+    localStorage.setItem("inputStart", $("#start").val());
+    localStorage.setItem("inputEnd", $("#end").val());
+
+    try {
+        var txns = await fetchTxns(endpoint, start.toISOString(), end.toISOString(), address, contract, symbol);
+    } catch(err) {
+        setErr(`Failed to fetch data from ${endpoint}: ${err.message}`);
+        return;
+    }
+
+    global_output = [];
+    global_csv = header.format(currency);
+    for (var i = 0; i < txns.length; i++) {
+        var obj = {
+            timestamp: (new Date(txns[i].timestamp)).toLocaleString(),
+            txn_id: txns[i].txn_id,
+            from: txns[i].data.from,
+            to: txns[i].data.to,
+            contract: contract,
+            symbol: symbol,
+            amount: txns[i].data.amount,
+            memo: txns[i].data.memo
+        };
+        global_output.push(obj);
+        var values = Object.values(obj).map((value)=>{
+            if (typeof value === "string" && value.includes(" ")) {
+                return '"' + value + '"';
+            }
+            return value;
+        });
+        global_csv += values.join(",") + "\r\n";
+    }
+    $table.bootstrapTable("load", global_output);
+
+    $table.removeClass("visually-hidden");
+    $("#csv").removeClass("disabled");
+    $("#loading").addClass("visually-hidden");
+}
+
+const downloadCSV = () => {
+    var csvFile = new Blob([global_csv], {type: "text/csv"});
+    var downloadLink = document.createElement("a");
+    downloadLink.download = "export.csv";
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+}
+
+$(document).ready(function() {
+    if (localStorage.getItem("selectedEndpoint")) {
+        $("#endpoint").val(localStorage.getItem("selectedEndpoint"));
+    }
+    if (localStorage.getItem("inputAddress")) {
+        $("#address").val(localStorage.getItem("inputAddress"));
+    }
+    if (localStorage.getItem("inputToken")) {
+        $("#token").val(localStorage.getItem("inputToken"));
+    }
+    if (localStorage.getItem("inputStart")) {
+        $("#start").val(localStorage.getItem("inputStart"));
+    }
+    if (localStorage.getItem("inputEnd")) {
+        $("#end").val(localStorage.getItem("inputEnd"));
+    }
+
+    $("#endpoint").change(() => {localStorage.setItem("selectedEndpoint", $("#endpoint").val())});
+});
+</script>
+</body>
+</html>
