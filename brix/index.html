@@ -52,7 +52,7 @@
                         <thead>
                             <tr class="table-dark">
                                 <th scope="col" data-field="wallet" data-formatter="walletFormatter" data-filter-control="select" data-align="center">Wallet</th>
-                                <th scope="col" data-field="rate" data-sortable="true" data-align="center">Rate</th>
+                                <th scope="col" data-field="rate" data-sortable="true" data-footer-formatter="totalRateFormatter" data-align="center">Rate</th>
                                 <th scope="col" data-formatter="amntFormatter" data-footer-formatter="totalFormatter" data-align="center">Amount</th>
                             </tr>
                         </thead>
@@ -87,6 +87,15 @@ function totalFormatter(data) {
         return sum + i
     }, 0))} BLOX`;
 }
+
+function totalRateFormatter(data) {
+    return data.map(function (row) {
+        return row.rate;
+    }).reduce(function (sum, i) {
+        return sum + i
+    });
+}
+
 
 function walletFormatter(value, row, index, field) {
     return `<a href="${AH.format(value)}" target="_blank">${value}</a>`;
