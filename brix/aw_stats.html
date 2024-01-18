@@ -67,6 +67,7 @@
                         data-filter-control="true">
                         <thead>
                             <tr class="table-dark">
+                                <th scope="col" data-formatter="numFormatter" data-align="center">No.</th>
                                 <th scope="col" data-field="miner" data-formatter="addressFormatter" data-filter-control="select" data-align="center">Miner</th>
                                 <th scope="col" data-field="mines" data-sortable="true" data-footer-formatter="totalFormatter" data-align="center">Mines</th>
                                 <th scope="col" data-field="bounty" data-sortable="true" data-formatter="tlmFormatter" data-footer-formatter="totalBountyFormatter" data-align="center">Bounty (TLM)</th>
@@ -125,6 +126,10 @@ function totalFeesFormatter(data) {
     }).reduce(function (sum, i) {
         return sum + i
     }, 0));
+}
+
+function numFormatter(value, row, index, field) {
+    return index + 1;
 }
 
 String.prototype.format = function () {
