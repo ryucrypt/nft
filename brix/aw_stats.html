@@ -149,7 +149,7 @@ const fetchData = async(start, until) => {
     var limit = INCREMENT;
     while (true) {
         const { data, error } = await client
-            .rpc("get_all_mines", {lim: limit, off: offset, start: start, until: until});
+            .rpc("get_mines", {lim: limit, off: offset, start: start, until: until, land_ids: [1099512961456,1099512960477]});
 
         if (error != undefined) {
             throw new Error(error.message);
