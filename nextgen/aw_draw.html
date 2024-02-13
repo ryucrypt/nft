@@ -65,7 +65,6 @@
                             <tr class="table-dark">
                                 <th scope="col">Wallet</th>
                                 <th scope="col">Entries</th>
-                                <th scope="col">Whitelisted</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -154,9 +153,9 @@ const run = async(draw) => {
     $("#table tbody").empty();
     for (let i of cur.entries) {
         if (i.wallet == cur.winner) {
-            $("#table tbody").append(`<tr class="table-success"><td><a href="${EXPLORER + "account/" + i.wallet}" target="_blank">${i.wallet}</a></td><td>${i.entries}</td><td>${i.whitelisted}</td></tr>`);
+            $("#table tbody").append(`<tr class="table-success"><td><a href="${EXPLORER + "account/" + i.wallet}" target="_blank">${i.wallet}</a></td><td>${i.entries}</td></tr>`);
         } else {
-            $("#table tbody").append(`<tr><td><a href="${EXPLORER + "account/" + i.wallet}" target="_blank">${i.wallet}</a></td><td>${i.entries}</td><td>${i.whitelisted}</td></tr>`);
+            $("#table tbody").append(`<tr><td><a href="${EXPLORER + "account/" + i.wallet}" target="_blank">${i.wallet}</a></td><td>${i.entries}</td></tr>`);
         }
     }
     $logs.bootstrapTable("load", cur.logs);
