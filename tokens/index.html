@@ -35,7 +35,7 @@
                             <li class="mb-2">
                                 <i>How does this tool work?</i>
                                 <ol type="a">
-                                    <li>Data is fetched from <a href="https://coingecko.com/" target="_blank">CoinGecko</a> based on the selected currency.</li>
+                                    <li>Data is fetched from <a href="https://cryptocompare.com/" target="_blank">CryptoCompare</a> based on the selected currency.</li>
                                     <li>If a custom token is specified, data is fetched from <a href="https://wax.alcor.exchange/markets" target="_blank">Alcor Market</a>.</li>
                                     <li>Historical token transfers are fetched using the <a href="https://hyperion.docs.eosrio.io/" target="_blank">Hyperion History API</a>.</li>
                                     <li>Based on the time of transaction, the closest WAX and fiat rates are matched and used to calculate the token's equivalent WAX and fiat values.</li>
@@ -56,12 +56,12 @@
                             </li>
                             <li class="mb-2">
                                 <i>Who can I contact for feedback or suggestions?</i><br>
-                                You can reach out to <kbd>Ryu#2799</kbd> in the <a href="https://discord.gg/whitedragonnft" target="_blank">WhiteDragon NFT Discord</a>.
+                                You can reach out to <kbd>ryucrypt</kbd> in the <a href="https://discord.gg/whitedragonnft" target="_blank">WhiteDragon NFT Discord</a>.
                             </li>
                         </ol>
                         <u>Acknowledgements:</u>
                         <ul>
-                            <li><a href="https://coingecko.com/" target="_blank">CoinGecko</a> for the currency APIs</li>
+                            <li><a href="https://cryptocompare.com/" target="_blank">CryptoCompare</a> for the currency APIs</li>
                             <li><a href="https://waxtax.sixpm.dev/" target="_blank">WAXTax</a> for the inspiration</li>
                             <li>WAX BPs for the Hyperion History API</li>
                         </ul>
@@ -94,7 +94,7 @@
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
             <a href="./index.html" class="align-items-center me-auto text-dark text-decoration-none">
                 <h2>WAX Historian 📜</h2>
-                <p>Fetch historical transactions and token prices on the WAX blockchain. Must have a WAX pair in Alcor Market. Fiat rates from CoinGecko.</p>
+                <p>Fetch historical transactions and token prices on the WAX blockchain. Must have a WAX pair in Alcor Market. Fiat rates from CryptoCompare.</p>
             </a>
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="javascript:void(0)" class="nav-link" aria-current="page" data-bs-toggle="modal" data-bs-target="#about">About</a></li>
@@ -126,6 +126,7 @@
                     <label for="currency" class="form-label">Currency</label>
                     <select class="form-select" id="currency">
                         <option value="usd" selected>USD</option>
+                        <option value="usd">EUR</option>
                     </select>
                 </div>
                 <div class="col-md-auto mb-3">
@@ -200,8 +201,7 @@ const EXPLORER = "https://waxblock.io/";
 const INCREMENT = 1000;
 const HIST = "https://{0}/v2/history/get_actions?skip={1}&after={2}&before={3}&limit=1000&sort=asc&account={4}&filter={5}:transfer&transfer.symbol={6}&simple=true";
 const ALCOR = "https://alcor.exchange/api/v2/tickers/{0}-{1}_wax-eosio.token/charts?resolution=240&from={2}&to={3}";
-const GECKO = "https://api.coingecko.com/api/v3/coins/wax/market_chart?vs_currency={0}&days=max";
-const CURRENCIES = "https://api.coingecko.com/api/v3/simple/supported_vs_currencies"
+const FIAT = "https://min-api.cryptocompare.com/data/v2/histoday?fsym=WAXP&tsym={0}&alldata=true&limit=2000";
 const TOKENS = "https://alcor.exchange/api/v2/pairs";
 
 function txnFormatter(value, row, index, field) {
@@ -248,22 +248,23 @@ const fetchTxns = async(endpoint, start, end, address, contract, symbol) => {
     return output;
 }
 
-const fetchGecko = async(currency) => {
+const fetchFiat = async(currency) => {
     var output = [];
 
-    var r = await fetch(GECKO.format(currency));
+    var r = await fetch(FIAT.format(currency));
     if (!r.ok) {
         throw new Error(`${r.status} - ${r.statusText}`);
     }
     var response = await r.json();
 
-    for (var i = 0; i < response.prices.length; i++) {
+    var data = response.Data.Data;
+    for (var i = 0; i < data.length; i++) {
         if (i == 0) {
-            output.push({"min_time": 0, "max_time": response.prices[i + 1][0], "price": response.prices[i][1]});
-        } else if (i == response.prices.length - 1) {
-            output.push({"min_time": response.prices[i][0], "max_time": 0, "price": response.prices[i][1]});
+            output.push({"min_time": 0, "max_time": data[i + 1].time * 1000, "price": data[i].close});
+        } else if (i == data.length - 1) {
+            output.push({"min_time": data[i].time * 1000, "max_time": 0, "price": data[i].close});
         } else {
-            output.push({"min_time": response.prices[i][0], "max_time": response.prices[i + 1][0], "price": response.prices[i][1]});
+            output.push({"min_time": data[i].time * 1000, "max_time": data[i + 1].time * 1000, "price": data[i].close});
         }
     }
 
@@ -306,6 +307,7 @@ const matchPrice = (timestamp, source) => {
     if (matches.length < 1) {
         return 0;
     } else {
+        console.log(matches[0]);
         return matches[0].price;
     }
 }
@@ -370,9 +372,9 @@ const run = async() => {
     localStorage.setItem("inputEnd", $("#end").val());
 
     try {
-        var gecko = await fetchGecko(currency);
+        var fiat_rates = await fetchFiat(currency);
     } catch(err) {
-        setErr(`Failed to fetch data from CoinGecko: ${err.message}`);
+        setErr(`Failed to fetch fiat data: ${err.message}`);
         return;
     }
     if (symbol != "WAX") {
@@ -395,15 +397,17 @@ const run = async() => {
     for (var i = 0; i < txns.length; i++) {
         if (symbol == "WAX") {
             var wax_rate = txns[i].data.amount;
-            var cur_rate = matchPrice((new Date(txns[i].timestamp)).getTime(), gecko);
+            var cur_rate = matchPrice((new Date(txns[i].timestamp)).getTime(), fiat_rates);
             var token = wax_rate;
             var cur = txns[i].data.amount * cur_rate;
         } else {
             var wax_rate = matchPrice((new Date(txns[i].timestamp)).getTime(), alcor);
-            var cur_rate = matchPrice((new Date(txns[i].timestamp)).getTime(), gecko);
+            var cur_rate = matchPrice((new Date(txns[i].timestamp)).getTime(), fiat_rates);
             var token = txns[i].data.amount * wax_rate;
             var cur = token * cur_rate;
         }
+        console.log(wax_rate);
+        console.log(cur_rate);
 
         var obj = {
             timestamp: (new Date(txns[i].timestamp)).toLocaleString(),
@@ -447,23 +451,6 @@ const downloadCSV = () => {
 }
 
 $(document).ready(function() {
-    fetch(CURRENCIES)
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(item => {
-                if (item != "usd") {
-                    var option = $("<option>");
-                    option.val(item);
-                    option.text(item.toUpperCase());
-                    $("#currency").append(option);
-                }
-            });
-            if (localStorage.getItem("selectedCurrency")) {
-                $("#currency").val(localStorage.getItem("selectedCurrency"));
-            }
-        })
-        .catch(err => setErr("Failed to get supported currencies, defaulted to USD"));
-
     fetch(TOKENS)
         .then(response => response.json())
         .then(data => {
