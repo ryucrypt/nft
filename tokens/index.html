@@ -307,7 +307,6 @@ const matchPrice = (timestamp, source) => {
     if (matches.length < 1) {
         return 0;
     } else {
-        console.log(matches[0]);
         return matches[0].price;
     }
 }
@@ -406,8 +405,6 @@ const run = async() => {
             var token = txns[i].data.amount * wax_rate;
             var cur = token * cur_rate;
         }
-        console.log(wax_rate);
-        console.log(cur_rate);
 
         var obj = {
             timestamp: (new Date(txns[i].timestamp)).toLocaleString(),
